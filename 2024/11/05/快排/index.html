@@ -9,7 +9,7 @@
     
     <title>
         
-            如何在时间中与自己相处 |
+            快排 |
         
         一锅炖不下的博客
     </title>
@@ -205,7 +205,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        如何在时间中与自己相处
+                        快排
                     </div>
                 
 
@@ -231,12 +231,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-03 18:14:25</span>
+                <span class="datetime">2024-11-05 08:15:14</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Nov 03 2024 18:31:57 GMT+0800">2024-11-03 18:31:57</span>
+                <span class="datetime" data-updated="Tue Nov 05 2024 08:42:43 GMT+0800">2024-11-05 08:42:43</span>
             </span>
         
 
@@ -246,7 +246,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/">生活记录</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
                         
                     
                 </ul>
@@ -271,14 +271,18 @@
                     
 
                     
-                         <p>今天下午学习树状数组的时候，感受到一种很不舒服的焦躁感。</p>
-<p>一开始难以理解的时候，我感到沮丧，为什么花了这么多时间去看视频，去查资料，但是回来看题却还是不清楚到底为什么要这么做，沮丧又引发了更多的不安和沮丧。所幸最后我突然灵光一现，突然就明白了其中的玄机，那一刻的感觉还是很爽的。</p>
-<p>那么我为什么会焦躁呢？我是觉得为一件事花这么多时间不值得而焦躁？还是觉得自己在看到题目的那一刻就应该理解，而实际上却花费了两三个小时，因为没达到自己的期望而焦躁？</p>
-<p>大概都有吧。</p>
-<ul>
-<li>在做一件事的时候，首先问自己这件事我是不是很感兴趣？它是否让我兴奋？或者它是不是一件我必须做的事情，如果其中任何一个问题的答案为是，那么就不存在浪费时间这一说了，既然坚定了这一个答案，也就不用再纠结了。不用再想着快速把这件事做了，好节省一些时间。</li>
-<li>要用谦虚的真诚对待自己，不用把自己想象那么无所不能。而且遇到问题首先要进行分析是一个非常自然的步骤，其实这是一个很有意思的事情不是吗？不用太急迫地去寻求一个正确答案。对自己要有一个合理的期望才行啊。</li>
-</ul>
+                         <p>快排的基本思路是每次选出一个基准元素，将小于该元素的移动到一边，大于该元素的移到另一边，最后将基准元素移动到它应该在的位置，找到这个位置后，对左右两边的元素递归快排，直到不再满足left &lt; right的条件。</p>
+<p>按照上面的逻辑，快排具有一个好用的性质，即每轮能最终确定一个基准元素的位置，基于这个性质，能实现在无序数组中以O(n)时间复杂度找到第k大元素的算法。</p>
+<p>快排类似于二叉树的前序遍历，排序方法其实就是一个递归函数的结构，终止条件——&gt;处理当前节点——&gt;处理左右子区间。</p>
+<p>一个完整的快排实现包含两个方法，一个递归调用的quickSort方法，一个用于处理每个节点的partition方法。</p>
+<p>partition方法的具体逻辑是选择一个元素，用快慢双指针的方式将大于和小于该元素的值分别划分到一边——快指针遍历，慢指针记录当前区间的末位置，遍历完成后，将基准元素交换到慢指针标记的位置，并且返回该位置，后续以该位置划分左右子区间。</p>
+<p>快排实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivotIndex</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivotIndex - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivotIndex + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在无序数组中以O(n)时间复杂度找到第k大元素算法实现：</p>
+<p>与快排最大的不同是，每一轮不再需要搜寻左右两个区间，而只需要根据基准下标与k的关系，搜索k所在的那一个子区间，搜到了就直接返回，不需要再往下递归，时间复杂度为：n&#x2F;2 + n&#x2F;4 + n&#x2F;8 + ··· + 1，等比数列求和为 2n + 1。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KthLargest</span> &#123;</span><br><span class="line"><span class="comment">//    private static int res = -1;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">findKthLargest</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="literal">null</span> || arr.length &lt; k) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">pivotIndex</span> <span class="operator">=</span> partition(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span> (pivotIndex + <span class="number">1</span> != k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pivotIndex + <span class="number">1</span> &lt; k) &#123;</span><br><span class="line">                pivotIndex = partition(arr, pivotIndex + <span class="number">1</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                pivotIndex = partition(arr, <span class="number">0</span>, pivotIndex - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr[pivotIndex];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; pivot) &#123;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i, right);</span><br><span class="line">        <span class="comment">// System.out.println(Arrays.toString(arr));</span></span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
                     
                 </div>
@@ -291,7 +295,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/">生活记录</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
                                     </li>
                                 
                             </ul>
@@ -310,14 +314,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/11/04/%E7%8E%AF%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"
-                                   title="环检测与拓扑排序"
+                                   href="/2024/11/05/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+                                   title="归并排序"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">环检测与拓扑排序</span>
+                                        <span class="post-nav-title-item text-ellipsis">归并排序</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -327,11 +331,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/03/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
-                                   title="树状数组学习笔记"
+                                   href="/2024/11/04/%E7%8E%AF%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"
+                                   title="环检测与拓扑排序"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">树状数组学习笔记</span>
+                                        <span class="post-nav-title-item text-ellipsis">环检测与拓扑排序</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
