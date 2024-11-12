@@ -9,7 +9,7 @@
     
     <title>
         
-            怎样面对身体的疲惫 |
+            D - HomeGarden——atcoder379 |
         
         一锅炖不下的博客
     </title>
@@ -205,7 +205,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        怎样面对身体的疲惫
+                        D - HomeGarden——atcoder379
                     </div>
                 
 
@@ -231,17 +231,26 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-12 19:28:44</span>
+                <span class="datetime">2024-11-12 20:14:27</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Nov 12 2024 19:39:58 GMT+0800">2024-11-12 19:39:58</span>
+                <span class="datetime" data-updated="Tue Nov 12 2024 21:34:23 GMT+0800">2024-11-12 21:34:23</span>
             </span>
         
 
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -262,12 +271,26 @@
                     
 
                     
-                         <p>下午健身时做了三组卷腹，晚饭后感到有一些疲惫，腹部不间断地传出一种强烈的不适感，让我难以忽视它的存在。以及脑子也想罢工了，真是难搞。</p>
-<p>本来的计划是晚上做几道算法题，然后写写博客。唉，真是让人沮丧。</p>
-<p>我有点不知道该怎么面对这种状态了。一方面，我没法心甘情愿地去玩。另一方面，如果要学习的话，实在是有点折磨。</p>
-<p>我该怎么做呢？哪一方面我更加不可接受呢？</p>
-<p>如果我去玩了，在这种疲惫的状态下也不会玩得投入，而且一会儿睡觉的时候，我会感到不安；而如果我学习的话，我应该可以接受低效感，多少能学到一点东西，然后睡觉的时候可以睡得更好，这样明天能有更好的状态。</p>
-<p>所以就接受这种状态吧，然后心平气和地做一点低限度的事，没必要和自己的感觉对抗。</p>
+                         <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc379/tasks/abc379_d" >D - Home Garden <i class="fas fa-external-link-alt"></i></a></p>
+<p>几个问题：</p>
+<ul>
+<li>怎么做区间加法？怎么快速为当前所有值加上一个数？</li>
+<li>怎么快速获取大于H的所有值？并且动态地删除这些值？</li>
+<li>怎么同时满足以上两个条件？</li>
+</ul>
+<p>看了答案……牛逼，用一个队列就做出来了，这个解法巧妙的地方在于它没有用我上面的思路，它不是更新所有植物的高度，而是更新grow值。并且植物的初始高度设为-grow，这样相当于前面累积的grow值被抵消了，只有后续的生长值才对它起作用。收割的时候，也不直接用h来比较，而是用h - grow的差值来与植物的高度比较。</p>
+<p>突然想到，也可以不用h - grow，可以改成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!plants.isEmpty() &amp;&amp; plants.peek() + grow &gt;= h) &#123;</span><br><span class="line">        plants.poll();</span><br><span class="line">        ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(ans);</span><br></pre></td></tr></table></figure>
+
+<p>其实这也是延迟更新的一种思路吧，既然只在比较时才用到植物的高度，那么就先把这段时间的更新值记录起来，等到要取出来比较的时候再加上就可以了。</p>
+<p>用队列也是非常合适的，因为前面种的植物肯定长得更高，也会更先被收割。</p>
+<p>总结一下，之后遇到题目可以有哪些思考方向呢？</p>
+<ul>
+<li>怎样判断是否有先进先出的特性？——有时这种特性是隐含的，比如像这道题，先种的植物先收割，就是一个需要被发掘的隐藏条件。所以选择数据结构之前一定要充分挖掘数据的特性。</li>
+<li>延迟更新的思路——如果下次再遇到这种一次需要更新大量数据，但只在查询时会用到更新后的值时，可以先不急着更新，只在查询访问到的时候更新一次。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HomeGarden</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">Q</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        Queue&lt;Long&gt; plants = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">long</span> <span class="variable">grow</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Q; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">op</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">            <span class="keyword">switch</span> (op) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    plants.offer(-grow);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                    grow += t;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                    h -= grow;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span> (!plants.isEmpty() &amp;&amp; plants.peek() &gt;= h) &#123;</span><br><span class="line">                        plants.poll();</span><br><span class="line">                        ans++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(ans);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
                     
                 </div>
@@ -276,6 +299,14 @@
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -288,31 +319,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/11/12/HomeGarden/"
-                                   title="D - HomeGarden——atcoder379"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">D - HomeGarden——atcoder379</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/12/SowingStones/"
-                                   title="SowingStones——atcoder379"
+                                   href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/"
+                                   title="怎样面对身体的疲惫"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">SowingStones——atcoder379</span>
+                                        <span class="post-nav-title-item text-ellipsis">怎样面对身体的疲惫</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
