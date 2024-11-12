@@ -9,7 +9,7 @@
     
     <title>
         
-            感觉累的时候怎么办 |
+            SowingStones——atcoder379 |
         
         一锅炖不下的博客
     </title>
@@ -205,7 +205,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        感觉累的时候怎么办
+                        SowingStones——atcoder379
                     </div>
                 
 
@@ -231,12 +231,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-10 21:50:11</span>
+                <span class="datetime">2024-11-12 16:25:30</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Sun Nov 10 2024 21:57:52 GMT+0800">2024-11-10 21:57:52</span>
+                <span class="datetime" data-updated="Tue Nov 12 2024 20:06:34 GMT+0800">2024-11-12 20:06:34</span>
             </span>
         
 
@@ -246,10 +246,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/">生活记录</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
                         
                     
                 </ul>
@@ -274,9 +271,16 @@
                     
 
                     
-                         <p>感觉累的时候往往也会感到空虚，还会感觉做什么事都没劲，并且往往因为一种无望的挣扎而熬夜，导致情况继续恶化。</p>
-<p>累的时候只需要不任由自己做一些毁灭性的举动即可，比如说熬夜就是其中一种。还可以做一些较低限度的事，一些比较简单又能带来成就感的事，比如写博客、洗澡、洗衣服这类事情都可以。最忌讳的是胡思乱想地枯坐，因为这种状态下的想法一般都不是太积极的想法。</p>
-<p>以及，不要太过责怪攻击自己，累其实是一种正常的感觉。</p>
+                         <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc379/tasks/abc379_c" >Sowing Stones<i class="fas fa-external-link-alt"></i></a></p>
+<p>第一想法是用栈来做。然后想栈和队列结合起来做，栈内保存石子数大于1的格子的下标，用于从最近的溢出格子中移动石子；队列保存格子下标，用于判断区间内的石子数量是否足够。但是这样做有点问题。如下：</p>
+<p>有几个问题：</p>
+<ul>
+<li>怎样一个区间一个区间地判断石子的数量是否足够？因为如果一个区间的石子不够，但如果再往前有多余的石子，也可以挪到后面。这一点有点不好操作。</li>
+<li>怎样计算操作数？</li>
+</ul>
+<p>去看了其他人通过的答案，感觉挺巧妙的，巧妙之处在于这种做法用一个top变量，既控制了每次小区间的右边界，最后又用它的正负判断了石子是否足够。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SowingStones</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">long</span> <span class="variable">N</span> <span class="operator">=</span> sc.nextLong();</span><br><span class="line">        <span class="type">int</span> <span class="variable">M</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="comment">// 为什么用TreeMap?</span></span><br><span class="line">        <span class="comment">// 1. TreeMap可以用较少的空间保存类似这种比较稀疏的数据</span></span><br><span class="line">        <span class="comment">// 2. TreeMap是红黑树，本身是一种搜索数，提供了descendingKeySet api，支持区间边界从大到小遍历</span></span><br><span class="line">        TreeMap&lt;Long, Long&gt; xToA = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;();</span><br><span class="line">        <span class="type">long</span>[] X = <span class="keyword">new</span> <span class="title class_">long</span>[M];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">            X[i] = sc.nextLong();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">            xToA.put(X[i], sc.nextLong());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">top</span> <span class="operator">=</span> N;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">long</span> x : xToA.descendingKeySet()) &#123;</span><br><span class="line">            <span class="type">long</span> <span class="variable">a</span> <span class="operator">=</span> xToA.get(x);</span><br><span class="line">            <span class="comment">// 这里检查石子溢出的情况</span></span><br><span class="line">            <span class="keyword">if</span> (top - x + <span class="number">1</span> &gt;= a) &#123;</span><br><span class="line">                <span class="comment">// 用等差数列和计算每个空白区间内的移动步数</span></span><br><span class="line">                <span class="comment">// 相当于把每个石子都一一移到当前区间的右端</span></span><br><span class="line">                count += a * (<span class="number">2</span> * top - <span class="number">2</span> * x - a + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                <span class="comment">// 更新top</span></span><br><span class="line">                top -= a;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(-<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (top &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果最终top大于0，说明石子不够装满所有格子</span></span><br><span class="line">        <span class="keyword">if</span> (top &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
                     
                 </div>
@@ -289,11 +293,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/">生活记录</a>
-                                    </li>
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                                     </li>
                                 
                             </ul>
@@ -312,14 +312,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2024/11/12/SowingStones/"
-                                   title="SowingStones——atcoder379"
+                                   href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/"
+                                   title="怎样面对身体的疲惫"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">SowingStones——atcoder379</span>
+                                        <span class="post-nav-title-item text-ellipsis">怎样面对身体的疲惫</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -329,11 +329,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/08/%E7%9C%8B%E5%BE%85%E5%AF%82%E5%AF%9E%E7%9A%84%E6%96%B9%E5%BC%8F/"
-                                   title="看待寂寞的方式"
+                                   href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/"
+                                   title="感觉累的时候怎么办"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">看待寂寞的方式</span>
+                                        <span class="post-nav-title-item text-ellipsis">感觉累的时候怎么办</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
