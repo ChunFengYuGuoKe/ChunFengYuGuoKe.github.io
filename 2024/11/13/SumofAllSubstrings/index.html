@@ -9,7 +9,7 @@
     
     <title>
         
-            D - HomeGarden——atcoder379 |
+            E——Sum of All Substrings——atcoder379 |
         
         一锅炖不下的博客
     </title>
@@ -205,7 +205,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        D - HomeGarden——atcoder379
+                        E——Sum of All Substrings——atcoder379
                     </div>
                 
 
@@ -231,12 +231,12 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-12 20:14:27</span>
+                <span class="datetime">2024-11-13 15:19:08</span>
             </span>
 
             <span class="meta-info-item post-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="datetime" data-updated="Tue Nov 12 2024 21:34:23 GMT+0800">2024-11-12 21:34:23</span>
+                <span class="datetime" data-updated="Wed Nov 13 2024 21:01:43 GMT+0800">2024-11-13 21:01:43</span>
             </span>
         
 
@@ -271,25 +271,16 @@
                     
 
                     
-                         <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc379/tasks/abc379_d" >D - Home Garden <i class="fas fa-external-link-alt"></i></a></p>
-<p>几个问题：</p>
-<ul>
-<li>怎么做区间加法？怎么快速为当前所有值加上一个数？</li>
-<li>怎么快速获取大于H的所有值？并且动态地删除这些值？</li>
-<li>怎么同时满足以上两个条件？</li>
-</ul>
-<p>看了答案……牛逼，用一个队列就做出来了，这个解法巧妙的地方在于它没有用我上面的思路，它不是更新所有植物的高度，而是更新grow值。并且植物的初始高度设为-grow，这样相当于前面累积的grow值被抵消了，只有后续的生长值才对它起作用。收割的时候，也不直接用h来比较，而是用h - grow的差值来与植物的高度比较。</p>
-<p>突然想到，也可以不用h - grow，可以改成：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!plants.isEmpty() &amp;&amp; plants.peek() + grow &gt;= h) &#123;</span><br><span class="line">        plants.poll();</span><br><span class="line">        ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(ans);</span><br></pre></td></tr></table></figure>
+                         <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc379/tasks/abc379_e" >E - Sum of All Substrings<i class="fas fa-external-link-alt"></i></a></p>
+<p>观察答案的贡献结构，可以发现，不必按照公式给出的方式用双重循环的方式去做，而可以对每个数字单独计算贡献度，记第i位的数字为ai，那么它的贡献度为(i + 1) * (10(0) + 10(1) + ……+10(n - i))，即第i位的数字，可以对后续每个可能的数量级贡献一个(i + 1)倍的值。</p>
+<p>我一开始是像下面这样实现的，然后发现这样会漏掉一些值，这样做一个数只会贡献一个他能贡献的最大值，而而其他值就被护理掉了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SumOfAllSubstrings</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="type">String</span> <span class="variable">S</span> <span class="operator">=</span> sc.next();</span><br><span class="line">        <span class="type">long</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> S.charAt(i) - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            res = (<span class="type">long</span>) (i + <span class="number">1</span>) * num + res * <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>其实这也是延迟更新的一种思路吧，既然只在比较时才用到植物的高度，那么就先把这段时间的更新值记录起来，等到要取出来比较的时候再加上就可以了。</p>
-<p>用队列也是非常合适的，因为前面种的植物肯定长得更高，也会更先被收割。</p>
-<p>总结一下，之后遇到题目可以有哪些思考方向呢？</p>
-<ul>
-<li>怎样判断是否有先进先出的特性？——有时这种特性是隐含的，比如像这道题，先种的植物先收割，就是一个需要被发掘的隐藏条件。所以选择数据结构之前一定要充分挖掘数据的特性。</li>
-<li>延迟更新的思路——如果下次再遇到这种一次需要更新大量数据，但只在查询时会用到更新后的值时，可以先不急着更新，只在查询访问到的时候更新一次。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HomeGarden</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">Q</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        Queue&lt;Long&gt; plants = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">long</span> <span class="variable">grow</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Q; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">op</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">            <span class="keyword">switch</span> (op) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    plants.offer(-grow);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                    grow += t;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                    h -= grow;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span> (!plants.isEmpty() &amp;&amp; plants.peek() &gt;= h) &#123;</span><br><span class="line">                        plants.poll();</span><br><span class="line">                        ans++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(ans);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后受到室友的启发，把每个数乘以对应位数的111……，但是又遇到了溢出的问题，long类型的值都不够保存。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigDecimal;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SumOfAllSubstrings</span> &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="type">String</span> <span class="variable">S</span> <span class="operator">=</span> sc.next();</span><br><span class="line">        <span class="type">BigDecimal</span> <span class="variable">res</span> <span class="operator">=</span> BigDecimal.valueOf(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">num</span> <span class="operator">=</span> S.charAt(i) - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">            <span class="type">BigDecimal</span> <span class="variable">single</span> <span class="operator">=</span> BigDecimal.valueOf((i + <span class="number">1</span>) * num * ((Math.pow(<span class="number">10</span>, N - i) - <span class="number">1</span>) / <span class="number">9</span>));</span><br><span class="line">            res = res.add(single);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(res);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后看了一下其他人提交的答案，他是从个位开始一位一位计算最终结果的值的，并且通过把结果保存在字符串中避免了溢出。而为什么能这样一位一位地处理，也与前面保存数据的dig数组脱不开关系，dig数组下标从大到小分别保存个位的贡献值之和，十位的贡献值之和……</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SumOfAllSubstrings</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="type">String</span> <span class="variable">S</span> <span class="operator">=</span> sc.next();</span><br><span class="line">        <span class="type">long</span>[] dig = <span class="keyword">new</span> <span class="title class_">long</span>[N];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            <span class="comment">// 这里保存dig值的方式也是关键</span></span><br><span class="line">            <span class="comment">// 小位数的值是大位数的值的累积，是因为具有大位数的值一定有一个对应的小位数的值</span></span><br><span class="line">            dig[i] = (<span class="type">long</span>) (i + <span class="number">1</span>) * (S.charAt(i) - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                dig[i] += dig[i - <span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">c</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">        <span class="keyword">while</span> (i &lt; N || c &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">// 这里c的更新是一个关键</span></span><br><span class="line">            <span class="comment">// 这里的处理顺序是从后往前也是有讲究的</span></span><br><span class="line">            <span class="keyword">if</span> (i &lt; N) &#123;</span><br><span class="line">                c += dig[N - i - <span class="number">1</span>];</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            sb.append((c % <span class="number">10</span>));</span><br><span class="line">            c /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sb.reverse());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
                     
@@ -319,31 +310,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/11/13/SumofAllSubstrings/"
-                                   title="E——Sum of All Substrings——atcoder379"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">E——Sum of All Substrings——atcoder379</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/"
-                                   title="怎样面对身体的疲惫"
+                                   href="/2024/11/12/HomeGarden/"
+                                   title="D - HomeGarden——atcoder379"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">怎样面对身体的疲惫</span>
+                                        <span class="post-nav-title-item text-ellipsis">D - HomeGarden——atcoder379</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
