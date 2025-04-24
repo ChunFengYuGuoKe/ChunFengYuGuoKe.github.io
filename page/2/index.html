@@ -33,7 +33,7 @@
     <script class="keep-theme-configurations">
     const KEEP = window.KEEP || {}
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags","categories":"/categories"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":false},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
@@ -45,6 +45,9 @@
 <div class="progress-bar-container">
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
     
 </div>
 
@@ -80,6 +83,8 @@
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/">
                                 
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
                                 HOME
                                 
                             </a>
@@ -89,6 +94,8 @@
                         
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
                                 
                                 ARCHIVES
                                 
@@ -100,6 +107,8 @@
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/tags">
                                 
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
                                 TAGS
                                 
                             </a>
@@ -109,6 +118,8 @@
                         
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
                                 
                                 CATEGORIES
                                 
@@ -136,6 +147,10 @@
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
                             
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
                             HOME
                         </a>
                         
@@ -147,6 +162,10 @@
                 <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
                             
                             ARCHIVES
                         </a>
@@ -160,6 +179,10 @@
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
                             
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
                             TAGS
                         </a>
                         
@@ -171,6 +194,10 @@
                 <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
                             
                             CATEGORIES
                         </a>
@@ -197,6 +224,190 @@
                     <div class="home-content-container fade-in-down-animation">
     
     <ul class="home-post-list border-box">
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/07/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                            线段树
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            线段树可以解决什么问题？对于[L, R]区间，它的答案可以由[L, M]和[M + 1, R]合并求出，具有这种性质的问题适合用线段树来解决。例如区间求和，大区间的和可以直接由两个子区间的和相加得到；还有区间最大&#x2F;最小值问题，也可以比较两个...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Nov 07 2024 15:21:18 GMT+0800"
+                >2024-11-07 15:21:18</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/07/%E7%BA%BF%E6%AE%B5%E6%A0%91/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/07/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%8C%AB%E7%84%B6%E7%9A%84%E6%84%9F%E8%A7%89/">
+                            怎样面对茫然的感觉
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            现在是下午三点，我刚才写了一篇面试复盘的博客，然后突然不知道下一步该做什么了。有点茫然，而茫然就是焦虑滋生的土壤。
+其实我要做的事情还挺多的——
+
+继续做rpc项目
+实现前面学的线段树数据结构
+复习面试题
+
+那有事情做为什么又会感到茫然呢？因为感觉做...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Nov 07 2024 14:50:12 GMT+0800"
+                >2024-11-07 14:50:12</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%88%90%E9%95%BF%E6%97%A5%E8%AE%B0/">成长日记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/07/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%8C%AB%E7%84%B6%E7%9A%84%E6%84%9F%E8%A7%89/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/07/%E9%97%B2%E9%B1%BC%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
+                            闲鱼面试复盘
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            上周五有一场闲鱼的面试，预定的晚上七点开始，我在六点五十就连上了视频会议，然后面试官隔了一两分钟也连上来了，这打了我一个措手不及，因为我觉得他应该会掐点上线，他没让我自我介绍，给了我一道算法题——用O(n)的时间复杂度查找一个无序数组中第k大的元素。...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Nov 07 2024 14:07:18 GMT+0800"
+                >2024-11-07 14:07:18</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/07/%E9%97%B2%E9%B1%BC%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
         
             <li class="home-post-item">
 
@@ -630,188 +841,6 @@ dfs实现
                 </div>
             </li>
         
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2024/11/02/E%20-%20Mod%20Sigma%20Problem/">
-                            E - Mod Sigma Problem——atcoder378
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            E - Mod Sigma Problem
-看到这道题的第一眼，我觉得它应该是要用前缀和来做。但是如果这样来求区间和的话，就需要做一个嵌套循环，一层循环遍历左边界，一层循环遍历右边界，时间复杂度为O(n2)。在N的最大值为2 * 105的情况下，这个...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sat Nov 02 2024 21:32:29 GMT+0800"
-                >2024-11-02 21:32:29</span>
-            </span>
-        
-
-        
-
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">算法学习日记</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2024/11/02/E%20-%20Mod%20Sigma%20Problem/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2024/11/02/K-th-Largest-Connected-Components/">
-                            K-th Largest Connected Components —— atcoder372
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            11&#x2F;4更新，今天学了并查集，发现这道题其实就是构造了一个并查集，amazing啊！
-问题描述有一个无向图，它有 N 个顶点和 0 条边。顶点编号为 1 至 N。
-有Q次询问，每次询问是以下两种操作中的一种：
-
-类型一：给定格式为 1 u ...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sat Nov 02 2024 18:35:43 GMT+0800"
-                >2024-11-02 18:35:43</span>
-            </span>
-        
-
-        
-
-        
-            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul class="post-category-ul">
-                    
-                            <li class="category-item"><a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">算法学习日记</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2024/11/02/K-th-Largest-Connected-Components/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2024/11/02/hello-world/">
-                            Hello World
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sat Nov 02 2024 17:17:24 GMT+0800"
-                >2024-11-02 17:17:24</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2024/11/02/hello-world/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
     </ul>
     
     <div class="paginator border-box flex-center">
@@ -831,18 +860,18 @@ dfs实现
                    type="number"
                    value="2"
                    min="1"
-                   max="2"
-            /><span class="delimiter base-style">/</span><span class="base-style">2</span>
+                   max="3"
+            /><span class="delimiter base-style">/</span><span class="base-style">3</span>
         </div>
 
 
-        <div class="border-box paginator-btn">
+        <div class="border-box paginator-btn allowed">
             <a class="border-box"
-               href="/"
+               href="/page/3/"
             ><i class="fa-solid fa-chevron-right"></i></a>
         </div>
 
-        <div class="border-box last-page paginator-btn not-allow">
+        <div class="border-box last-page paginator-btn allowed">
             <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
         </div>
     </div>
@@ -861,8 +890,8 @@ dfs实现
             
 <footer class="footer border-box">
     <div class="copyright-info info-item">
-        &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2024
-        
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
             &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
         
     </div>
@@ -971,7 +1000,7 @@ dfs实现
 <!-- lazyload -->
 
 
-<div class="">
+<div class="pjax">
     <!-- home page -->
     
         
@@ -999,6 +1028,39 @@ dfs实现
 
 
 <!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
 
 
 
