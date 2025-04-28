@@ -264,7 +264,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Apr 24 2025 11:59:28 GMT+0800">2025-04-24 11:59:28</span>
+                    <span class="datetime" data-updated="Sun Apr 27 2025 21:14:23 GMT+0800">2025-04-27 21:14:23</span>
                 </span>
             
         
@@ -300,19 +300,18 @@
                     
 
                     
-                         <p>创建<code>vue</code>实例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title function_">vue</span>(&#123; <span class="comment">// 数据挂在在app实例下，可通过app.count访问</span></span><br><span class="line">	<span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>, <span class="comment">//关联容器</span></span><br><span class="line">	<span class="attr">data</span>: &#123; <span class="comment">// 数据</span></span><br><span class="line">        <span class="attr">count</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">num</span>: <span class="number">99</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123; <span class="comment">//函数</span></span><br><span class="line">        <span class="title function_">fn</span> () &#123;</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">           <span class="variable language_">this</span>.<span class="property">count</span>++; <span class="comment">// this指向当前实例</span></span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+                         <h4 id="创建vue实例："><a href="#创建vue实例：" class="headerlink" title="创建vue实例："></a>创建<code>vue</code>实例：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title function_">vue</span>(&#123; <span class="comment">// 数据挂在在app实例下，可通过app.count访问</span></span><br><span class="line">	<span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>, <span class="comment">//关联容器</span></span><br><span class="line">	<span class="attr">data</span>: &#123; <span class="comment">// 数据</span></span><br><span class="line">        <span class="attr">count</span>: <span class="number">100</span>,</span><br><span class="line">        <span class="attr">num</span>: <span class="number">99</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">methods</span>: &#123; <span class="comment">//函数</span></span><br><span class="line">        <span class="title function_">fn</span> () &#123;</span><br><span class="line">           <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">           <span class="variable language_">this</span>.<span class="property">count</span>++; <span class="comment">// this指向当前实例</span></span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>插值表达式：</p>
-<ul>
+
+
+<h4 id="插值表达式："><a href="#插值表达式：" class="headerlink" title="插值表达式："></a>插值表达式：</h4><ul>
 <li>作用：动态渲染展示表达式的值</li>
 <li>使用方法：</li>
 </ul>
-<p>响应式特性：插值表达式中的值修改后，页面会动态刷新</p>
-<p><code>vue</code>指令：<code>v-html</code>等带有v-前缀的标签属性，会根据不同的指令，针对标签实现不同的功能</p>
+<h4 id="响应式特性：插值表达式中的值修改后，页面会动态刷新"><a href="#响应式特性：插值表达式中的值修改后，页面会动态刷新" class="headerlink" title="响应式特性：插值表达式中的值修改后，页面会动态刷新"></a>响应式特性：插值表达式中的值修改后，页面会动态刷新</h4><p><code>vue</code>指令：<code>v-html</code>等带有v-前缀的标签属性，会根据不同的指令，针对标签实现不同的功能</p>
 <ul>
-<li>v-show：通过<strong>通过 CSS <code>display</code> 切换显示</strong>控制元素显示隐藏</li>
-<li>v-if：通过<strong>动态添加&#x2F;移除 DOM 节点</strong>的方式控制元素显示隐藏（条件渲染）</li>
+<li><strong>v-show</strong>：通过<strong>通过 CSS <code>display</code> 切换显示</strong>控制元素显示隐藏</li>
+<li><strong>v-if</strong>：通过<strong>动态添加&#x2F;移除 DOM 节点</strong>的方式控制元素显示隐藏（条件渲染）</li>
 </ul>
 <table>
 <thead>
@@ -349,9 +348,9 @@
 </tr>
 </tbody></table>
 <ul>
-<li><p>v-else和v-else-if：辅助v-if判断渲染</p>
+<li><p><strong>v-else</strong>和<strong>v-else-if</strong>：辅助v-if判断渲染</p>
 </li>
-<li><p>v-on：注册事件</p>
+<li><p><strong>v-on</strong>：注册事件</p>
 <ul>
 <li><p>作用：注册事件&#x3D;添加监听+提供处理逻辑</p>
 </li>
@@ -369,7 +368,7 @@
 </li>
 </ul>
 </li>
-<li><p>v-bind：</p>
+<li><p><strong>v-bind</strong>：</p>
 <ul>
 <li><p>作用：动态设置html的标签属性，如src，url，title等</p>
 </li>
@@ -377,10 +376,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img  v-bind: src=&quot;imgUrl&quot; &gt;</span><br></pre></td></tr></table></figure>
 
 <p>简化：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img  : src=&quot;imgUrl&quot; &gt;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img  : src=&quot;imgUrl&quot; </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作class：v-bind:属性名&#x3D;“表达式”，通过以下方式可以动态控制样式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .pink &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    .big &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    //对象 → 键就是类名，值是布尔值。如果值为 true，有这个类，否则没有这个类</span><br><span class="line">    &lt;div class=&quot;box&quot; :class=&quot;pink: true, big: true&quot;/&gt;</span><br><span class="line">    //数组 → 数组中所有的类，都会添加到盒子上，本质就是一个 class 列表</span><br><span class="line">    &lt;div class=&quot;box&quot; :class=[&#x27;pink&#x27;, &#x27;big&#x27;]&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>动态控制行内样式：:style&#x3D;”样式对象；适用场景:某个具体属性的动态设置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;inner&quot; :style=&quot;&#123; width: percent +&#x27;%&#x27;&#125;&quot;&gt;</span><br><span class="line">    &#123;&#123; percent &#125;&#125;%&lt;/span&gt;</span><br><span class="line">&lt;/div&gt;&lt;span&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li><p>v-for：</p>
+<li><p><strong>v-for</strong>：</p>
 <ul>
 <li><p>作用：基于数据循环，多次渲染元素，数据包括数组、对象、数字</p>
 </li>
@@ -389,10 +394,35 @@
 </li>
 <li><p>key：</p>
 <ul>
-<li>语法：</li>
+<li>语法：·如果不加key，在删除时默认原地修改元素，而不是直接删除元素</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=“(item, index) in 数组” :key=&quot;item.id&quot;&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;li v-for=“(item, index) in 数组” :key=&quot;item.id&quot;&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>key 的值只能是 字符串 或 数字类型</li>
+<li>key 的值必须具有 唯一性</li>
+<li>推荐使用 id 作为 key(唯一)，不推荐使用 index作为 key(会变化，不对应)</li>
+</ol>
+</li>
 </ul>
+</li>
+<li><p><strong>v-model</strong>:</p>
+<ul>
+<li>作用：作用:给 <strong>表单元素</strong> 使用，<strong>双向数据绑定</strong> → 可以快速 获取 或 设置 表单元素内容，数据变化- 视图自动更新，视图变化&gt;数据自动更新</li>
+<li>语法：v-model&#x3D;“变量”</li>
+<li>输入框 input:text value<br>文本域 textarea value<br>复选框 input:checkbox checked<br>单选框 input:radio checked<br>下拉菜单 select value</li>
+</ul>
+</li>
+<li><p>指令修饰符</p>
+<ul>
+<li>按键修饰符<br>键盘回车监听@keyup.enter</li>
+<li>v-model修饰符<br>v-model.trim→去除首尾空格<br>v-model.number→转数字</li>
+<li>事件修饰符<br>@事件名.stop→阻止冒泡<br>@事件名.prevent→阻止默认行为</li>
+</ul>
+</li>
+<li><p>computed计算属性</p>
+</li>
+<li><p>watch监听器</p>
 </li>
 </ul>
 
@@ -422,6 +452,22 @@
 
                 
                     <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/04/27/%E9%94%BB%E7%82%BC%E8%AE%B0%E5%BD%95/"
+                                   title="锻炼记录"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">锻炼记录</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
                         
                         
                             <div class="next-post">
