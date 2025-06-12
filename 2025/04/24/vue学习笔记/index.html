@@ -264,7 +264,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Apr 27 2025 21:14:23 GMT+0800">2025-04-27 21:14:23</span>
+                    <span class="datetime" data-updated="Mon Apr 28 2025 22:27:31 GMT+0800">2025-04-28 22:27:31</span>
                 </span>
             
         
@@ -421,6 +421,15 @@
 </ul>
 </li>
 <li><p>computed计算属性</p>
+<ul>
+<li><p>语法：在vue实例的computed属性中写类似函数的东西，使用时作为属性直接使用，不用加括号</p>
+</li>
+<li><p>与methods的区别：比methods中的方法好的地方在于，computed计算属性的值会缓存，第一次计算之后，后面只要属性值没变，不要再重新计算；methods侧重于业务逻辑，cpmputed负责计算属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	total() &#123; // 计算list中item的num属性之和sum</span><br><span class="line">		return this.list.reduce((sum, item) =&gt; sum + item.num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>计算属性完整写法：这样既能由各部分计算得出计算属性值，也能反向通过计算属性的修改影响各组成部分的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">	计算属性名:&#123;</span><br><span class="line">		get()&#123;</span><br><span class="line">			一段代码逻辑(计算逻辑)return 结果</span><br><span class="line">		&#125;,</span><br><span class="line">		set(修改的值)&#123;</span><br><span class="line">			一段代码逻辑(修改逻辑)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
 </li>
 <li><p>watch监听器</p>
 </li>
@@ -511,25 +520,108 @@
         </div>
 
         <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="copyright-info info-item">
-    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
-    
-            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
-        
-    </div>
+            .footer {
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 1rem 0
+  color var(--text-color-4)
+  font-size 1rem
 
-    <div class="theme-info info-item">
-        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
-    </div>
+  a {
+    color var(--text-color-4)
 
-    
+    &:hover {
+      color var(--primary-color)
+    }
 
-    
+    &.no-pointer {
+      pointer-events none
+    }
+  }
 
-    
-</footer>
+
+  .info-item {
+    position relative
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content center
+    box-sizing border-box
+    margin 0.2rem 0
+    color var(--text-color-4)
+
+    &.count-info {
+      display flex
+
+      .count-item {
+        &.uv
+        &.pv {
+          display none
+        }
+      }
+    }
+
+
+    &.deploy-info {
+
+      display flex
+
+      a
+      .tooltip {
+        display flex
+        align-items center
+      }
+
+      img {
+        height 1.08rem
+        margin 0 0.4rem
+      }
+    }
+
+
+    &.count-info
+    &.record-info {
+
+      .count-item
+      .record-item {
+        margin-right 15px
+
+        &::before {
+          position absolute
+          top 50%
+          left -10px
+          box-sizing border-box
+          transform translateY(-56%)
+          content '|'
+        }
+
+
+        &:first-child {
+          &::before {
+            display none
+          }
+        }
+
+
+        &:last-child {
+          margin-right 0
+        }
+
+
+        .item-type {
+          margin-right 4px
+        }
+      }
+    }
+  }
+
+
+  .icon-animate {
+    animation heartbeat-animate 1.2s ease-in-out infinite
+  }
+}
 
         </div>
     </div>

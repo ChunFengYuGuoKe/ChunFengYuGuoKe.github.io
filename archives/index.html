@@ -237,6 +237,38 @@
                 
                     <li class="post-item border-box">
                         <span class="starting-point border-box flex-center"></span>
+                        <span class="post-date border-box">06-11</span>
+                        <a class="post-title border-box text-ellipsis"
+                           href="/2025/06/11/stream%E6%B5%81/"
+                        >stream流</a>
+                    </li>
+                
+                    <li class="post-item border-box">
+                        <span class="starting-point border-box flex-center"></span>
+                        <span class="post-date border-box">06-11</span>
+                        <a class="post-title border-box text-ellipsis"
+                           href="/2025/06/11/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99%E2%80%94%E2%80%94%E3%80%8A%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E3%80%8B/"
+                        >服务容错——《凤凰架构》</a>
+                    </li>
+                
+                    <li class="post-item border-box">
+                        <span class="starting-point border-box flex-center"></span>
+                        <span class="post-date border-box">06-10</span>
+                        <a class="post-title border-box text-ellipsis"
+                           href="/2025/06/10/%E6%99%BA%E8%83%BD%E4%BD%93%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/"
+                        >智能体工具调用</a>
+                    </li>
+                
+                    <li class="post-item border-box">
+                        <span class="starting-point border-box flex-center"></span>
+                        <span class="post-date border-box">05-30</span>
+                        <a class="post-title border-box text-ellipsis"
+                           href="/2025/05/30/%E6%9E%B6%E6%9E%84%E5%AE%89%E5%85%A8%E6%80%A7%E2%80%94%E2%80%94%E3%80%8A%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E3%80%8B%E7%AC%AC5%E7%AB%A0/"
+                        >架构安全性——《凤凰架构》第5章</a>
+                    </li>
+                
+                    <li class="post-item border-box">
+                        <span class="starting-point border-box flex-center"></span>
                         <span class="post-date border-box">04-28</span>
                         <a class="post-title border-box text-ellipsis"
                            href="/2025/04/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E7%96%B2%E6%83%AB/"
@@ -292,38 +324,6 @@
                         >E-Sum of All Substrings——atcoder379</a>
                     </li>
                 
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">11-12</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/11/12/HomeGarden/"
-                        >D - HomeGarden——atcoder379</a>
-                    </li>
-                
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">11-12</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/"
-                        >怎样面对身体的疲惫</a>
-                    </li>
-                
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">11-12</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/11/12/SowingStones/"
-                        >SowingStones——atcoder379</a>
-                    </li>
-                
-                    <li class="post-item border-box">
-                        <span class="starting-point border-box flex-center"></span>
-                        <span class="post-date border-box">11-10</span>
-                        <a class="post-title border-box text-ellipsis"
-                           href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/"
-                        >感觉累的时候怎么办</a>
-                    </li>
-                
             </ul>
         </section>
     
@@ -376,25 +376,108 @@
         </div>
 
         <div class="page-main-content-bottom border-box">
-            
-<footer class="footer border-box">
-    <div class="copyright-info info-item">
-    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
-    
-            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
-        
-    </div>
+            .footer {
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 1rem 0
+  color var(--text-color-4)
+  font-size 1rem
 
-    <div class="theme-info info-item">
-        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
-    </div>
+  a {
+    color var(--text-color-4)
 
-    
+    &:hover {
+      color var(--primary-color)
+    }
 
-    
+    &.no-pointer {
+      pointer-events none
+    }
+  }
 
-    
-</footer>
+
+  .info-item {
+    position relative
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content center
+    box-sizing border-box
+    margin 0.2rem 0
+    color var(--text-color-4)
+
+    &.count-info {
+      display flex
+
+      .count-item {
+        &.uv
+        &.pv {
+          display none
+        }
+      }
+    }
+
+
+    &.deploy-info {
+
+      display flex
+
+      a
+      .tooltip {
+        display flex
+        align-items center
+      }
+
+      img {
+        height 1.08rem
+        margin 0 0.4rem
+      }
+    }
+
+
+    &.count-info
+    &.record-info {
+
+      .count-item
+      .record-item {
+        margin-right 15px
+
+        &::before {
+          position absolute
+          top 50%
+          left -10px
+          box-sizing border-box
+          transform translateY(-56%)
+          content '|'
+        }
+
+
+        &:first-child {
+          &::before {
+            display none
+          }
+        }
+
+
+        &:last-child {
+          margin-right 0
+        }
+
+
+        .item-type {
+          margin-right 4px
+        }
+      }
+    }
+  }
+
+
+  .icon-animate {
+    animation heartbeat-animate 1.2s ease-in-out infinite
+  }
+}
 
         </div>
     </div>

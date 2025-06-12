@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+            架构安全性——《凤凰架构》第5章 |
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        架构安全性——《凤凰架构》第5章
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/luffy.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">一锅炖不下</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-05-30 16:05:18</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Fri May 30 2025 17:32:15 GMT+0800">2025-05-30 17:32:15</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1 概述"></a>1 概述</h2><p>架构安全性应至少包含以下问题的具体解决方案：</p>
+<ul>
+<li><p><strong>认证（Authentication）</strong>：如何正确分辨操作用户的真实身份？要确保是可信的用户，才能进行相应的操作。</p>
+</li>
+<li><p><strong>授权（Authorization）</strong>：系统如何控制一个用户该看到哪些数据？操作哪些功能？</p>
+</li>
+<li><p><strong>凭证（Credential）</strong>：系统如何保证它与用户之间的承诺是双方当时真实意图的体现，是准确、完整、不可抵赖的？需要根据凭证确定当时确实做了这样的承诺。</p>
+</li>
+<li><p><strong>保密（Confidentiality）</strong>：系统如何保证敏感数据无法被包括系统管理员在内的内外部人员所窃取、滥用？</p>
+</li>
+<li><p><strong>传输（Transport Security）</strong>：系统如何保证通过网络传输的信息无法被第三方窃听、篡改和冒充？</p>
+</li>
+<li><p><strong>验证（Verification）</strong>：系统如何确保提交到每项服务中的数据是合乎规则的，不会对系统稳定性、数据一致性、正确性产生风险？</p>
+</li>
+</ul>
+<p>这些问题都是与具体系统和业务无关的通用性问题，因此都存在业界通行的、已被验证过是行之有效的解决方案，甚至已经形成行业标准，不需要开发者自己从头去构思如何解决。</p>
+<h2 id="2-认证（Authentication）"><a href="#2-认证（Authentication）" class="headerlink" title="2 认证（Authentication）"></a>2 认证（Authentication）</h2><p>认证并不简单地等同于“系统登录”功能，不是校验一下用户名、密码是否正确这么简单。</p>
+<ul>
+<li>作用：账户和权限必须最大限度保障安全和隐私，同时又要兼顾各个系统模块甚至系统间共享访问。</li>
+<li>问题：账户和权限的存储、管理与使用都面临一系列复杂的问题。</li>
+</ul>
+<p>对于某些大规模的信息系统，账户和权限的管理往往要由专门的基础设施来负责，譬如微软的活动目录(ActiveDirectory，AD)或者轻量目录访问协议(Lightweight DirectoryAccess Protocol，LDAP)，跨系统的共享使用甚至会用到区块链技术</p>
+<ul>
+<li>误区：尽管“认证”是解决“你是谁”的问题，但这里的“你”并不一定是指人，也可能是指<strong>外部的代码</strong>，即第三方的类库或者服务。</li>
+</ul>
+<p>早期Java当时的主要应用形式是Java Applets，类加载器从远端下载一段字节码，以Applets的形式在用户的浏览器中运行，由于Java操控计算机资源的能力要远远强于JavaScript，因此必须先确保这些代码不会损害用户的计算机。Java技术体系中的“安全管理器”(java.lang.SecurityManager)、“代码权限许可”(java.lang.RuntimePermission)等概念都是在那时产生的。到如今，代码认证的研究方向已经很固定，基本上都统一到<strong>证书签名</strong>上。</p>
+<h4 id="2-1-认证的标准"><a href="#2-1-认证的标准" class="headerlink" title="2.1 认证的标准"></a>2.1 认证的标准</h4><p>架构安全性的经验原则：<strong>以标准规范为指导、以标准接口去实现</strong>。安全涉及的问题很麻烦，但解决方案已相当成熟，对于99%的系统来说，在安全上不去做轮子，不去想发明创造，<strong>严格遵循标准，就是最恰当的安全设计</strong>。</p>
+<p>在1999年，随J2EE 1.2[插图]发布的Servlet 2.2中添加了一系列用于认证的API，主要包括下列两部分内容：·标准方面，添加了四种内置的、不可扩展的认证方案，即Client-Cert、Basic、Digest和Form；·实现方面，添加了一套与认证和授权相关的程序接口，譬如HttpServletRequest::is-UserInRole()、HttpServletRequest::getUserPrincipal()等方法。</p>
+<p>J2EE 1.2内置的<strong>Client-Cert、Basic、Digest和Form</strong>这四种认证方案都很有代表性，刚好分别覆盖了通信信道、协议和内容层面的认证。而这三种层面的认证恰好涵盖了主流的三种认证方式，具体含义和应用场景列举如下：</p>
+<ul>
+<li><p><strong>通信信道上的认证</strong>：你和我建立通信连接之前，要先证明你是谁。在网络传输(Network)场景中的典型应用是<strong>基于SSL&#x2F;TLS传输安全层</strong>的认证。</p>
+</li>
+<li><p><strong>通信协议上的认证</strong>：你请求获取我的资源之前，要先证明你是谁。在互联网(Internet)场景中的典型应用是<strong>基于HTTP协议的认证</strong>。</p>
+</li>
+<li><p><strong>通信内容上的认证</strong>：你使用我提供的服务之前，要先证明你是谁。在万维网(World Wide Web)场景中的典型应用是<strong>基于Web内容的认证</strong>。</p>
+</li>
+</ul>
+<h5 id="2-1-1-HTTP认证——通信协议上的认证"><a href="#2-1-1-HTTP认证——通信协议上的认证" class="headerlink" title="2.1.1 HTTP认证——通信协议上的认证"></a>2.1.1 HTTP认证——通信协议上的认证</h5><p>认证方案(AuthenticationScheme)，它是指生成用户身份凭证的某种方法，这个概念最初源于HTTP协议的认证框架(Authentication Framework)。</p>
+<p>IETF在RFC7235中定义了HTTP协议的通用认证框架，要求所有支持HTTP协议的服务器，在未授权的用户意图访问服务端保护区域的资源时，应返回401 Unauthorized的状态码，同时应在响应报文头里附带以下两个分别代表网页认证和代理认证的Header之一，告知客户端应该采取何种方式产生能代表访问者身份的凭证信息。</p>
+<p>HTTP认证框架提出认证方案是希望能<strong>把认证“要产生身份凭证”的目的与“具体如何产生凭证”的实现分离开来</strong>，无论客户端通过生物信息（指纹、人脸）、用户密码、数字证书抑或其他方式来生成凭证，都属于如何生成凭证的具体实现，都可以包含在HTTP协议预设的框架之内。</p>
+<p>我理解是虽然都要认证，但是返回的认证方案可以根据项目需要制定，从而提高灵活性。</p>
+<ul>
+<li><strong>Basic认证</strong>：用作演示或者不要求安全性的场合。</li>
+<li><strong>Digest</strong>：RFC 7616，HTTP摘要认证，可视为Basic认证的改良版本。针对Base64明文发送的风险，Digest认证把用户名和密码加盐（一个被称为Nonce的变化值作为盐值）后再通过MD5&#x2F;SHA等哈希算法取摘要发送出去。但是这种认证方式依然是不安全的，无论客户端使用何种加密算法加密，无论是否采用了Nonce这样的动态盐值去抵御重放和冒认，遇到中间人攻击时依然存在显著的安全风险。关于加解密的问题，将在5.4节详细讨论。</li>
+<li><strong>Bearer</strong>：RFC 6750，<strong>基于OAuth 2</strong>规范来完成认证。<strong>OAuth 2是一个同时涉及认证与授权的协议</strong>，具体将在5.2节详细介绍。</li>
+<li>**HOBA(HTTP Origin-Bound Authentication)**：RFC 7486，一种基于自签名证书的认证方案。基于数字证书的信任关系主要有两类模型：一类是采用CA（Certification Authority，认证机构）层次结构的模型，由CA中心签发证书；另一种是以IETF的Token Binding协议为基础的OBC（Origin Bound Certificate，原产地证书）自签名证书模型。5.5节将详细介绍数字证书。</li>
+</ul>
+<p>HTTP认证框架中的认证方案是允许自行扩展的，并不要求一定由RFC规范来定义，只要用户代理（User Agent，通常是浏览器，泛指任何使用HTTP协议的程序）能够识别这种私有的认证方案即可。因此，很多厂商也扩展了自己的认证方案。</p>
+<h5 id="2-1-2-Web认证"><a href="#2-1-2-Web认证" class="headerlink" title="2.1.2 Web认证"></a>2.1.2 Web认证</h5><blockquote>
+<p>IETF为HTTP认证框架设计了可插拔(Pluggable)的认证方案，原本是希望能涌现出各式各样的认证方案去支持不同的应用场景。尽管上节列举了一些还算常用的认证方案，但目前的信息系统，尤其是在系统对终端用户的认证场景中，直接采用HTTP认证框架的比例其实十分低。这不难理解，HTTP是“超文本传输协议”，传输协议的根本职责是把资源从服务端传输到客户端，至于资源具体是什么内容，只能由客户端自行解析驱动。以HTTP协议为基础的认证框架也只能面向传输协议而不是具体传输内容来设计，如果用户想要从服务器中下载文件，弹出一个HTTP服务器的对话框，让用户登录是可接受的；但如果用户想访问信息系统中的具体服务，肯定希望身份认证是由系统本身的功能去完成，而不是由HTTP服务器来负责认证。这种依靠内容而不是传输协议来实现的认证方式，在万维网里被称为“Web认证”，由于实现形式上登录表单占了绝对的主流，因此通常也被称为“表单认证”(Form Authentication)。</p>
+</blockquote>
+<p>HTTP认证的局限性：</p>
+<ul>
+<li>我的理解：HTTP认证是全局性的，每次访问资源都会弹出登录框，灵活性差。<br><strong>补充说明</strong>：<br>HTTP认证（如Basic&#x2F;Digest）是协议层认证，<strong>与具体业务无关</strong>。它的确会在浏览器弹出标准登录对话框（如浏览器自带的用户名&#x2F;密码弹窗），但问题不仅在于“不灵活”，更在于：<ul>
+<li><strong>无法适配业务场景</strong>：比如支付服务需要多因素认证（指纹+密码），HTTP认证只能提供固定的用户名&#x2F;密码验证。</li>
+<li><strong>用户体验割裂</strong>：弹出的HTTP登录框与系统UI风格不一致，破坏整体交互流程。</li>
+</ul>
+</li>
+</ul>
+<p>Web认证（表单认证）的优势：</p>
+<ul>
+<li><strong>我的理解</strong>：由系统判断服务类型，动态选择认证方式（如指纹或密码）。<br><strong>补充说明</strong>：<br>Web认证（如表单登录）是<strong>应用层认证</strong>，核心优势在于：<ul>
+<li><strong>业务感知</strong>：系统能根据访问的<strong>具体功能</strong>（如支付、普通浏览）动态调整认证策略。</li>
+<li><strong>UI可控</strong>：开发者可自定义登录页面（如嵌入验证码、指纹按钮等），与系统设计保持一致。</li>
+<li><strong>扩展性</strong>：支持OAuth、SSO、多因素认证等复杂场景，而HTTP认证仅支持简单凭据交换。</li>
+</ul>
+</li>
+</ul>
+<p><strong>协议层 vs 应用层认证的对比</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>维度</strong></th>
+<th align="left"><strong>HTTP认证</strong></th>
+<th align="left"><strong>Web认证（表单）</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>层级</strong></td>
+<td align="left">传输协议层（HTTP头）</td>
+<td align="left">应用层（HTML表单+Session&#x2F;Cookie）</td>
+</tr>
+<tr>
+<td align="left"><strong>灵活性</strong></td>
+<td align="left">低（固定认证方式）</td>
+<td align="left">高（可自定义逻辑和UI）</td>
+</tr>
+<tr>
+<td align="left"><strong>典型场景</strong></td>
+<td align="left">静态文件下载、API基础认证</td>
+<td align="left">电商支付、银行系统、SaaS平台</td>
+</tr>
+<tr>
+<td align="left"><strong>用户交互</strong></td>
+<td align="left">浏览器原生弹窗</td>
+<td align="left">系统自定义页面</td>
+</tr>
+<tr>
+<td align="left"><strong>技术实现</strong></td>
+<td align="left"><code>WWW-Authenticate</code> 响应头</td>
+<td align="left">后端Session + 前端表单提交</td>
+</tr>
+</tbody></table>
+<p>这么看来，现在项目中采用的认证方案基本都是Web认证。</p>
+<blockquote>
+<p>“没有标准的约束”反倒成了表单认证的一大优点，它允许我们做出五花八门的页面，各种程序语言、框架或开发者本身都可以自行决定认证的全套交互细节。</p>
+</blockquote>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/06/10/%E6%99%BA%E8%83%BD%E4%BD%93%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/"
+                                   title="智能体工具调用"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">智能体工具调用</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/04/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E7%96%B2%E6%83%AB/"
+                                   title="为什么这么疲惫"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">为什么这么疲惫</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            .footer {
+  display flex
+  flex-direction column
+  align-items center
+  justify-content center
+  padding 1rem 0
+  color var(--text-color-4)
+  font-size 1rem
+
+  a {
+    color var(--text-color-4)
+
+    &:hover {
+      color var(--primary-color)
+    }
+
+    &.no-pointer {
+      pointer-events none
+    }
+  }
+
+
+  .info-item {
+    position relative
+    display flex
+    flex-wrap wrap
+    align-items center
+    justify-content center
+    box-sizing border-box
+    margin 0.2rem 0
+    color var(--text-color-4)
+
+    &.count-info {
+      display flex
+
+      .count-item {
+        &.uv
+        &.pv {
+          display none
+        }
+      }
+    }
+
+
+    &.deploy-info {
+
+      display flex
+
+      a
+      .tooltip {
+        display flex
+        align-items center
+      }
+
+      img {
+        height 1.08rem
+        margin 0 0.4rem
+      }
+    }
+
+
+    &.count-info
+    &.record-info {
+
+      .count-item
+      .record-item {
+        margin-right 15px
+
+        &::before {
+          position absolute
+          top 50%
+          left -10px
+          box-sizing border-box
+          transform translateY(-56%)
+          content '|'
+        }
+
+
+        &:first-child {
+          &::before {
+            display none
+          }
+        }
+
+
+        &:last-child {
+          margin-right 0
+        }
+
+
+        .item-type {
+          margin-right 4px
+        }
+      }
+    }
+  }
+
+
+  .icon-animate {
+    animation heartbeat-animate 1.2s ease-in-out infinite
+  }
+}
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
