@@ -1,671 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="Hexo Theme Keep">
-    <meta name="description" content="Hexo Theme Keep">
-    <meta name="author" content="一锅炖不下">
-    
-    <title>
-        
-        一锅炖不下的博客
-    </title>
-    
-<link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
 
-    
-        <link rel="shortcut icon" href="/images/logo.svg">
-    
-    
-<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-    
-<link rel="stylesheet" href="/font/css/regular.min.css">
-
-    
-<link rel="stylesheet" href="/font/css/solid.min.css">
-
-    
-<link rel="stylesheet" href="/font/css/brands.min.css">
-
-    
-    <script class="keep-theme-configurations">
-    const KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
-    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
-    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
-    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
-  </script>
-<meta name="generator" content="Hexo 7.3.0"></head>
+<link rel="stylesheet" href="/css/main.css">
 
 
-<body>
-<div class="progress-bar-container">
-    
 
-    
-        <span class="pjax-progress-bar"></span>
-        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
-    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/page/3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Hexo</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
 </div>
 
 
 
-<main class="page-container border-box">
-    <!-- home first screen  -->
-    
 
-    <!-- page content -->
-    <div class="page-main-content border-box is-home">
-        <div class="page-main-content-top">
-            
-<header class="header-wrapper">
 
-    <div class="border-box header-content">
-        <div class="left flex-start border-box">
-            
-                <a class="logo-image border-box" href="/">
-                    <img src="/images/logo.svg">
-                </a>
-            
-            <a class="site-name border-box" href="/">
-               一锅炖不下的博客
-            </a>
-        </div>
 
-        <div class="right border-box">
-            <div class="pc border-box">
-                <ul class="menu-list border-box">
-                    
-                        
-                        <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/">
-                                
-                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
-                                
-                                HOME
-                                
-                            </a>
-                            
-                        </li>
-                    
-                        
-                        <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/archives">
-                                
-                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
-                                
-                                ARCHIVES
-                                
-                            </a>
-                            
-                        </li>
-                    
-                        
-                        <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/tags">
-                                
-                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
-                                
-                                TAGS
-                                
-                            </a>
-                            
-                        </li>
-                    
-                        
-                        <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/categories">
-                                
-                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
-                                
-                                CATEGORIES
-                                
-                            </a>
-                            
-                        </li>
-                    
-                    
-                </ul>
-            </div>
-            <div class="mobile border-box flex-start">
-                
-                <div class="icon-item menu-bar">
-                    <div class="menu-bar-middle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="header-drawer">
-        <ul class="drawer-menu-list border-box">
-            
-                
-                <li class="drawer-menu-item border-box not-sub-menu">
-                    <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
-                            
-                                <span class="menu-icon-wrap border-box flex-center">
-                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
-                                </span>
-                            
-                            HOME
-                        </a>
-                        
-                    </label>
-                    
-                </li>
-            
-                
-                <li class="drawer-menu-item border-box not-sub-menu">
-                    <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
-                            
-                                <span class="menu-icon-wrap border-box flex-center">
-                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
-                                </span>
-                            
-                            ARCHIVES
-                        </a>
-                        
-                    </label>
-                    
-                </li>
-            
-                
-                <li class="drawer-menu-item border-box not-sub-menu">
-                    <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
-                            
-                                <span class="menu-icon-wrap border-box flex-center">
-                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
-                                </span>
-                            
-                            TAGS
-                        </a>
-                        
-                    </label>
-                    
-                </li>
-            
-                
-                <li class="drawer-menu-item border-box not-sub-menu">
-                    <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
-                            
-                                <span class="menu-icon-wrap border-box flex-center">
-                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
-                                </span>
-                            
-                            CATEGORIES
-                        </a>
-                        
-                    </label>
-                    
-                </li>
-            
-        </ul>
-    </div>
-
-    <div class="window-mask"></div>
 
 </header>
+        
+  
+  <aside class="sidebar">
 
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
 
         </div>
-
-        <div class="page-main-content-middle border-box">
-
-            <div class="main-content border-box">
-                
-
-                    .home-content-container {
-  background var(--background-color-1)
-
-  if (hexo-config('home') && hexo-config('home.announcement')) {
-    .website-announcement {
-      keep-container(var(--home-post-hover-scale), 1rem, 1.8rem)
-      display flex
-      align-items center
-      justify-content space-between
-      margin-top -0.6rem
-
-      +keep-tablet() {
-        margin-top -0.4rem
-      }
-
-
-      +keep-mobile() {
-        margin-top -0.2rem
-
-        .announcement {
-          font-size 0.9rem
-        }
-
-        .icon {
-          font-size 1rem !important
-        }
-      }
-
-
-      .announcement {
-        width 100%
-        padding 0 0.5rem
-        color var(--text-color-3)
-
-        p {
-          width 100%
-          overflow hidden
-          white-space nowrap
-          text-overflow ellipsis
-        }
-      }
-
-
-      .icon {
-        flex-shrink 0
-        padding 0.2rem
-        font-size 1.2rem
-
-        &.left {
-          color var(--keep-danger-color)
-          font-size 1.5rem
-          transform-origin left bottom
-          animation shake 1s ease infinite
-        }
-
-        &.right {
-          color var(--text-color-4)
-          cursor pointer
-
-          &:hover {
-            color var(--text-color-3)
-          }
-        }
-      }
-    }
-  }
-
-  .home-post-list {
-
-    .home-post-item {
-      position relative
-
-      keep-container(var(--home-post-hover-scale), 0, 2.8rem)
-
-      .post-sticky-box {
-        position absolute
-        z-index $z-index-1
-        display flex
-        align-items center
-        box-sizing border-box
-        padding 0.1rem 0.4rem
-        color var(--text-color-4)
-        font-size 12px
-        letter-spacing 1px
-        background var(--background-color-3)
-        border-radius 0.3rem
-        transform scale(0.86)
-        cursor default
-        disable-user-select()
-
-        &.cover-offset {
-          top 0.6rem
-          right 0.6rem
-        }
-
-        &.card-offset {
-          top 0.8rem
-          right 0.8rem
-        }
-
-        +keep-mobile() {
-          padding 0
-          background none
-          transform rotate(45deg)
-
-          .sticky-name {
-            display none
-          }
-        }
-      }
-
-
-      .home-post-item-top {
-        width 100%
-        overflow hidden
-        background-color var(--background-color-2)
-        border-top-left-radius var(--box-border-radius)
-        border-top-right-radius var(--box-border-radius)
-
-        +keep-mobile() {
-          height 8rem !important
-        }
-
-        .home-cover {
-          width 100%
-          height 100%
-          object-fit cover
-          transform-origin center center
-          transition-t("transform", "0", "1", "linear")
-
-          &:hover {
-            transform scale(1.03)
-          }
-        }
-      }
-
-
-      .home-post-item-bottom {
-        padding 2rem
-
-        .sticky-icon {
-          position absolute
-          top 1.2rem
-          right 1.2rem
-          color var(--text-color-4)
-          font-size 1.2rem
-          transform rotate(45deg)
-        }
-
-
-        .home-post-title {
-          margin 0
-          color var(--text-color-2)
-          font-weight 600
-          font-size 1.4rem
-          line-height 1.5
-
-
-          +keep-tablet() {
-            font-size 1.3rem
-          }
-
-
-          +keep-mobile() {
-            font-size 1.2rem
-          }
-        }
-
-
-        .home-post-content {
-          margin 1.8rem 0
-          color var(--text-color-3)
-          text-align justify
-          word-wrap break-word
-        }
-      }
-    }
-  }
-}
-
-
-                
-            </div>
-        </div>
-
-        <div class="page-main-content-bottom border-box">
-            .footer {
-  display flex
-  flex-direction column
-  align-items center
-  justify-content center
-  padding 1rem 0
-  color var(--text-color-4)
-  font-size 1rem
-
-  a {
-    color var(--text-color-4)
-
-    &:hover {
-      color var(--primary-color)
-    }
-
-    &.no-pointer {
-      pointer-events none
-    }
-  }
-
-
-  .info-item {
-    position relative
-    display flex
-    flex-wrap wrap
-    align-items center
-    justify-content center
-    box-sizing border-box
-    margin 0.2rem 0
-    color var(--text-color-4)
-
-    &.count-info {
-      display flex
-
-      .count-item {
-        &.uv
-        &.pv {
-          display none
-        }
-      }
-    }
-
-
-    &.deploy-info {
-
-      display flex
-
-      a
-      .tooltip {
-        display flex
-        align-items center
-      }
-
-      img {
-        height 1.08rem
-        margin 0 0.4rem
-      }
-    }
-
-
-    &.count-info
-    &.record-info {
-
-      .count-item
-      .record-item {
-        margin-right 15px
-
-        &::before {
-          position absolute
-          top 50%
-          left -10px
-          box-sizing border-box
-          transform translateY(-56%)
-          content '|'
-        }
-
-
-        &:first-child {
-          &::before {
-            display none
-          }
-        }
-
-
-        &:last-child {
-          margin-right 0
-        }
-
-
-        .item-type {
-          margin-right 4px
-        }
-      }
-    }
-  }
-
-
-  .icon-animate {
-    animation heartbeat-animate 1.2s ease-in-out infinite
-  }
-}
-
-        </div>
+      </div>
     </div>
 
-    <!-- post tools -->
     
+  </aside>
 
-    <!-- side tools -->
-    <div class="side-tools">
-        <div class="side-tools-container border-box side-tools-show-handle">
-    <ul class="side-tools-list side-tools-show-handle border-box">
-        <li class="tools-item tool-font-adjust-plus flex-center">
-            <i class="fas fa-search-plus"></i>
-        </li>
-
-        <li class="tools-item tool-font-adjust-minus flex-center">
-            <i class="fas fa-search-minus"></i>
-        </li>
-
-        <!-- toggle mode -->
-        
-            <li class="tools-item tool-toggle-theme-mode flex-center">
-                <i class="fas fa-moon"></i>
-            </li>
-        
-
-        <!-- rss -->
-        
-
-        <!-- to bottom -->
-        <li class="tools-item tool-scroll-to-bottom flex-center">
-            <i class="fas fa-arrow-down"></i>
-        </li>
-    </ul>
-
-    <ul class="exposed-tools-list border-box">
-        
-
-        
-
-        <li class="tools-item tool-toggle-show flex-center">
-            <i class="fas fa-cog fa-spin"></i>
-        </li>
-
-        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
-            <i class="arrow fas fa-arrow-up"></i>
-            <span class="percent"></span>
-        </li>
-    </ul>
-</div>
 
     </div>
 
-    <!-- image mask -->
-    <div class="zoom-in-image-mask">
-    <img class="zoom-in-image">
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/05/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/05/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">归并排序</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-11-05 08:46:19 / Modified: 09:03:40" itemprop="dateCreated datePublished" datetime="2024-11-05T08:46:19+08:00">2024-11-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>归并排序的基本思路是计算当前区间的下标中点，以中点将区间划分为左右两个相等大小的区间，递归对左右区间调用归并排序，直到区间left &#x3D;&#x3D; right，即区间只有一个元素时，调用归并函数，函数调用开始向上返回。</p>
+<p>归并排序的结构类似于二叉树的后续遍历，先处理左右子区间，处理妥善了之后交给父节点整理结果。也就是说归并排序是一个自底向上的思路。</p>
+<p>具体实现上，完整的归并排序包含一个递归的mergeSort方法和一个后序调用的整合子节点排序结果的方法merge。</p>
+<p>merge方法的原理是，对于已经排好序的左右两个子区间，每次比较两个区间的头元素，将较小的那一个复制到原数组的恰当位置上，更新原数组下标和当前子区间下标，当两个子区间有一个取完了之后，将剩下的那一个区间的剩余元素复制到原数组中。</p>
+<p>由于归并排序的操作是覆盖而非快排的交换，所以需要临时数组保存当前轮次左右区间的元素信息。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MergeSort</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] tempArr1;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] tempArr2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">mergeSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            mergeSort(arr, left, mid);</span><br><span class="line">            mergeSort(arr, mid + <span class="number">1</span>, right);</span><br><span class="line">            merge(arr, left, mid, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">merge</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> mid, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len1</span> <span class="operator">=</span> mid - left + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">len2</span> <span class="operator">=</span> right - mid;</span><br><span class="line"></span><br><span class="line">        System.arraycopy(arr, left, tempArr1, <span class="number">0</span>, len1);</span><br><span class="line">        System.arraycopy(arr, mid + <span class="number">1</span>, tempArr2, <span class="number">0</span>, len2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 记录当前轮次左右子区间下一个待访问位置</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 记录当前轮次原数组中待覆盖的下一个位置</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> left;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1 &amp;&amp; j &lt; len2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tempArr1[i] &gt; tempArr2[j]) &#123;</span><br><span class="line">                arr[k] = tempArr1[i];</span><br><span class="line">                i++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                arr[k] = tempArr2[j];</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 哪一个子区间有剩余，就将剩余元素覆盖到原数组上</span></span><br><span class="line">        <span class="keyword">while</span> (i &lt; len1) &#123;</span><br><span class="line">            arr[k] = tempArr1[i];</span><br><span class="line">            i++;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (j &lt; len2) &#123;</span><br><span class="line">            arr[k] = tempArr2[j];</span><br><span class="line">            j++;</span><br><span class="line">            k++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
 
-    <!-- local search -->
-    
 
-    <!-- tablet toc -->
-    
-</main>
-
-
-
-
-
-
-<!-- common js -->
-
-<script src="/js/utils.js"></script>
-
-<script src="/js/header-shrink.js"></script>
-
-<script src="/js/back2top.js"></script>
-
-<script src="/js/toggle-theme.js"></script>
-
-<script src="/js/code-block.js"></script>
-
-<script src="/js/main.js"></script>
-
-<script src="/js/libs/anime.min.js"></script>
-
-
-<!-- local search -->
-
-
-<!-- lazyload -->
-
-
-<div class="pjax">
-    <!-- home page -->
-    
-        
-<script src="/js/page/home-page.js"></script>
 
     
 
-    <!-- post page -->
-    
 
-    <!-- categories page -->
-    
+<div class="post-block">
+  
+  
 
-    <!-- links page -->
-    
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/05/%E5%BF%AB%E6%8E%92/">
 
-    <!-- photos page -->
-    
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
 
-    <!-- tools page -->
-    
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/05/%E5%BF%AB%E6%8E%92/" class="post-title-link" itemprop="url">快排</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-11-05 08:15:14 / Modified: 09:04:53" itemprop="dateCreated datePublished" datetime="2024-11-05T08:15:14+08:00">2024-11-05</time>
+    </span>
+
+  
 </div>
 
-<!-- mermaid -->
-
-
-<!-- pjax -->
+        </div>
+      </header>
 
     
-<script src="/js/libs/pjax.min.js"></script>
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>快排的基本思路是每次选出一个基准元素，将小于该元素的移动到一边，大于该元素的移到另一边，最后将基准元素移动到它应该在的位置，找到这个位置后，对左右两边的元素递归快排，直到不再满足left &lt; right的条件。</p>
+<p>按照上面的逻辑，快排具有一个好用的性质，即每轮能最终确定一个基准元素的位置，基于这个性质，能实现在无序数组中以O(n)时间复杂度找到第k大元素的算法。</p>
+<p>快排类似于二叉树的前序遍历，排序方法其实就是一个递归函数的结构，终止条件——&gt;处理当前节点——&gt;处理左右子区间。</p>
+<p>一个完整的快排实现包含两个方法，一个递归调用的quickSort方法，一个用于处理每个节点的partition方法。</p>
+<p>partition方法的具体逻辑是选择一个元素，用快慢双指针的方式将大于和小于该元素的值分别划分到一边——快指针遍历，慢指针记录当前区间的末位置，遍历完成后，将基准元素交换到慢指针标记的位置，并且返回该位置，后续以该位置划分左右子区间。</p>
+<p>快排实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivotIndex</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivotIndex - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivotIndex + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-        window.pjax = new Pjax({
-            selectors: [
-                'head title',
-                '.page-container',
-                '.pjax'
-            ],
-            history: true,
-            debug: false,
-            cacheBust: false,
-            timeout: 0,
-            analytics: false,
-            currentUrlFullReload: false,
-            scrollRestoration: false,
-        });
-
-        document.addEventListener('pjax:send', () => {
-            KEEP.utils.pjaxProgressBarStart()
-        });
-
-        document.addEventListener('pjax:complete', () => {
-            KEEP.utils.pjaxProgressBarEnd()
-            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
-            KEEP.initExecute()
-        });
-    });
-</script>
+<p>在无序数组中以O(n)时间复杂度找到第k大元素算法实现：</p>
+<p>与快排最大的不同是，每一轮不再需要搜寻左右两个区间，而只需要根据基准下标与k的关系，搜索k所在的那一个子区间，搜到了就直接返回，不需要再往下递归，时间复杂度为：n&#x2F;2 + n&#x2F;4 + n&#x2F;8 + ··· + 1，等比数列求和为 2n + 1。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KthLargest</span> &#123;</span><br><span class="line"><span class="comment">//    private static int res = -1;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">findKthLargest</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="literal">null</span> || arr.length &lt; k) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">pivotIndex</span> <span class="operator">=</span> partition(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span> (pivotIndex + <span class="number">1</span> != k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pivotIndex + <span class="number">1</span> &lt; k) &#123;</span><br><span class="line">                pivotIndex = partition(arr, pivotIndex + <span class="number">1</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                pivotIndex = partition(arr, <span class="number">0</span>, pivotIndex - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr[pivotIndex];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; pivot) &#123;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i, right);</span><br><span class="line">        <span class="comment">// System.out.println(Arrays.toString(arr));</span></span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+      
+    </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/04/%E7%8E%AF%E6%A3%80%E6%B5%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/04/%E7%8E%AF%E6%A3%80%E6%B5%8B/" class="post-title-link" itemprop="url">环检测</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-04 11:05:11" itemprop="dateCreated datePublished" datetime="2024-11-04T11:05:11+08:00">2024-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-05 09:08:05" itemprop="dateModified" datetime="2024-11-05T09:08:05+08:00">2024-11-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>环检测和拓扑排序的关系很密切：</p>
+<ul>
+<li>它们的基础都是图的遍历。</li>
+<li>拓扑排序依赖于环检测算法，做拓扑排序需要先检测图中是否存在环，有环图是无法拓扑排序的。</li>
+</ul>
+<h3 id="环检测"><a href="#环检测" class="headerlink" title="环检测"></a>环检测</h3><h4 id="什么是环检测算法？"><a href="#什么是环检测算法？" class="headerlink" title="什么是环检测算法？"></a>什么是环检测算法？</h4><p>环检测算法就是检测一个图中是否存在环的算法。</p>
+<h4 id="环检测算法有什么用？"><a href="#环检测算法有什么用？" class="headerlink" title="环检测算法有什么用？"></a>环检测算法有什么用？</h4><p>可以用来判断是否存在循环依赖，<a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedule/description/" >207.课程表<i class="fas fa-external-link-alt"></i></a>是一道运用环检测算法的典型题目。</p>
+<ol>
+<li><strong><code>dfs</code>实现</strong></li>
+</ol>
+<p>理解以下几个点：</p>
+<ul>
+<li><p><code>visited</code> 和 <code>onPath</code> 数组各自的作用和区别：<code>visited</code> 数组的作用是标记节点的访问情况，避免重复访问同一节点，它是 <code>dfs</code> 的基础辅助数组；只需要在进入每个节点时，更新一次相应的访问信息即可，不需要回溯。<code>onPath</code> 是用来判断节点是否在当前路径中的，而遍历的过程中，当一个路径走到头之后，是需要回过头去找下一条路径的，这个时候就需要回溯，将不在路径中的节点信息抹掉。</p>
+</li>
+<li><p>信息流转过程：依赖表——&gt;构建邻接表——&gt;<code>dfs</code>环检测，更新<code>onPath</code>、<code>visited</code>、<code>hasSycle</code>——&gt;根据<code>hasSycle</code>值，返回结果</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">hasSycle</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span>[] onPath;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span>[] visited;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canFinish</span><span class="params">(<span class="type">int</span> numCourses, <span class="type">int</span>[][] prerequisites)</span> &#123;</span><br><span class="line">        <span class="comment">// 1. 构建邻接表</span></span><br><span class="line">        List&lt;Integer&gt;[] graph = buildGraph(numCourses, prerequisites);</span><br><span class="line">		<span class="comment">// 2. 初始化路径节点表和访问表</span></span><br><span class="line">        onPath = <span class="keyword">new</span> <span class="title class_">boolean</span>[numCourses];</span><br><span class="line">        visited = <span class="keyword">new</span> <span class="title class_">boolean</span>[numCourses];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 循环对每个节点做环检测</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[i]) &#123;</span><br><span class="line">                ringDetect(graph, i);</span><br><span class="line">                <span class="keyword">if</span> (hasSycle) &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (hasSycle) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> List&lt;Integer&gt;[] buildGraph(<span class="type">int</span> numCourses, <span class="type">int</span>[][] prerequisites) &#123;</span><br><span class="line">        List&lt;Integer&gt;[] graph = <span class="keyword">new</span> <span class="title class_">ArrayList</span>[numCourses];</span><br><span class="line">        <span class="comment">// 对于这种复杂对象数组的创建，需要循环new每个元素</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            graph[i] = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; prerequisites.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">from</span> <span class="operator">=</span> prerequisites[i][<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> <span class="variable">to</span> <span class="operator">=</span> prerequisites[i][<span class="number">0</span>];</span><br><span class="line">            graph[from].add(to);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> graph;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 基于dfs遍历的换检测算法</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">ringDetect</span><span class="params">(List&lt;Integer&gt;[] graph, <span class="type">int</span> node)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (onPath[node]) &#123;</span><br><span class="line">            hasSycle = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (visited[node]) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line">        onPath[node] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> nextNode : graph[node]) &#123;</span><br><span class="line">            ringDetect(graph, nextNode);</span><br><span class="line">            <span class="comment">// 剪枝操作</span></span><br><span class="line">            <span class="keyword">if</span> (hasSycle) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        onPath[node] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong><code>bfs</code>实现</strong></li>
+</ol>
+<p>理解几个点：</p>
+<ul>
+<li><code>inDegree</code>数组是如何控制遍历顺序的：初始化<code>inDegree</code>数组——&gt;遍历<code>inDegree</code>数组，将入度为零的课程入队，作为起始课程——&gt;每遍历一个课程，将它的后续课程的入度减一，相当于这门课程的先修课程又完成了一门——&gt;减一操作之后判断这门课程的入度是否已经为0，如果为0，则入队。通过这样的方式，可以保证，访问一门课程之前，这门课程的先修课一定都完成了。</li>
+<li>为什么用这种方法可以判断图中是否有环：判断是否存在环借助了<code>count</code>变量，每当从队列中获取一个课程时，<code>count</code>加一。通过这种方式统计已经修过的课程，如果最终遍历完了所有节点，自然就不存在环，<code>count</code>会等于课程数；而如果存在环，成环的那几门课程会互相增加一个入度，导致这几个节点不会被访问，最终<code>count</code>会小于课程数。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canFinish</span><span class="params">(<span class="type">int</span> numCourses, <span class="type">int</span>[][] prerequisites)</span> &#123;</span><br><span class="line">        <span class="type">int</span>[] inDegree = <span class="keyword">new</span> <span class="title class_">int</span>[numCourses];</span><br><span class="line">        List&lt;Integer&gt;[] graph = <span class="keyword">new</span> <span class="title class_">ArrayList</span>[numCourses];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            graph[i] = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Integer&gt;();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; prerequisites.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">from</span> <span class="operator">=</span> prerequisites[i][<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> <span class="variable">to</span> <span class="operator">=</span> prerequisites[i][<span class="number">0</span>];</span><br><span class="line">            graph[from].add(to);</span><br><span class="line">            inDegree[to]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Queue&lt;Integer&gt; que = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (inDegree[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                que.offer(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!que.isEmpty()) &#123;</span><br><span class="line">            count++;</span><br><span class="line">            <span class="type">int</span> <span class="variable">course</span> <span class="operator">=</span> que.poll();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> nextCourse : graph[course]) &#123;</span><br><span class="line">                inDegree[nextCourse]--;</span><br><span class="line">                <span class="keyword">if</span> (inDegree[nextCourse] == <span class="number">0</span>) &#123;</span><br><span class="line">                    que.offer(nextCourse);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (count == numCourses) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/03/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%97%B6%E9%97%B4%E4%B8%AD%E4%B8%8E%E8%87%AA%E5%B7%B1%E7%9B%B8%E5%A4%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/03/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%97%B6%E9%97%B4%E4%B8%AD%E4%B8%8E%E8%87%AA%E5%B7%B1%E7%9B%B8%E5%A4%84/" class="post-title-link" itemprop="url">如何在时间中与自己相处</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-11-03 18:14:25 / Modified: 18:31:57" itemprop="dateCreated datePublished" datetime="2024-11-03T18:14:25+08:00">2024-11-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天下午学习树状数组的时候，感受到一种很不舒服的焦躁感。</p>
+<p>一开始难以理解的时候，我感到沮丧，为什么花了这么多时间去看视频，去查资料，但是回来看题却还是不清楚到底为什么要这么做，沮丧又引发了更多的不安和沮丧。所幸最后我突然灵光一现，突然就明白了其中的玄机，那一刻的感觉还是很爽的。</p>
+<p>那么我为什么会焦躁呢？我是觉得为一件事花这么多时间不值得而焦躁？还是觉得自己在看到题目的那一刻就应该理解，而实际上却花费了两三个小时，因为没达到自己的期望而焦躁？</p>
+<p>大概都有吧。</p>
+<ul>
+<li>在做一件事的时候，首先问自己这件事我是不是很感兴趣？它是否让我兴奋？或者它是不是一件我必须做的事情，如果其中任何一个问题的答案为是，那么就不存在浪费时间这一说了，既然坚定了这一个答案，也就不用再纠结了。不用再想着快速把这件事做了，好节省一些时间。</li>
+<li>要用谦虚的真诚对待自己，不用把自己想象那么无所不能。而且遇到问题首先要进行分析是一个非常自然的步骤，其实这是一个很有意思的事情不是吗？不用太急迫地去寻求一个正确答案。对自己要有一个合理的期望才行啊。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/03/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/03/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">树状数组</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-03 16:07:51" itemprop="dateCreated datePublished" datetime="2024-11-03T16:07:51+08:00">2024-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-07 11:49:04" itemprop="dateModified" datetime="2024-11-07T11:49:04+08:00">2024-11-07</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>就我目前的理解来看，<a class="link"   target="_blank" rel="noopener" href="https://oi-wiki.org/ds/fenwick/" >树状数组<i class="fas fa-external-link-alt"></i></a>是进阶版的前缀和数组，在同样支持区间和查询的同时，还具备以较小的时间复杂度动态更新的能力。而在这篇笔记中，我并不想对它做具体的说明，仅记录我个人的一点感悟，原因是B站上有up主已经讲得很清晰透彻了——<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ce411u7qP?vd_source=5ed8451e41a08dea9b96544a5363022f" >B站视频讲解<i class="fas fa-external-link-alt"></i></a>。</p>
+<p>感觉设计出这些数据结构的人真的很牛逼，把数组和下标之间的关系玩出花来了，实现这样一个能动态更新的“前缀和数组”，甚至也只需要一个长度为n的数组。</p>
+<p>并且实现这样一个功能强大的树状数组，还并不需要多么复杂的代码，只需要实现三个操作即可，总共代码不会超过40行，能比较方便地在之后应用出来，这就非常爽了。</p>
+<p>树状数组和前缀和数组的关系跟<code>TreeSet</code>和<code>List</code>之间的关系有点像，都是用稍弱一点的查询效率（O(1)到O(logn)）换更高效的更新效率，同样也为O(longn)。</p>
+<p>学习了树状数组，也让我对前缀和数组的理解更深了，前缀和数组更适合存储的信息是不需要动态改变的信息，也就是说如果就只初始化一次，后续无需修改，那么用前缀和数组获得O(1)的查询操作是非常香的，而如果在类似于这道题<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc378/tasks/abc378_e"><strong>E - Mod Sigma Problem</strong></a>中，有需要频繁更新和查询的需求，那树状数组就香多了。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/03/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%87%E5%BA%A6%E7%96%B2%E6%83%AB%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%9D%A1%E7%9D%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/03/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%87%E5%BA%A6%E7%96%B2%E6%83%AB%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%9D%A1%E7%9D%80/" class="post-title-link" itemprop="url">如何在过度疲惫的情况下睡着</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-11-03 10:29:10 / Modified: 10:39:08" itemprop="dateCreated datePublished" datetime="2024-11-03T10:29:10+08:00">2024-11-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>昨天晚上看比赛看到两点半，上床睡觉发现累得睡不着，感觉眉心的位置有一团火在燃烧，脑子里也像是烧了一锅沸水，难以安静下来。</p>
+<p>很想忽视这种感觉，努力想要让自己平静下来，但是越是这样，越是加重了对这种感觉的关注，反倒使它的力量增强了。睡不着真是一件很沮丧的事情。</p>
+<p>后来我想到了一个办法，把眉心和大脑的感觉想象成我在修炼第三只眼，源源不断的灵气正在从眉心进入我的身体，我想象我的修行进度在快速增长，这样没一会儿我就睡着了。</p>
+<p>在睡不着的时候可以用这一招，效果显著。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/02/E%20-%20Mod%20Sigma%20Problem/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/02/E%20-%20Mod%20Sigma%20Problem/" class="post-title-link" itemprop="url">E - Mod Sigma Problem——atcoder378</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-02 21:32:29" itemprop="dateCreated datePublished" datetime="2024-11-02T21:32:29+08:00">2024-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-03 23:23:13" itemprop="dateModified" datetime="2024-11-03T23:23:13+08:00">2024-11-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc378/tasks/abc378_e" >E - Mod Sigma Problem<i class="fas fa-external-link-alt"></i></a></p>
+<p>看到这道题的第一眼，我觉得它应该是要用前缀和来做。但是如果这样来求区间和的话，就需要做一个嵌套循环，一层循环遍历左边界，一层循环遍历右边界，时间复杂度为O(n2)。在N的最大值为2 * 105的情况下，这个复杂度是难以接受的，怎样找到一个线性复杂度的算法来处理这个问题？</p>
+<p>我请教了主打算法竞赛的室友，他提出这道题可以用树状数组来做。好家伙，这是一个我完全陌生的数据结构，感觉很高大上的样子。经过他的讲解，以及我对正确代码的阅读，我现在已经理解了这道题的思路，同时领悟了树状数组的巧妙之处。</p>
+<p>首先，对题目进行分析，对给出的式子用前缀和的方式化简。最后得到这样的形式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (preSum[r]%m - preSum[l - <span class="number">1</span>]%m) &#123;</span><br><span class="line">	result += preSum[r]%m - preSum[l - <span class="number">1</span>]%m + m;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">	result += preSum[r]%m - preSum[l - <span class="number">1</span>]%m;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>观察发现，两种情况的区别只在于，前者需要额外加上一个m。那么对于任意给定的右边界，他对最终结果的贡献其实就可以划分为三部分，一部分为<code>(preSum[r]%m) * r</code>，一部分为前面所有前缀和之和<code>sum</code>，最后一部分为m乘以它的个数，也就是在这里就需要用到树状数组，树状数组中保存信息是小于当前下标的模值的个数。</p>
+<h3 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h3><ul>
+<li>之后做题的时候可以尝试对问题变形化简，降低问题的复杂度，然后再看需要什么信息，这个信息适合用什么数据结构或算法来存储获取。</li>
+<li>迷惑点1：为什么需要建立长度为m + 1大小的树状数组而不是m？这是因为树状数组是利用了数字二进制位的信息，而只有从1开始才具有这样的性质，通常从零开始是没有这种性质的。也因为这个原因，如果要把本来是从零开始的信息存储到树状数组中，需要做一个简单的映射，也就是需要整体下标向右偏移一位，例如原本应存储在下标0的元素现在需要映射到1，相应地，查询的时候也需要+1再查询。</li>
+<li>迷惑点2：树状数组中保存的是什么信息？保存的是小于当前下标值的模值的个数。</li>
+<li>迷惑点3：怎么一步步把原始的信息处理成所需的信息的？首先，根据简化后的运算公式，并不需要原始的前缀和信息，只需要模值做相应的运算，而模值的规模局限在0~m-1的范围内，并且每个模值正好可以映射到下标上，这样就只需要在每次读取一个数时，计算最新的模值，并更新树状数组中该模值的个数，以及包含了该模值个数的父节点的值，读取的时候就只需要以该模值做参数查询即可。</li>
+<li>要想清楚真正需要的是什么信息，不需要的信息可以不用理会，在处理的过程中完全可以允许丢失，这样可以降低大量的复杂度。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/02/K-th-Largest-Connected-Components/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/02/K-th-Largest-Connected-Components/" class="post-title-link" itemprop="url">K-th Largest Connected Components —— atcoder372</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-02 18:35:43" itemprop="dateCreated datePublished" datetime="2024-11-02T18:35:43+08:00">2024-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-04 23:29:54" itemprop="dateModified" datetime="2024-11-04T23:29:54+08:00">2024-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">学习记录</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>11&#x2F;4更新，今天学了并查集，发现这道题其实就是构造了一个并查集，amazing啊！</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>有一个无向图，它有 N 个顶点和 0 条边。顶点编号为 1 至 N。</p>
+<p>有Q次询问，每次询问是以下两种操作中的一种：</p>
+<ul>
+<li>类型一：给定格式为 1 u v 的输入。为节点 u 和 v 之间建立一条边。</li>
+<li>类型二：给定格式为 2 v k 的输入。打印节点 v 可达的节点中第 k 大的节点的值。</li>
+</ul>
+<h3 id="总结反思"><a href="#总结反思" class="headerlink" title="总结反思"></a>总结反思</h3><p>一开始错误理解了题目，以为只在节点 v 的邻居节点之间找，后来学习了一下其他人提交的正确答案才知道，原来是要在 v 节点所有可达的节点中间去查找第 k 大的节点值。</p>
+<p>这就有两个难点：</p>
+<ul>
+<li><p>在两个节点建立联系之后如何更新各自可达的节点？——难点在于，对于 u 节点来说，不仅要把 v 节点纳入可达节点，v 节点可达的所有节点也都要纳入进来，怎样去做这件事情？如果按照常规的方式，似乎不太好做。</p>
+</li>
+<li><p>怎么用较小的时间复杂度找到这第 k 大的节点？——我一开始想到的方式是用 <code>List&lt;List&lt;Integer&gt;&gt;</code> 来存邻接表，在每加入一条边时都重新对该节点的所有邻居节点重新排序，这个时间复杂度必然是不满足要求的。</p>
+</li>
+</ul>
+<p>解决第一个问题的方法是——用 parents 数组来存储每个节点所属的图的根节点信息。当然，图是没有根节点的，这里只是把每一个图中的第一个节点作为了根节点，同时把这个根节点的值作为 key 来找到这整个图的所有节点。同时配套的还有 <code>findParents</code> 方法和 <code>union</code> 方法前者用来递归查找当前节点的所在图的根节点，当 u 和 v 节点的根节点不一致时，这个时候就需要更新可达信息了，更新的方法就是<code>union</code>方法，那么把哪个图合并到另一个图中呢？答案是把节点数少的合并到节点数多的图中，这样插入操作会少一些，为了保存这个信息，就有了 sizes 数组。</p>
+<p>解决第二个问题的方法是——用 <code>TreeSet</code> 来保存图的节点信息，插入时的维护代价小，同时查找的代价相比 <code>List</code> 和 <code>HashMap</code> 也不是特别高。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 总结：</span></span><br><span class="line"><span class="comment"> *  -1. TreeSet 的好处是可以动态地在每次插入时根据节点值维护顺序，</span></span><br><span class="line"><span class="comment"> *      缺点是相比于 List 和 Map O(1) 的查询复杂度略有不如，但是这是值得的，</span></span><br><span class="line"><span class="comment"> *      因为 Map 完全不能得到这个信息，而 List 想要得到这个信息就得排序，</span></span><br><span class="line"><span class="comment"> *      如果是一次插入所有节点再排序一次也还好，但是如果像这道题一样，</span></span><br><span class="line"><span class="comment"> *      每次插入之后都要更新顺序（因为每次插入玩之后下一次操作都有可能是查询），</span></span><br><span class="line"><span class="comment"> *      代价就太大了</span></span><br><span class="line"><span class="comment"> *  -2. 要灵活选择数据结构来存储信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KthLargestConnectedComponents</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">N</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="type">int</span> <span class="variable">Q</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 为什么要定义这两个数组？</span></span><br><span class="line">        <span class="comment">// sizes 数组的作用是要根据两个图的节点多少，将节点少的图合并进节点多的图</span></span><br><span class="line">        <span class="comment">// parents 数组我觉得更应该叫 roots ，实际上存的就是 root 节点的值</span></span><br><span class="line">        <span class="comment">// 2. 而为什么不存 parent 的值，只存 root 节点的值呢？</span></span><br><span class="line">        <span class="comment">// 是因为这道题其实不关心整个图是怎么连接起来的，只关心哪些节点是连起来的，以及这些节点的大小顺序，</span></span><br><span class="line">        <span class="comment">// 那么只要能通过 parents 数组找到根节点，再通过根节点，找到那整个图的次序信息即可</span></span><br><span class="line">        <span class="type">int</span>[] parents = <span class="keyword">new</span> <span class="title class_">int</span>[N + <span class="number">1</span>];</span><br><span class="line">        <span class="type">int</span>[] sizes = <span class="keyword">new</span> <span class="title class_">int</span>[N + <span class="number">1</span>];</span><br><span class="line">        Arrays.fill(parents, -<span class="number">1</span>);</span><br><span class="line">        Arrays.fill(sizes, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 为什么这里要用 Map 而不用 List 来存邻接表？</span></span><br><span class="line">        <span class="comment">// 因为用 List 存邻接表，相当于是把节点值和List下标一一映射了，</span></span><br><span class="line">        <span class="comment">// 然而List的下标是从零开始的，而节点值是从1开始的，用map就没有这个问题，稍微方便一点</span></span><br><span class="line">        <span class="comment">// 2. 为什么要用 TreeSet 来存兄弟节点？</span></span><br><span class="line">        <span class="comment">// (1) 因为需要维护兄弟节点的大小顺序，而TreeSet每插入一个节点的时间复杂度是logn，</span></span><br><span class="line">        <span class="comment">// 如果用List来存，那么需要在添加每一个节点之后，重新对整个List排序，这个代价太大了</span></span><br><span class="line">        <span class="comment">// (2) 另外，这样合并两棵树的代价也要小一些，但是这不是主要原因</span></span><br><span class="line">        Map&lt;Integer, TreeSet&lt;Integer&gt;&gt; graph = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">1</span>; i &lt;= N; i++) &#123;</span><br><span class="line">            TreeSet&lt;Integer&gt; vertices = <span class="keyword">new</span> <span class="title class_">TreeSet</span>&lt;&gt;(Collections.reverseOrder());</span><br><span class="line">            vertices.add(i);</span><br><span class="line">            graph.put(i, vertices);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Q; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">op</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">            <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">u</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                <span class="type">int</span> <span class="variable">v</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line"></span><br><span class="line">                <span class="type">int</span> <span class="variable">rootU</span> <span class="operator">=</span> findRoot(parents, u);</span><br><span class="line">                <span class="type">int</span> <span class="variable">rootV</span> <span class="operator">=</span> findRoot(parents, v);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 这里的逻辑是，两个节点之间有一条边，不只是这两个节点自己的事，</span></span><br><span class="line">                <span class="comment">// 而是通过这两个节点，两个节点各自所在的图连接到了一起，互相变得可达了，也就在检索范围内了，</span></span><br><span class="line">                <span class="comment">// 所以要通过 union 操作更新 parents 信息</span></span><br><span class="line">                <span class="keyword">if</span> (rootU != rootV) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (sizes[rootU] &lt; sizes[rootV]) &#123;</span><br><span class="line">                        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> rootU;</span><br><span class="line">                        rootU = rootV;</span><br><span class="line">                        rootV = temp;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 这里为什么还要把 rootV 这棵树的信息删掉？</span></span><br><span class="line">                    <span class="comment">// 感觉其实可以不删，只是删掉更节约空间，</span></span><br><span class="line">                    <span class="comment">// 想了想，还是要删的，如果不删的话，那么每个节点都要保存所有节点的信息，这个空间占用就很大了</span></span><br><span class="line">                    union(parents, sizes, rootU, rootV);</span><br><span class="line">                    graph.get(rootU).addAll(graph.get(rootV));</span><br><span class="line">                    graph.remove(rootV);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (op == <span class="number">2</span>) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">node</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line"></span><br><span class="line">                TreeSet&lt;Integer&gt; vertices = graph.get(findRoot(parents, node));</span><br><span class="line">                <span class="keyword">if</span> (k &gt; vertices.size()) &#123;</span><br><span class="line">                    System.out.println(-<span class="number">1</span>);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    Iterator&lt;Integer&gt; iterator = vertices.iterator();</span><br><span class="line">                    <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">                    <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">                        <span class="type">Integer</span> <span class="variable">next</span> <span class="operator">=</span> iterator.next();</span><br><span class="line">                        <span class="keyword">if</span> (index == k) &#123;</span><br><span class="line">                            System.out.println(next);</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        index++;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 rootV 下面的节点合并到 rootU 所在的图中</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">union</span><span class="params">(<span class="type">int</span>[] parents, <span class="type">int</span>[] sizes, <span class="type">int</span> rootU, <span class="type">int</span> rootV)</span> &#123;</span><br><span class="line">        parents[rootV] = rootU;</span><br><span class="line">        sizes[rootU] += sizes[rootV];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">findRoot</span><span class="params">(<span class="type">int</span>[] parents, <span class="type">int</span> node)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (parents[node] == -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> node;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 这里为什么要递归更新？</span></span><br><span class="line">        <span class="comment">// 因为有可能上层节点的 parents 信息在做合并操作的时候已经更新过了，</span></span><br><span class="line">        <span class="comment">// 底层节点还需要通过递归的方式更新</span></span><br><span class="line">        <span class="keyword">return</span> parents[node] = findRoot(parents, parents[node]);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//    public static void main(String[] args) &#123;</span></span><br><span class="line"><span class="comment">//        Scanner sc = new Scanner(System.in);</span></span><br><span class="line"><span class="comment">//        int N = 4;</span></span><br><span class="line"><span class="comment">//        int Q = 10;</span></span><br><span class="line"><span class="comment">//        TreeSet&lt;Integer&gt; set = new TreeSet&lt;&gt;();</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        List&lt;List&lt;Integer&gt;&gt; graph = new ArrayList&lt;&gt;();</span></span><br><span class="line"><span class="comment">//        for (int i = 0; i &lt; N; i++) &#123;</span></span><br><span class="line"><span class="comment">//            List&lt;Integer&gt; neighbors = new ArrayList&lt;&gt;();</span></span><br><span class="line"><span class="comment">//            neighbors.add(i);</span></span><br><span class="line"><span class="comment">//            graph.add(neighbors);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        int[][] query = &#123;</span></span><br><span class="line"><span class="comment">//                &#123;1, 1, 2&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;2, 1, 1&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;2, 1, 2&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;2, 1, 3&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;1, 1, 3&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;1, 2, 3&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;1, 3, 4&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;2, 1, 1&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;2, 1, 3&#125;,</span></span><br><span class="line"><span class="comment">//                &#123;2, 1, 5&#125;</span></span><br><span class="line"><span class="comment">//        &#125;;</span></span><br><span class="line"><span class="comment">//        for (int i = 0; i &lt; Q; i++) &#123;</span></span><br><span class="line"><span class="comment">//            int op = query[i][0];</span></span><br><span class="line"><span class="comment">//            if (op == 1) &#123;</span></span><br><span class="line"><span class="comment">//                int node1 = query[i][1] - 1;</span></span><br><span class="line"><span class="comment">//                int node2 = query[i][2] - 1;</span></span><br><span class="line"><span class="comment">//                graph.get(node1).add(node2);</span></span><br><span class="line"><span class="comment">//                Collections.sort(graph.get(node1), (n1, n2) -&gt; &#123;</span></span><br><span class="line"><span class="comment">//                    return n2 - n1;</span></span><br><span class="line"><span class="comment">//                &#125;);</span></span><br><span class="line"><span class="comment">//                graph.get(node2).add(node1);</span></span><br><span class="line"><span class="comment">//                Collections.sort(graph.get(node2), (n1, n2) -&gt; &#123;</span></span><br><span class="line"><span class="comment">//                    return n2 - n1;</span></span><br><span class="line"><span class="comment">//                &#125;);</span></span><br><span class="line"><span class="comment">//            &#125; else if (op == 2) &#123;</span></span><br><span class="line"><span class="comment">//                int node = query[i][1] - 1;</span></span><br><span class="line"><span class="comment">//                int k = query[i][2];</span></span><br><span class="line"><span class="comment">//                if (k &gt; graph.get(node).size()) &#123;</span></span><br><span class="line"><span class="comment">//                    System.out.println(-1);</span></span><br><span class="line"><span class="comment">//                &#125; else &#123;</span></span><br><span class="line"><span class="comment">//                    List&lt;Integer&gt; neighbors = graph.get(node);</span></span><br><span class="line"><span class="comment">//                    int result = neighbors.get(k - 1) + 1;</span></span><br><span class="line"><span class="comment">//                    System.out.println(&quot;从节点&quot; + node + &quot;的邻居&quot; + neighbors + &quot;中获取第&quot; + k + &quot;个元素：&quot; + result);</span></span><br><span class="line"><span class="comment">//                &#125;</span></span><br><span class="line"><span class="comment">//            &#125;</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        System.out.println(graph);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/02/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/02/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-02 17:17:24" itemprop="dateCreated datePublished" datetime="2024-11-02T17:17:24+08:00">2024-11-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">John Doe</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
 
 </body>
 </html>
