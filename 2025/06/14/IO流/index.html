@@ -9,7 +9,7 @@
     
     <title>
         
-            正则表达式——ChatGpt生成 |
+            IO流 |
         
         一锅炖不下的博客
     </title>
@@ -232,7 +232,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        正则表达式——ChatGpt生成
+                        IO流
                     </div>
                 
 
@@ -258,13 +258,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2025-06-12 21:39:58</span>
+                <span class="datetime">2025-06-14 17:04:41</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Jun 12 2025 22:13:57 GMT+0800">2025-06-12 22:13:57</span>
+                    <span class="datetime" data-updated="Sat Jun 14 2025 20:38:39 GMT+0800">2025-06-14 20:38:39</span>
                 </span>
             
         
@@ -300,262 +300,71 @@
                     
 
                     
-                         <hr>
-<h2 id="🧠-通俗类比：正则表达式是“文字筛子”"><a href="#🧠-通俗类比：正则表达式是“文字筛子”" class="headerlink" title="🧠 通俗类比：正则表达式是“文字筛子”"></a>🧠 通俗类比：正则表达式是“文字筛子”</h2><p>想象你在沙滩上找贝壳（文字中找内容）：</p>
+                         <ul>
+<li><p>作用: 读写文件中的数据(读写文件, 或网络中的数据等)</p>
+</li>
+<li><p>几个问题: 谁在读?谁在写?以什么为参照物看读写方向?程序或者内存</p>
+</li>
+<li><p>分类</p>
 <ul>
-<li>如果用手捡，效率低，还可能漏掉（人工查找）。</li>
-<li>如果用一个精细的筛子，只让“贝壳”掉下来，其它沙子就被过滤掉了（正则表达式）！</li>
+<li>按流的方向分<ul>
+<li>输入流: 程序–&gt;文件</li>
+<li>输出流: 文件–&gt;程序</li>
 </ul>
-<h3 id="比喻："><a href="#比喻：" class="headerlink" title="比喻："></a>比喻：</h3><table>
-<thead>
-<tr>
-<th>正则术语</th>
-<th>类比解释</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>模式（pattern）</td>
-<td>筛子的“孔洞形状”，决定你要抓什么</td>
-</tr>
-<tr>
-<td>匹配（match）</td>
-<td>贝壳正好卡在筛子里</td>
-</tr>
-<tr>
-<td>字符串</td>
-<td>沙滩（原始文字）</td>
-</tr>
-<tr>
-<td>提取&#x2F;替换</td>
-<td>把找到的贝壳收起来 &#x2F; 换成别的</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="✨-正则表达式的优点"><a href="#✨-正则表达式的优点" class="headerlink" title="✨ 正则表达式的优点"></a>✨ 正则表达式的优点</h2><ol>
-<li><strong>高效准确</strong>：可以一行代码找出成千上万行文字中符合规则的部分。</li>
-<li><strong>灵活强大</strong>：能处理邮箱、身份证、日期、手机号等各种“格式”的文本。</li>
-<li><strong>跨语言支持广泛</strong>：JavaScript、Python、Java、C# 都支持，写一次可以多处使用。</li>
-<li><strong>替代手工写循环判断</strong>：本来几十行 if 判断，用一行正则就解决。</li>
-</ol>
-<hr>
-<h2 id="🎯-正则表达式的设计思想"><a href="#🎯-正则表达式的设计思想" class="headerlink" title="🎯 正则表达式的设计思想"></a>🎯 正则表达式的设计思想</h2><p>正则的核心思想是“<strong>用最简短的方式描述一类字符串模式</strong>”。不是去写死具体内容，而是用“通配规则”说：</p>
-<blockquote>
-<p>“我想找那些<strong>以abc开头、后面是3个数字、以xyz结尾</strong>的字符串。”</p>
-</blockquote>
-<p>你不关心具体是哪个“abc123xyz”，你只关心它<strong>长什么样</strong>（形状）。</p>
-<hr>
-<h2 id="📘-正则表达式常见语法汇总（常用-通俗解释）"><a href="#📘-正则表达式常见语法汇总（常用-通俗解释）" class="headerlink" title="📘 正则表达式常见语法汇总（常用 + 通俗解释）"></a>📘 正则表达式常见语法汇总（常用 + 通俗解释）</h2><h3 id="1-字符匹配"><a href="#1-字符匹配" class="headerlink" title="1. 字符匹配"></a>1. <strong>字符匹配</strong></h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>含义</th>
-<th>举例匹配</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>.</code></td>
-<td>任意一个字符（除换行）</td>
-<td><code>a.b</code> 匹配 <code>acb</code>, <code>a9b</code></td>
-</tr>
-<tr>
-<td><code>\d</code></td>
-<td>数字（0-9）</td>
-<td><code>\d\d</code> 匹配 <code>12</code></td>
-</tr>
-<tr>
-<td><code>\w</code></td>
-<td>字母、数字、下划线</td>
-<td><code>\w\w</code> 匹配 <code>ab</code>, <code>A1</code>, <code>_x</code></td>
-</tr>
-<tr>
-<td><code>\s</code></td>
-<td>空白符（空格、\t、\n）</td>
-<td><code>a\sb</code> 匹配 <code>a b</code></td>
-</tr>
-<tr>
-<td><code>\D</code>, <code>\W</code>, <code>\S</code></td>
-<td>非数字、非单词、非空白</td>
-<td>相反含义</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="2-重复数量"><a href="#2-重复数量" class="headerlink" title="2. 重复数量"></a>2. <strong>重复数量</strong></h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>含义</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>a*</code></td>
-<td>0次或多次a</td>
-<td>匹配空串、a、aaaa</td>
-</tr>
-<tr>
-<td><code>a+</code></td>
-<td>1次或多次a</td>
-<td>匹配a、aa</td>
-</tr>
-<tr>
-<td><code>a?</code></td>
-<td>0次或1次a</td>
-<td>匹配空、a</td>
-</tr>
-<tr>
-<td><code>a&#123;3&#125;</code></td>
-<td>恰好3次a</td>
-<td>匹配<code>aaa</code></td>
-</tr>
-<tr>
-<td><code>a&#123;2,4&#125;</code></td>
-<td>2到4次a</td>
-<td>匹配<code>aa</code>、<code>aaa</code>、<code>aaaa</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="3-边界"><a href="#3-边界" class="headerlink" title="3. 边界"></a>3. <strong>边界</strong></h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>含义</th>
-<th>举例匹配</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>^</code></td>
-<td>行的开头</td>
-<td><code>^abc</code> 匹配以abc开头</td>
-</tr>
-<tr>
-<td><code>$</code></td>
-<td>行的结尾</td>
-<td><code>xyz$</code> 匹配以xyz结尾</td>
-</tr>
-<tr>
-<td><code>\b</code></td>
-<td>单词边界</td>
-<td><code>\bthe\b</code> 匹配“the”这个完整单词</td>
-</tr>
-<tr>
-<td><code>\B</code></td>
-<td>非单词边界</td>
-<td><code>\Bthe\B</code> 匹配中间的the，如<code>others</code></td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="4-字符集-排除"><a href="#4-字符集-排除" class="headerlink" title="4. 字符集 &amp; 排除"></a>4. <strong>字符集 &amp; 排除</strong></h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>含义</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>[abc]</code></td>
-<td>匹配 a 或 b 或 c</td>
-<td><code>[aeiou]</code> 匹配元音</td>
-</tr>
-<tr>
-<td><code>[^abc]</code></td>
-<td>除了 a&#x2F;b&#x2F;c</td>
-<td>排除特定字符</td>
-</tr>
-<tr>
-<td><code>[a-z]</code></td>
-<td>匹配a到z</td>
-<td><code>[A-Za-z0-9]</code> 匹配字母或数字</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="5-分组和或"><a href="#5-分组和或" class="headerlink" title="5. 分组和或"></a>5. <strong>分组和或</strong></h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>含义</th>
-<th>举例</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>(abc)</code></td>
-<td>分组，整体匹配</td>
-<td>可以用作提取、替换</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>`a</td>
-<td>b`</td>
-<td>匹配a或b</td>
-<td>`(cat</td>
-<td>dog)` 匹配cat或dog</td>
-</tr>
-</tbody></table>
-<hr>
-<h3 id="6-贪婪与懒惰匹配"><a href="#6-贪婪与懒惰匹配" class="headerlink" title="6. 贪婪与懒惰匹配"></a>6. <strong>贪婪与懒惰匹配</strong></h3><table>
-<thead>
-<tr>
-<th>正则</th>
-<th>含义</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>.*</code></td>
-<td>贪婪：尽可能多地匹配</td>
-<td><code>&lt;.*&gt;</code> 会匹配整个<code>&lt;a&gt;hello&lt;/a&gt;</code></td>
-</tr>
-<tr>
-<td><code>.*?</code></td>
-<td>懒惰：尽可能少地匹配</td>
-<td><code>&lt;.*?&gt;</code> 匹配<code>&lt;a&gt;</code>、<code>&lt;/a&gt;</code>各自</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="📍-应用实例"><a href="#📍-应用实例" class="headerlink" title="📍 应用实例"></a>📍 应用实例</h2><ol>
-<li><strong>匹配手机号</strong>（11位以1开头的数字）：<code>^1\d&#123;10&#125;$</code></li>
-<li><strong>邮箱地址</strong>：<code>^\w+@\w+\.\w+$</code></li>
-<li><strong>日期（如 2025-06-12）</strong>：<code>\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;</code></li>
-<li><strong>查找所有HTML标签名</strong>：<code>&lt;([a-zA-Z][a-zA-Z0-9]*)[^&gt;]*&gt;</code></li>
-</ol>
-<hr>
-<h2 id="🛠-小提示"><a href="#🛠-小提示" class="headerlink" title="🛠 小提示"></a>🛠 小提示</h2><ul>
-<li>可以用网站测试正则表达式，如：<a target="_blank" rel="noopener" href="https://regex101.com/">regex101.com</a></li>
-<li>编程中常搭配 <code>.match()</code>、<code>.replace()</code>、<code>.test()</code>、<code>.search()</code> 等函数使用。</li>
+</li>
+<li>按操作文件类型<ul>
+<li>字节流: 所有类型文件</li>
+<li>字符流: 纯文本文件(简单理解就是用记事本打开能读懂的文件, .docx这种不算)</li>
 </ul>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="1-匹配所有由-3个小写字母组成的单词"><a href="#1-匹配所有由-3个小写字母组成的单词" class="headerlink" title="1. 匹配所有由 3个小写字母组成的单词"></a>1. 匹配所有由 <strong>3个小写字母组成的单词</strong></h3><p>例子：<code>cat</code>、<code>dog</code>、<code>sun</code> ✔<br> 不匹配：<code>Cat</code>、<code>cats</code>、<code>a1b</code> ❌<br> → 答案：<code>^[a-z]&#123;3&#125;$</code></p>
-<hr>
-<h3 id="2-匹配一个-整数（正负都可以）"><a href="#2-匹配一个-整数（正负都可以）" class="headerlink" title="2. 匹配一个 整数（正负都可以）"></a>2. 匹配一个 <strong>整数</strong>（正负都可以）</h3><p>例子：<code>123</code>、<code>-456</code>、<code>0</code> ✔<br> 不匹配：<code>12.3</code>、<code>+34</code> ❌<br> → 答案：<code>^-?\d+$</code></p>
-<hr>
-<h3 id="3-匹配一个-手机号（中国大陆-11-位，以-1-开头）"><a href="#3-匹配一个-手机号（中国大陆-11-位，以-1-开头）" class="headerlink" title="3. 匹配一个 手机号（中国大陆 11 位，以 1 开头）"></a>3. 匹配一个 <strong>手机号</strong>（中国大陆 11 位，以 1 开头）</h3><p>例子：<code>13812345678</code> ✔<br> 不匹配：<code>23812345678</code>、<code>1381234567</code> ❌<br> → 答案：<code>^1\d&#123;10&#125;$</code></p>
-<hr>
-<h3 id="4-匹配一个以-a-开头，以-z-结尾的字符串，中间可以是任意字符"><a href="#4-匹配一个以-a-开头，以-z-结尾的字符串，中间可以是任意字符" class="headerlink" title="4. 匹配一个以 a 开头，以 z 结尾的字符串，中间可以是任意字符"></a>4. 匹配一个以 <code>a</code> 开头，以 <code>z</code> 结尾的字符串，中间可以是任意字符</h3><p>例子：<code>abcz</code>、<code>a123z</code>、<code>az</code> ✔<br> → 答案：<code>^a.*z$</code></p>
-<hr>
-<h2 id="🔧-中级练习（掌握分组、选择、边界）"><a href="#🔧-中级练习（掌握分组、选择、边界）" class="headerlink" title="🔧 中级练习（掌握分组、选择、边界）"></a>🔧 中级练习（掌握分组、选择、边界）</h2><h3 id="5-匹配所有的-合法邮箱地址"><a href="#5-匹配所有的-合法邮箱地址" class="headerlink" title="5. 匹配所有的 合法邮箱地址"></a>5. 匹配所有的 <strong>合法邮箱地址</strong></h3><p>例子：<code>hello@domain.com</code>、<code>user.name_12@mail.cn</code> ✔<br> → 答案：<code>^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w&#123;2,&#125;$</code></p>
-<hr>
-<h3 id="6-匹配一个-IPv4-地址"><a href="#6-匹配一个-IPv4-地址" class="headerlink" title="6. 匹配一个 IPv4 地址"></a>6. 匹配一个 <strong>IPv4 地址</strong></h3><p>例子：<code>192.168.0.1</code> ✔<br> → 答案：（简化版）<code>^(\d&#123;1,3&#125;\.)&#123;3&#125;\d&#123;1,3&#125;$</code></p>
-<blockquote>
-<p>（严格判断需加范围判断，如：<code>25[0-5]|2[0-4]\d|1\d&#123;2&#125;|[1-9]?\d</code>）</p>
-</blockquote>
-<hr>
-<h3 id="7-匹配所有以-http-或-https-开头的-URL"><a href="#7-匹配所有以-http-或-https-开头的-URL" class="headerlink" title="7. 匹配所有以 http:// 或 https:// 开头的 URL"></a>7. 匹配所有以 <code>http://</code> 或 <code>https://</code> 开头的 URL</h3><p>例子：<code>https://example.com</code> ✔<br> → 答案：<code>^https?:\/\/[^\s]+$</code></p>
-<hr>
-<h3 id="8-匹配-HTML-标签（如-、-等）"><a href="#8-匹配-HTML-标签（如-、-等）" class="headerlink" title="8. 匹配 HTML 标签（如 &lt;div&gt;、&lt;a href=&quot;#&quot;&gt; 等）"></a>8. 匹配 HTML 标签（如 <code>&lt;div&gt;</code>、<code>&lt;a href=&quot;#&quot;&gt;</code> 等）</h3><p>→ 答案：<code>&lt;[^&gt;]+&gt;</code></p>
-<hr>
-<h2 id="🧠-高级挑战（应用分组、非贪婪匹配、断言）"><a href="#🧠-高级挑战（应用分组、非贪婪匹配、断言）" class="headerlink" title="🧠 高级挑战（应用分组、非贪婪匹配、断言）"></a>🧠 高级挑战（应用分组、非贪婪匹配、断言）</h2><h3 id="9-提取所有-HTML-中的标签名（不含尖括号）"><a href="#9-提取所有-HTML-中的标签名（不含尖括号）" class="headerlink" title="9. 提取所有 HTML 中的标签名（不含尖括号）"></a>9. 提取所有 HTML 中的标签名（不含尖括号）</h3><p>例子：从 <code>&lt;div class=&quot;test&quot;&gt;</code> 提取 <code>div</code><br> → 答案：<code>&lt;\s*([a-zA-Z][a-zA-Z0-9]*)\b[^&gt;]*&gt;</code></p>
-<hr>
-<h3 id="10-匹配-身份证号码（18位，支持末尾-X）"><a href="#10-匹配-身份证号码（18位，支持末尾-X）" class="headerlink" title="10. 匹配 身份证号码（18位，支持末尾 X）"></a>10. 匹配 <strong>身份证号码</strong>（18位，支持末尾 X）</h3><p>例子：<code>110105199909098877</code>、<code>33010220001212X123</code> ✔<br> → 答案：<code>^\d&#123;17&#125;[\dXx]$</code></p>
-<hr>
-<h3 id="11-匹配重复的单词（如-“is-is”-“hello-hello”）"><a href="#11-匹配重复的单词（如-“is-is”-“hello-hello”）" class="headerlink" title="11. 匹配重复的单词（如 “is is”, “hello hello”）"></a>11. 匹配<strong>重复的单词</strong>（如 “is is”, “hello hello”）</h3><p>例子：<code>This is is a test.</code> 中匹配 <code>is is</code><br> → 答案：<code>\b(\w+)\s+\1\b</code></p>
-<hr>
-<h3 id="12-匹配用双引号括起来的内容（懒惰模式）"><a href="#12-匹配用双引号括起来的内容（懒惰模式）" class="headerlink" title="12. 匹配用双引号括起来的内容（懒惰模式）"></a>12. 匹配用双引号括起来的内容（懒惰模式）</h3><p>例子：<code>&quot;hello&quot;</code>、<code>&quot;name is Tom&quot;</code> ✔<br> → 答案：<code>&quot;(.+?)&quot;</code></p>
-<hr>
-<h2 id="🎁-Bonus：实战迷你项目题"><a href="#🎁-Bonus：实战迷你项目题" class="headerlink" title="🎁 Bonus：实战迷你项目题"></a>🎁 Bonus：实战迷你项目题</h2><h3 id="13-从一段文本中提取出所有金额（如￥100-00-¥200-3-5）"><a href="#13-从一段文本中提取出所有金额（如￥100-00-¥200-3-5）" class="headerlink" title="13. 从一段文本中提取出所有金额（如￥100.00, ¥200, $3.5）"></a>13. 从一段文本中提取出所有金额（如￥100.00, ¥200, $3.5）</h3><p>示例文本：<code>我花了￥100.00和$3.5买了东西。</code><br> → 预期匹配结果：<code>￥100.00</code>、<code>$3.5</code><br> → 答案：<code>[¥$￥]\d+(\.\d&#123;1,2&#125;)?</code></p>
-<hr>
-<h3 id="14-验证密码强度（最少8位，必须包含大小写字母和数字）"><a href="#14-验证密码强度（最少8位，必须包含大小写字母和数字）" class="headerlink" title="14. 验证密码强度（最少8位，必须包含大小写字母和数字）"></a>14. 验证密码强度（最少8位，必须包含大小写字母和数字）</h3><p>→ 答案：<code>^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]&#123;8,&#125;$</code></p>
+</li>
+</ul>
+</li>
+<li><p>IO流体系</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">%%&#123;init: &#123;&#x27;theme&#x27;: &#x27;base&#x27;, &#x27;themeVariables&#x27;: &#123; &#x27;fontFamily&#x27;: &#x27;Microsoft YaHei&#x27;&#125;&#125;&#125;%%</span><br><span class="line">graph TD</span><br><span class="line">    A[IO流体系] --&gt; B[字节流]</span><br><span class="line">    A --&gt; C[字符流]</span><br><span class="line">    </span><br><span class="line">    B --&gt; D[字节输入流]</span><br><span class="line">    B --&gt; E[字节输出流]</span><br><span class="line">    </span><br><span class="line">    D --&gt; F[InputStream]</span><br><span class="line">    F --&gt; F1[FileInputStream]</span><br><span class="line">    F --&gt; F2[ByteArrayInputStream]</span><br><span class="line">    F --&gt; F3[FilterInputStream]</span><br><span class="line">    F3 --&gt; F31[BufferedInputStream]</span><br><span class="line">    F3 --&gt; F32[DataInputStream]</span><br><span class="line">    </span><br><span class="line">    E --&gt; G[OutputStream]</span><br><span class="line">    G --&gt; G1[FileOutputStream]</span><br><span class="line">    G --&gt; G2[ByteArrayOutputStream]</span><br><span class="line">    G --&gt; G3[FilterOutputStream]</span><br><span class="line">    G3 --&gt; G31[BufferedOutputStream]</span><br><span class="line">    G3 --&gt; G32[DataOutputStream]</span><br><span class="line">    G3 --&gt; G33[PrintStream]</span><br><span class="line">    </span><br><span class="line">    C --&gt; H[字符输入流]</span><br><span class="line">    C --&gt; I[字符输出流]</span><br><span class="line">    </span><br><span class="line">    H --&gt; J[Reader]</span><br><span class="line">    J --&gt; J1[InputStreamReader]</span><br><span class="line">    J1 --&gt; J11[FileReader]</span><br><span class="line">    J --&gt; J2[BufferedReader]</span><br><span class="line">    J --&gt; J3[StringReader]</span><br><span class="line">    </span><br><span class="line">    I --&gt; K[Writer]</span><br><span class="line">    K --&gt; K1[OutputStreamWriter]</span><br><span class="line">    K1 --&gt; K11[FileWriter]</span><br><span class="line">    K --&gt; K2[BufferedWriter]</span><br><span class="line">    K --&gt; K3[PrintWriter]</span><br><span class="line">    K --&gt; K4[StringWriter]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>字节流</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">%%&#123;init: &#123;&#x27;theme&#x27;: &#x27;base&#x27;, &#x27;themeVariables&#x27;: &#123; &#x27;fontFamily&#x27;: &#x27;Microsoft YaHei&#x27;&#125;&#125;&#125;%%</span><br><span class="line">graph TD</span><br><span class="line">    A[字节流] --&gt; B[字节输入流 InputStream]</span><br><span class="line">    A --&gt; C[字节输出流 OutputStream]</span><br><span class="line">    </span><br><span class="line">    B --&gt; B1[FileInputStream]</span><br><span class="line">    B --&gt; B2[ByteArrayInputStream]</span><br><span class="line">    B --&gt; B3[FilterInputStream]</span><br><span class="line">    B3 --&gt; B31[BufferedInputStream]</span><br><span class="line">    B3 --&gt; B32[DataInputStream]</span><br><span class="line">    B --&gt; B4[ObjectInputStream]</span><br><span class="line">    B --&gt; B5[PipedInputStream]</span><br><span class="line">    </span><br><span class="line">    C --&gt; C1[FileOutputStream]</span><br><span class="line">    C --&gt; C2[ByteArrayOutputStream]</span><br><span class="line">    C --&gt; C3[FilterOutputStream]</span><br><span class="line">    C3 --&gt; C31[BufferedOutputStream]</span><br><span class="line">    C3 --&gt; C32[DataOutputStream]</span><br><span class="line">    C3 --&gt; C33[PrintStream]</span><br><span class="line">    C --&gt; C4[ObjectOutputStream]</span><br><span class="line">    C --&gt; C5[PipedOutputStream]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>字符流</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">%%&#123;init: &#123;&#x27;theme&#x27;: &#x27;base&#x27;, &#x27;themeVariables&#x27;: &#123; &#x27;fontFamily&#x27;: &#x27;Microsoft YaHei&#x27;&#125;&#125;&#125;%%</span><br><span class="line">graph TD</span><br><span class="line">    D[字符流] --&gt; E[字符输入流 Reader]</span><br><span class="line">    D --&gt; F[字符输出流 Writer]</span><br><span class="line">    </span><br><span class="line">    E --&gt; E1[InputStreamReader]</span><br><span class="line">    E1 --&gt; E11[FileReader]</span><br><span class="line">    E --&gt; E2[BufferedReader]</span><br><span class="line">    E --&gt; E3[StringReader]</span><br><span class="line">    E --&gt; E4[PipedReader]</span><br><span class="line">    </span><br><span class="line">    F --&gt; F1[OutputStreamWriter]</span><br><span class="line">    F1 --&gt; F11[FileWriter]</span><br><span class="line">    F --&gt; F2[BufferedWriter]</span><br><span class="line">    F --&gt; F3[PrintWriter]</span><br><span class="line">    F --&gt; F4[StringWriter]</span><br><span class="line">    F --&gt; F5[PipedWriter]</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>字节流—-以FileOutputStream为例</p>
+<ul>
+<li><p>基本用法</p>
+<ol>
+<li>创建流对象</li>
+<li>读&#x2F;写数据</li>
+<li>释放资源(用try_with_resources语法可以不用手动写释放资源代码)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FOS</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">File</span> <span class="variable">newFile</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;C:\\Users\\minmin\\Desktop\\newFile.txt&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">isCreated</span> <span class="operator">=</span> newFile.createNewFile();</span><br><span class="line">            <span class="keyword">if</span> (isCreated) &#123;</span><br><span class="line">                <span class="comment">// 若文件不存在, 而父级文件夹存在时, 会创建文件</span></span><br><span class="line">                <span class="keyword">try</span> (<span class="type">FileOutputStream</span> <span class="variable">fos</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(newFile)) &#123;</span><br><span class="line">                    fos.write(<span class="string">&quot;&lt;UNK&gt;&quot;</span>.getBytes());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>细节</p>
+<ul>
+<li>如果文件已经存在, 会清空文件重写</li>
+<li>输入整数, 会被当成ASCII码转写为字符</li>
+<li>如果不释放流资源, 文件会一直处于占用状态</li>
+<li>释放资源的语句应该写在finally块中</li>
+</ul>
+</li>
+<li><p>换行和续写</p>
+<ul>
+<li><p>换行</p>
+</li>
+<li><p>续写: 在同一个输出流中再次调用write()即可; 如果是在已有的文件内容基础上续写, 创建输出流时续写开关应为true</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fos.write(<span class="string">&quot;9789newFile&quot;</span>.getBytes());</span><br><span class="line">fos.write(<span class="string">&quot;\r\n&quot;</span>.getBytes());</span><br><span class="line">fos.write(<span class="string">&quot;89&quot;</span>.getBytes());</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>循环读取</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> ch;</span><br><span class="line"><span class="keyword">while</span> ((ch = fis.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">    System.out.print((<span class="type">char</span>) ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>字符集</p>
+<ul>
+<li>GBK: 两个字节存一个字符, 由于需要与ASCII兼容, 同时为了区分中英文, 中文二进制编码统一以1开头填充, ASCII字符统一以0填充高位</li>
+</ul>
+</li>
+</ul>
 
                     
                 </div>
@@ -584,31 +393,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2025/06/14/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/"
-                                   title="可变参数"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">可变参数</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2025/06/12/%E5%86%85%E9%83%A8%E7%B1%BB/"
-                                   title="内部类"
+                                   href="/2025/06/14/java-File%E7%9B%B8%E5%85%B3/"
+                                   title="java File相关"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">内部类</span>
+                                        <span class="post-nav-title-item text-ellipsis">java File相关</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
