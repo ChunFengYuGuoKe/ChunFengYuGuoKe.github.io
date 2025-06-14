@@ -9,8 +9,6 @@
     
     <title>
         
-            树状数组 |
-        
         一锅炖不下的博客
     </title>
     
@@ -60,7 +58,7 @@
     
 
     <!-- page content -->
-    <div class="page-main-content border-box">
+    <div class="page-main-content border-box is-home">
         <div class="page-main-content-top">
             
 <header class="header-wrapper">
@@ -223,59 +221,62 @@
             <div class="main-content border-box">
                 
 
+                    <div class="home-content-container fade-in-down-animation">
+    
+    <ul class="home-post-list border-box">
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
                     
-<div class="fade-in-down-animation">
-    <div class="post-page-container border-box">
-        <div class="post-content-container border-box">
-            
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/02/K-th-Largest-Connected-Components/">
+                            K-th Largest Connected Components —— atcoder372
+                        </a>
+                    </h3>
 
-            <div class="post-content-bottom border-box">
-                
-                    <div class="post-title">
-                        树状数组
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            11&#x2F;4更新，今天学了并查集，发现这道题其实就是构造了一个并查集，amazing啊！
+问题描述有一个无向图，它有 N 个顶点和 0 条边。顶点编号为 1 至 N。
+有Q次询问，每次询问是以下两种操作中的一种：
+
+类型一：给定格式为 1 u ...
+                        
                     </div>
-                
 
-                
-                    <div class="post-header border-box">
-                        
-                            <div class="avatar-box border-box">
-                                <img src="/images/luffy.jpg">
-                            </div>
-                        
-                        <div class="info-box">
-                            <div class="author border-box">
-                                <span class="name">一锅炖不下</span>
-                                
-                            </div>
-                            <div class="meta-info border-box">
-                                
+                    
 
-<div class="post-meta-info-container border-box post">
+<div class="post-meta-info-container border-box home">
     <div class="post-meta-info border-box">
         
-
-        
-            <span class="meta-info-item post-create-date">
-                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-03 16:07:51</span>
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Nov 02 2024 18:35:43 GMT+0800"
+                >2024-11-02 18:35:43</span>
             </span>
-
-            
-                <span class="meta-info-item post-update-date">
-                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Nov 07 2024 11:49:04 GMT+0800">2024-11-07 11:49:04</span>
-                </span>
-            
         
 
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/">算法学习日记</a></li>
                         
                     
                 </ul>
@@ -289,100 +290,101 @@
     </div>
 
     
+        <a class="home-read-more" href="/2024/11/02/K-th-Largest-Connected-Components/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
 </div>
 
-                            </div>
-                        </div>
-                    </div>
-                
-
-                <div class="post-content keep-markdown-body ">
-                    
-
-                    
-                         <p>就我目前的理解来看，<a class="link"   target="_blank" rel="noopener" href="https://oi-wiki.org/ds/fenwick/" >树状数组<i class="fas fa-external-link-alt"></i></a>是进阶版的前缀和数组，在同样支持区间和查询的同时，还具备以较小的时间复杂度动态更新的能力。而在这篇笔记中，我并不想对它做具体的说明，仅记录我个人的一点感悟，原因是B站上有up主已经讲得很清晰透彻了——<a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ce411u7qP?vd_source=5ed8451e41a08dea9b96544a5363022f" >B站视频讲解<i class="fas fa-external-link-alt"></i></a>。</p>
-<p>感觉设计出这些数据结构的人真的很牛逼，把数组和下标之间的关系玩出花来了，实现这样一个能动态更新的“前缀和数组”，甚至也只需要一个长度为n的数组。</p>
-<p>并且实现这样一个功能强大的树状数组，还并不需要多么复杂的代码，只需要实现三个操作即可，总共代码不会超过40行，能比较方便地在之后应用出来，这就非常爽了。</p>
-<p>树状数组和前缀和数组的关系跟<code>TreeSet</code>和<code>List</code>之间的关系有点像，都是用稍弱一点的查询效率（O(1)到O(logn)）换更高效的更新效率，同样也为O(longn)。</p>
-<p>学习了树状数组，也让我对前缀和数组的理解更深了，前缀和数组更适合存储的信息是不需要动态改变的信息，也就是说如果就只初始化一次，后续无需修改，那么用前缀和数组获得O(1)的查询操作是非常香的，而如果在类似于这道题<a target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc378/tasks/abc378_e"><strong>E - Mod Sigma Problem</strong></a>中，有需要频繁更新和查询的需求，那树状数组就香多了。</p>
-
-                    
                 </div>
+            </li>
+        
+            <li class="home-post-item">
 
                 
 
-                <div class="post-bottom-tags-and-share border-box">
-                    <div>
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/02/hello-world/">
+                            Hello World
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
                         
-                            <ul class="post-tags-box border-box">
-                                
-                                    <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
-                                    </li>
-                                
-                            </ul>
+                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, yo...
                         
                     </div>
-                    <div>
-                        
-                    </div>
-                </div>
 
-                
-
-                
-                    <div class="post-nav border-box">
-                        
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/11/03/%E5%A6%82%E4%BD%95%E5%9C%A8%E6%97%B6%E9%97%B4%E4%B8%AD%E4%B8%8E%E8%87%AA%E5%B7%B1%E7%9B%B8%E5%A4%84/"
-                                   title="如何在时间中与自己相处"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">如何在时间中与自己相处</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
-                        
-                            <div class="next-post">
-                                <a class="next"
-                                   rel="next"
-                                   href="/2024/11/03/%E5%A6%82%E4%BD%95%E5%9C%A8%E8%BF%87%E5%BA%A6%E7%96%B2%E6%83%AB%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%E7%9D%A1%E7%9D%80/"
-                                   title="如何在过度疲惫的情况下睡着"
-                                >
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">如何在过度疲惫的情况下睡着</span>
-                                        <span class="post-nav-item">Next posts</span>
-                                    </span>
-                                    <span class="right arrow-icon flex-center">
-                                        <i class="fas fa-chevron-right"></i>
-                                    </span>
-                                </a>
-                            </div>
-                        
-                    </div>
-                
-
-                
                     
 
-
-
-
-
-
-                
-            </div>
-        </div>
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sat Nov 02 2024 17:17:24 GMT+0800"
+                >2024-11-02 17:17:24</span>
+            </span>
+        
 
         
+
+        
+
+        
+
+        
+        
+        
+        
     </div>
+
+    
+        <a class="home-read-more" href="/2024/11/02/hello-world/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+    </ul>
+    
+    <div class="paginator border-box flex-center">
+        <div class="border-box first-page paginator-btn allowed">
+            <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
+        </div>
+
+        <div class="border-box paginator-btn allowed">
+            <a class="border-box"
+               href="/page/3/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+
+
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-style"
+                   type="number"
+                   value="4"
+                   min="1"
+                   max="4"
+            /><span class="delimiter base-style">/</span><span class="base-style">4</span>
+        </div>
+
+
+        <div class="border-box paginator-btn">
+            <a class="border-box"
+               href="/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="border-box last-page paginator-btn not-allow">
+            <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
+        </div>
+    </div>
+
+
+
+
 </div>
 
 
@@ -416,31 +418,10 @@
 
     <!-- post tools -->
     
-        <div class="post-tools right-toc">
-            <div class="post-tools-container border-box">
-    <ul class="post-tools-list border-box">
-        <!-- PC encrypt again -->
-        
-
-        <!-- PC TOC show toggle -->
-        
-
-        <!-- PC go comment -->
-        
-
-        <!-- PC full screen -->
-        <li class="tools-item flex-center full-screen">
-            <i class="fa-solid fa-expand"></i>
-        </li>
-    </ul>
-</div>
-
-        </div>
-    
 
     <!-- side tools -->
     <div class="side-tools">
-        <div class="side-tools-container border-box ">
+        <div class="side-tools-container border-box side-tools-show-handle">
     <ul class="side-tools-list side-tools-show-handle border-box">
         <li class="tools-item tool-font-adjust-plus flex-center">
             <i class="fas fa-search-plus"></i>
@@ -501,6 +482,7 @@
 
 
 
+
 <!-- common js -->
 
 <script src="/js/utils.js"></script>
@@ -527,22 +509,12 @@
 <div class="pjax">
     <!-- home page -->
     
+        
+<script src="/js/page/home-page.js"></script>
+
+    
 
     <!-- post page -->
-    
-        <!-- post-helper -->
-        
-<script src="/js/post/post-helper.js"></script>
-
-
-        <!-- toc -->
-        
-
-        <!-- copyright-info -->
-        
-
-        <!-- share -->
-        
     
 
     <!-- categories page -->

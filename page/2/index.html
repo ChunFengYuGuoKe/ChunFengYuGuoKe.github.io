@@ -1,1022 +1,1081 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+    
+        <link rel="shortcut icon" href="/images/OnePiece.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
 
-<link rel="stylesheet" href="/css/main.css">
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
 
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
 
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
-
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/2/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="http://example.com/page/2/">
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo</title>
-  
-
-
-
-
-
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/OnePiece.ico","favicon":"/images/OnePiece.ico"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
 
 
+<body>
+<div class="progress-bar-container">
+    
 
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">Hexo</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
 </div>
 
 
 
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
 
+    <!-- page content -->
+    <div class="page-main-content border-box is-home">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
 
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/OnePiece.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
 
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
 
 </header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    <div class="home-content-container fade-in-down-animation">
+    
+    <ul class="home-post-list border-box">
         
-  
-  <aside class="sidebar">
+            <li class="home-post-item">
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/12/02/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%AC%E4%B8%83%E7%AB%A0/">
+                            虚拟机类加载机制——《深入理解Java虚拟机》第七章笔记
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            类加载的作用是什么？
+把描述类的数据从class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型。
+Java类加载的特点？
+类型的加载、连接和初始化都在程序运行期完成。
+
+优势：极高的扩展性和灵活性，Ja...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Mon Dec 02 2024 19:38:49 GMT+0800"
+                >2024-12-02 19:38:49</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JVM/">JVM</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/12/02/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%AC%E4%B8%83%E7%AB%A0/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/15/%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F/">
+                            垃圾回收第一部分——对象已死？
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            垃圾收集需要考虑三件事情：
+
+哪些内存需要回收？——从回收区域上来看，伴随线程而生灭的程序计数器、虚拟机栈、本地方法栈是不需要回收的，需要回收的是共享的堆内存，而其中对象的生命周期是不确定的，因此更近一步地需要确定哪些对象需要被回收，这也是垃圾回收的...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Nov 15 2024 23:06:18 GMT+0800"
+                >2024-11-15 23:06:18</span>
+            </span>
+        
+
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/categories/JVM/">JVM</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86/">垃圾收集</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/15/%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/13/SumofAllSubstrings/">
+                            E-Sum of All Substrings——atcoder379
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            E - Sum of All Substrings
+观察答案的贡献结构，可以发现，不必按照公式给出的方式用双重循环的方式去做，而可以对每个数字单独计算贡献度，记第i位的数字为ai，那么它的贡献度为(i + 1) * (10(0) + 10(1) + ...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Wed Nov 13 2024 15:19:08 GMT+0800"
+                >2024-11-13 15:19:08</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/13/SumofAllSubstrings/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/12/HomeGarden/">
+                            D - HomeGarden——atcoder379
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            D - Home Garden 
+几个问题：
+
+怎么做区间加法？怎么快速为当前所有值加上一个数？
+怎么快速获取大于H的所有值？并且动态地删除这些值？
+怎么同时满足以上两个条件？
+
+看了答案……牛逼，用一个队列就做出来了，这个解法巧妙的地方在于它没有用...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Nov 12 2024 20:14:27 GMT+0800"
+                >2024-11-12 20:14:27</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/12/HomeGarden/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/">
+                            怎样面对身体的疲惫
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            下午健身时做了三组卷腹，晚饭后感到有一些疲惫，腹部不间断地传出一种强烈的不适感，让我难以忽视它的存在。以及脑子也想罢工了，真是难搞。
+本来的计划是晚上做几道算法题，然后写写博客。唉，真是让人沮丧。
+我有点不知道该怎么面对这种状态了。一方面，我没法心甘...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Nov 12 2024 19:28:44 GMT+0800"
+                >2024-11-12 19:28:44</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/12/SowingStones/">
+                            SowingStones——atcoder379
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            Sowing Stones
+第一想法是用栈来做。然后想栈和队列结合起来做，栈内保存石子数大于1的格子的下标，用于从最近的溢出格子中移动石子；队列保存格子下标，用于判断区间内的石子数量是否足够。但是这样做有点问题。如下：
+有几个问题：
+
+怎样一个区间一...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Nov 12 2024 16:25:30 GMT+0800"
+                >2024-11-12 16:25:30</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/12/SowingStones/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/">
+                            感觉累的时候怎么办
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            感觉累的时候往往也会感到空虚，还会感觉做什么事都没劲，并且往往因为一种无望的挣扎而熬夜，导致情况继续恶化。
+累的时候只需要不任由自己做一些毁灭性的举动即可，比如说熬夜就是其中一种。还可以做一些较低限度的事，一些比较简单又能带来成就感的事，比如写博客、...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Sun Nov 10 2024 21:50:11 GMT+0800"
+                >2024-11-10 21:50:11</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/">生活记录</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/08/%E7%9C%8B%E5%BE%85%E5%AF%82%E5%AF%9E%E7%9A%84%E6%96%B9%E5%BC%8F/">
+                            看待寂寞的方式
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            今天重读了里尔克《给青年诗人的十封信》中的第四篇，不愧是诗人，写出来的信同诗一样美。
+里尔克在信中首先谈到如果真诚地依托自然，对渺小的事物有着广阔的敬畏和信赖，那么和解会发生在理智退却的时刻，发生在最深的意识、觉醒与悟解中。我想这句话是在说什么呢？有...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Nov 08 2024 14:43:36 GMT+0800"
+                >2024-11-08 14:43:36</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">读书笔记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/08/%E7%9C%8B%E5%BE%85%E5%AF%82%E5%AF%9E%E7%9A%84%E6%96%B9%E5%BC%8F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/08/%E5%AF%B9Spring-IOC%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/">
+                            记录对Spring IOC的一点理解
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            与一个对象有关的职责大致有三大类——
+
+第一类是创建的职责，即实例化对象，并为对象提供它工作所需的依赖。依赖多种多样，可以是另一个对象，也可以是某个值等等。
+第二类是对象本身的功能上的职责，即这个对象提供的一些方法，以及它所储存的数据等。
+第三类是使...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri Nov 08 2024 14:11:06 GMT+0800"
+                >2024-11-08 14:11:06</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%A1%86%E6%9E%B6/">框架</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%9E%B6%E6%9E%84/">架构</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/08/%E5%AF%B9Spring-IOC%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2024/11/07/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                            线段树
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            线段树可以解决什么问题？对于[L, R]区间，它的答案可以由[L, M]和[M + 1, R]合并求出，具有这种性质的问题适合用线段树来解决。例如区间求和，大区间的和可以直接由两个子区间的和相加得到；还有区间最大&#x2F;最小值问题，也可以比较两个...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Thu Nov 07 2024 15:21:18 GMT+0800"
+                >2024-11-07 15:21:18</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2024/11/07/%E7%BA%BF%E6%AE%B5%E6%A0%91/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+    </ul>
+    
+    <div class="paginator border-box flex-center">
+        <div class="border-box first-page paginator-btn allowed">
+            <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
+        </div>
+
+        <div class="border-box paginator-btn allowed">
+            <a class="border-box"
+               href="/"
+            ><i class="fa-solid fa-chevron-left"></i></a>
+        </div>
+
+
+        <div class="page-number-box border-box flex-center">
+            <input class="page-number-input border-box base-style"
+                   type="number"
+                   value="2"
+                   min="1"
+                   max="4"
+            /><span class="delimiter base-style">/</span><span class="base-style">4</span>
+        </div>
+
+
+        <div class="border-box paginator-btn allowed">
+            <a class="border-box"
+               href="/page/3/"
+            ><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+
+        <div class="border-box last-page paginator-btn allowed">
+            <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box side-tools-show-handle">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
         </li>
-        <li class="sidebar-nav-overview">
-          Overview
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
         </li>
-      </ul>
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
-  <div class="site-description" itemprop="description"></div>
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
 </div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">29</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">categories</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">22</span>
-        <span class="site-state-item-name">tags</span>
-      </div>
-  </nav>
-</div>
-
-        </div>
-      </div>
-    </div>
-
-    
-  </aside>
-
 
     </div>
 
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/12/HomeGarden/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/12/HomeGarden/" class="post-title-link" itemprop="url">D - HomeGarden——atcoder379</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-12 20:14:27 / Modified: 21:34:23" itemprop="dateCreated datePublished" datetime="2024-11-12T20:14:27+08:00">2024-11-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc379/tasks/abc379_d" >D - Home Garden <i class="fas fa-external-link-alt"></i></a></p>
-<p>几个问题：</p>
-<ul>
-<li>怎么做区间加法？怎么快速为当前所有值加上一个数？</li>
-<li>怎么快速获取大于H的所有值？并且动态地删除这些值？</li>
-<li>怎么同时满足以上两个条件？</li>
-</ul>
-<p>看了答案……牛逼，用一个队列就做出来了，这个解法巧妙的地方在于它没有用我上面的思路，它不是更新所有植物的高度，而是更新grow值。并且植物的初始高度设为-grow，这样相当于前面累积的grow值被抵消了，只有后续的生长值才对它起作用。收割的时候，也不直接用h来比较，而是用h - grow的差值来与植物的高度比较。</p>
-<p>突然想到，也可以不用h - grow，可以改成：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">    <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (!plants.isEmpty() &amp;&amp; plants.peek() + grow &gt;= h) &#123;</span><br><span class="line">        plants.poll();</span><br><span class="line">        ans++;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(ans);</span><br></pre></td></tr></table></figure>
-
-<p>其实这也是延迟更新的一种思路吧，既然只在比较时才用到植物的高度，那么就先把这段时间的更新值记录起来，等到要取出来比较的时候再加上就可以了。</p>
-<p>用队列也是非常合适的，因为前面种的植物肯定长得更高，也会更先被收割。</p>
-<p>总结一下，之后遇到题目可以有哪些思考方向呢？</p>
-<ul>
-<li>怎样判断是否有先进先出的特性？——有时这种特性是隐含的，比如像这道题，先种的植物先收割，就是一个需要被发掘的隐藏条件。所以选择数据结构之前一定要充分挖掘数据的特性。</li>
-<li>延迟更新的思路——如果下次再遇到这种一次需要更新大量数据，但只在查询时会用到更新后的值时，可以先不急着更新，只在查询访问到的时候更新一次。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HomeGarden</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">int</span> <span class="variable">Q</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        Queue&lt;Long&gt; plants = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="type">long</span> <span class="variable">grow</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; Q; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">op</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">            <span class="keyword">switch</span> (op) &#123;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                    plants.offer(-grow);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">                    <span class="type">int</span> <span class="variable">t</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                    grow += t;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                    <span class="type">long</span> <span class="variable">h</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">                    h -= grow;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">while</span> (!plants.isEmpty() &amp;&amp; plants.peek() &gt;= h) &#123;</span><br><span class="line">                        plants.poll();</span><br><span class="line">                        ans++;</span><br><span class="line">                    &#125;</span><br><span class="line">                    System.out.println(ans);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
 </div>
 
 
+    <!-- local search -->
+    
 
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+        
+<script src="/js/page/home-page.js"></script>
 
     
 
+    <!-- post page -->
+    
 
-<div class="post-block">
-  
-  
+    <!-- categories page -->
+    
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/">
+    <!-- links page -->
+    
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
+    <!-- photos page -->
+    
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/" class="post-title-link" itemprop="url">怎样面对身体的疲惫</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-12 19:28:44 / Modified: 19:39:58" itemprop="dateCreated datePublished" datetime="2024-11-12T19:28:44+08:00">2024-11-12</time>
-    </span>
-
-  
+    <!-- tools page -->
+    
 </div>
 
-        </div>
-      </header>
+<!-- mermaid -->
+
+
+<!-- pjax -->
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>下午健身时做了三组卷腹，晚饭后感到有一些疲惫，腹部不间断地传出一种强烈的不适感，让我难以忽视它的存在。以及脑子也想罢工了，真是难搞。</p>
-<p>本来的计划是晚上做几道算法题，然后写写博客。唉，真是让人沮丧。</p>
-<p>我有点不知道该怎么面对这种状态了。一方面，我没法心甘情愿地去玩。另一方面，如果要学习的话，实在是有点折磨。</p>
-<p>我该怎么做呢？哪一方面我更加不可接受呢？</p>
-<p>如果我去玩了，在这种疲惫的状态下也不会玩得投入，而且一会儿睡觉的时候，我会感到不安；而如果我学习的话，我应该可以接受低效感，多少能学到一点东西，然后睡觉的时候可以睡得更好，这样明天能有更好的状态。</p>
-<p>所以就接受这种状态吧，然后心平气和地做一点低限度的事，没必要和自己的感觉对抗。</p>
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
 
-      
-    </div>
 
-    
-    
-    
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/12/SowingStones/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/12/SowingStones/" class="post-title-link" itemprop="url">SowingStones——atcoder379</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-12 16:25:30 / Modified: 21:43:20" itemprop="dateCreated datePublished" datetime="2024-11-12T16:25:30+08:00">2024-11-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a class="link"   target="_blank" rel="noopener" href="https://atcoder.jp/contests/abc379/tasks/abc379_c" >Sowing Stones<i class="fas fa-external-link-alt"></i></a></p>
-<p>第一想法是用栈来做。然后想栈和队列结合起来做，栈内保存石子数大于1的格子的下标，用于从最近的溢出格子中移动石子；队列保存格子下标，用于判断区间内的石子数量是否足够。但是这样做有点问题。如下：</p>
-<p>有几个问题：</p>
-<ul>
-<li>怎样一个区间一个区间地判断石子的数量是否足够？因为如果一个区间的石子不够，但如果再往前有多余的石子，也可以挪到后面。这一点有点不好操作。</li>
-<li>怎样计算操作数？</li>
-</ul>
-<p>去看了其他人通过的答案，感觉挺巧妙的，巧妙之处在于这种做法用一个top变量，既控制了每次小区间的右边界，最后又用它的正负判断了石子是否足够。</p>
-<p>我能从这道题中学到什么，有没有什么可以迁移到其他问题的思路，几个启发式的方法：</p>
-<ul>
-<li>思考个问题题的数据是否有某种内在的顺序——例如这道题，后续加入的石子，它的坐标一定是更靠后的</li>
-<li>思考遍历的顺序——不一定是从小到大遍历，有时也会反向，也可能从中间向两边，从两边向中间</li>
-<li>思考一个变量是否能表达更多的含义——例如它小于零的时候代表什么，大于零的时候代表什么</li>
-<li>思考是否可以用整体的思路降低问题的复杂度——例如这道题如果每个存在空格的区间都判断石子是否足够的话，复杂度就过高了，而如果整体来做的话，就没那么高</li>
-<li>思考有没有什么数学方法可以简化问题</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SowingStones</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Scanner</span> <span class="variable">sc</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Scanner</span>(System.in);</span><br><span class="line">        <span class="type">long</span> <span class="variable">N</span> <span class="operator">=</span> sc.nextLong();</span><br><span class="line">        <span class="type">int</span> <span class="variable">M</span> <span class="operator">=</span> sc.nextInt();</span><br><span class="line">        <span class="comment">// 为什么用TreeMap?</span></span><br><span class="line">        <span class="comment">// 1. TreeMap可以用较少的空间保存类似这种比较稀疏的数据</span></span><br><span class="line">        <span class="comment">// 2. TreeMap是红黑树，本身是一种搜索数，提供了descendingKeySet api，支持区间边界从大到小遍历</span></span><br><span class="line">        TreeMap&lt;Long, Long&gt; xToA = <span class="keyword">new</span> <span class="title class_">TreeMap</span>&lt;&gt;();</span><br><span class="line">        <span class="type">long</span>[] X = <span class="keyword">new</span> <span class="title class_">long</span>[M];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">            X[i] = sc.nextLong();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; M; i++) &#123;</span><br><span class="line">            xToA.put(X[i], sc.nextLong());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">long</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">top</span> <span class="operator">=</span> N;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">long</span> x : xToA.descendingKeySet()) &#123;</span><br><span class="line">            <span class="type">long</span> <span class="variable">a</span> <span class="operator">=</span> xToA.get(x);</span><br><span class="line">            <span class="comment">// 这里检查石子溢出的情况</span></span><br><span class="line">            <span class="keyword">if</span> (top - x + <span class="number">1</span> &gt;= a) &#123;</span><br><span class="line">                <span class="comment">// 用等差数列和计算每个空白区间内的移动步数</span></span><br><span class="line">                <span class="comment">// 相当于把每个石子都一一移到当前区间的右端</span></span><br><span class="line">                count += a * (<span class="number">2</span> * top - <span class="number">2</span> * x - a + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                <span class="comment">// 更新top</span></span><br><span class="line">                top -= a;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(-<span class="number">1</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (top &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果最终top大于0，说明石子不够装满所有格子</span></span><br><span class="line">        <span class="keyword">if</span> (top &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            System.out.println(-<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(count);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/" class="post-title-link" itemprop="url">感觉累的时候怎么办</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-10 21:50:11 / Modified: 21:57:52" itemprop="dateCreated datePublished" datetime="2024-11-10T21:50:11+08:00">2024-11-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>感觉累的时候往往也会感到空虚，还会感觉做什么事都没劲，并且往往因为一种无望的挣扎而熬夜，导致情况继续恶化。</p>
-<p>累的时候只需要不任由自己做一些毁灭性的举动即可，比如说熬夜就是其中一种。还可以做一些较低限度的事，一些比较简单又能带来成就感的事，比如写博客、洗澡、洗衣服这类事情都可以。最忌讳的是胡思乱想地枯坐，因为这种状态下的想法一般都不是太积极的想法。</p>
-<p>以及，不要太过责怪攻击自己，累其实是一种正常的感觉。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/08/%E7%9C%8B%E5%BE%85%E5%AF%82%E5%AF%9E%E7%9A%84%E6%96%B9%E5%BC%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/08/%E7%9C%8B%E5%BE%85%E5%AF%82%E5%AF%9E%E7%9A%84%E6%96%B9%E5%BC%8F/" class="post-title-link" itemprop="url">看待寂寞的方式</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-08 14:43:36" itemprop="dateCreated datePublished" datetime="2024-11-08T14:43:36+08:00">2024-11-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-12 19:27:33" itemprop="dateModified" datetime="2024-11-12T19:27:33+08:00">2024-11-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天重读了里尔克《给青年诗人的十封信》中的第四篇，不愧是诗人，写出来的信同诗一样美。</p>
-<p>里尔克在信中首先谈到如果真诚地依托自然，对渺小的事物有着广阔的敬畏和信赖，那么和解会发生在理智退却的时刻，发生在最深的意识、觉醒与悟解中。我想这句话是在说什么呢？有点玄妙，让我无法用简单的言辞把它表达出来，但或许正是这份玄妙让人沉思，也因为这种玄妙，可以从不同的角度去理解，那么它其实是一个引子，引导一种思想的生发与成长。</p>
-<p>面对年轻人在来信中向他提出的问题，他说对于年轻人而言，一切都在开始，对于问题要多多忍耐，要去爱这些问题本身，不要太过急切地去寻找现在还不能得到的答案。终有一天，生活本身会抵达能了悟这些问题的境界。他看待问题的方式很不一样，他把问题看作是一种珍贵的东西，这真是奇怪又令人惊异。而我总是把问题当作一种麻烦的事物，有时遇到问题我只想不费吹灰之力地尽快解决掉，这样会平白在心里造出许多冲突。</p>
-<p>还说到关于信任的问题，对于从身体里产生一切幸福的或窘困的体验，都要以广大的信任领受，不要憎恶。这大概是在说不要抗拒生活中的一切体验，要以虔敬的心接受它们。</p>
-<p>“可是分内的事都很难；其实一切严肃的事都是艰难的，而一切又是严肃的。”什么是分内的事呢，我想可能是在说一切细微处的修养吧。为什么一切都严肃而艰难呢？前面为什么又说如果通过寄托自然，通过在渺小里体悟广大，一切都会变得更为轻易呢？这两种说法矛盾吗？也许严肃是意在唤起对生活的敬畏，而轻易是通过体悟自然中真的那部分东西，可以不被这种严肃压垮，能撑起自我所担负的那个世界。</p>
-<p>“同样搅浑的，是那些生命借以自新的一切深的、单纯的需要。”如果不再敬畏这些需要本身，把它们当作实现另外一些目的的手段，那么就算是搅浑了吧。</p>
-<p>“亲爱的先生，所以你要爱你的寂寞，负担那他以悠扬的怨诉给你引来的痛苦。你说，你身边的都同你疏远了，其实这就是你周围扩大的开始。”寂寞是一种怎样的东西呢？通常而言，似乎是一种不太愉悦的体验，它往往伴随着执取某些事物以稳固自身的冲动，还伴随着不安感，程度更深时还伴有恐惧，对自己存在的不坚定的迷惑。</p>
-<p>好像懂了些什么，又好像没懂。我有点烦躁。但是我随即又想起里尔克告诫我的的话——“要爱这些问题”，的确，不应狂妄地认为可以理解一切，带着这些迷惑慢慢地生活，自会得到了悟。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/08/%E5%AF%B9Spring-IOC%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/08/%E5%AF%B9Spring-IOC%E7%9A%84%E4%B8%80%E7%82%B9%E7%90%86%E8%A7%A3/" class="post-title-link" itemprop="url">记录对Spring IOC的一点理解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-08 14:11:06 / Modified: 14:41:06" itemprop="dateCreated datePublished" datetime="2024-11-08T14:11:06+08:00">2024-11-08</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>与一个对象有关的职责大致有三大类——</p>
-<ul>
-<li>第一类是<strong>创建</strong>的职责，即实例化对象，并为对象提供它工作所需的依赖。依赖多种多样，可以是另一个对象，也可以是某个值等等。</li>
-<li>第二类是对象本身的<strong>功能</strong>上的职责，即这个对象提供的一些方法，以及它所储存的数据等。</li>
-<li>第三类是<strong>使用</strong>对象的职责，即调用该对象的方法完成一些事情的职责。</li>
-</ul>
-<p>从这个角度看，<code>IOC</code>（控制翻转）就是一种将创建的职责和对象本身的职责分离开来的思想，通过满足面向对象倡导的单一职责原则，实现了这两种职责之间的解耦。</p>
-<p>而<code>Spring</code>是通过<code>DI</code>(依赖注入)来实现控制翻转的。首先需要清楚如果没有这样的机制，程序会怎样创建对象——通常会new一个新对象，通过构造函数传入所需的依赖，也可以通过set方法，这样做有什么不好吗？首先，new对象这种方式用因为其硬编码的特性，就把一个接口的具体实现类定死了，后续如果要更换该接口的实现类，只能修改源代码，这就丧失了灵活性，无法通过配置文件等方式更灵活地处理这样地情景。其次，new对象这种方式也将对象的创建位置固定了，A类在某处创建了另B类，当C类要使用的时候又得自己重新再创建一个，这样做无疑是一种浪费。当然，这个问题可以通过增加某个缓存类来解决，例如通过工厂建立对象，并维护一个对象的单例缓存，<code>Spring</code>解决这个问题的思路与此类似。</p>
-<p>而在有了<code>Spring</code>之后，事情就简单了，只需要注解声明哪些对象需要作为bean被管理，哪些依赖需要被注入，<code>Spring</code>通通可以帮开发者搞定。同时这也提供了极大的灵活性，如果想要更换某个接口的实现类，只需要通过配置注入一个用户自己的实现即可。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/%E7%BA%BF%E6%AE%B5%E6%A0%91/" class="post-title-link" itemprop="url">线段树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-07 15:21:18" itemprop="dateCreated datePublished" datetime="2024-11-07T15:21:18+08:00">2024-11-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-10 21:47:47" itemprop="dateModified" datetime="2024-11-10T21:47:47+08:00">2024-11-10</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>线段树可以解决什么问题？对于[L, R]区间，它的答案可以由[L, M]和[M + 1, R]合并求出，具有这种性质的问题适合用线段树来解决。例如区间求和，大区间的和可以直接由两个子区间的和相加得到；还有区间最大&#x2F;最小值问题，也可以比较两个子区间的最大&#x2F;最小值，选出更大&#x2F;更小的那一个作为结果。</p>
-<p>不适合解决什么问题？区间众数，区间最长连续，最长不下降问题。除此之外，线段树似乎也不支持数据插入，因为插入会破坏平衡树的结构？</p>
-<p>线段树主要有几个操作：</p>
-<h4 id="一、建树"><a href="#一、建树" class="headerlink" title="一、建树"></a>一、建树</h4><p>以堆方式存储</p>
-<h4 id="二、单点修改-区间修改"><a href="#二、单点修改-区间修改" class="headerlink" title="二、单点修改&#x2F;区间修改"></a>二、单点修改&#x2F;区间修改</h4><p>区间修改后的查询要用到lazy标记，lazy标记是线段树的精髓所在，如果在区间修改的时候不采用lazy标记，而是搜索这个区间中的节点一一修改，那么与常规暴力遍历修改的时间复杂度其实拉不开差距。</p>
-<p>lazy标记的具体使用过程如下，在区间修改时，如果修改的区间完全覆盖了某区间，那么就把这个区间打上lazy标记，这个区间囊括的子区间则暂时不更新，由后续查询遍历到子区间时检测到lazy标记做懒更新。</p>
-<h4 id="三、区间查询"><a href="#三、区间查询" class="headerlink" title="三、区间查询"></a>三、区间查询</h4><h4 id="四、与树状数组的异同"><a href="#四、与树状数组的异同" class="headerlink" title="四、与树状数组的异同"></a>四、与树状数组的异同</h4><p>优点：</p>
-<ul>
-<li>线段树的区间修改的时间复杂度仍然是O(logn)，而树状数组的区间修改的时间复杂度是O(klogn)，k为区间元素个数</li>
-<li>线段树的应用范围更广，满足区间运算性质的问题都可以用线段树来求，例如区间最大&#x2F;小值和区间和等等，而树状数组只能用来求区间和</li>
-</ul>
-<p>缺点：</p>
-<ul>
-<li>线段树的实现较复杂</li>
-<li>线段树的空间复杂度较高</li>
-</ul>
-<p>例题<a class="link"   target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3372" >P3372 【模板】线段树 1<i class="fas fa-external-link-alt"></i></a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SegmentTree</span> &#123;</span><br><span class="line">    <span class="comment">// 原始数据数组</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">long</span>[] data;</span><br><span class="line">    <span class="comment">// 线段树，以堆方式表达</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> Node[] tree;</span><br><span class="line"></span><br><span class="line">    SegmentTree(<span class="type">long</span>[] data) &#123;</span><br><span class="line">        <span class="built_in">this</span>.data = data;</span><br><span class="line">        tree = <span class="keyword">new</span> <span class="title class_">Node</span>[data.length * <span class="number">4</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 节点类，每个节点需要存储该节点管辖的左右边界，区间结果，以及lazy标记</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">Node</span> &#123;</span><br><span class="line">        <span class="type">int</span> l;</span><br><span class="line">        <span class="type">int</span> r;</span><br><span class="line">        <span class="type">long</span> sum;</span><br><span class="line">        <span class="type">long</span> lazy;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 后序递归建树，先建立子节点，再建立父节点</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">build</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> l, <span class="type">int</span> r)</span> &#123;</span><br><span class="line">        <span class="comment">// 实例化当前节点</span></span><br><span class="line">        tree[i] = <span class="keyword">new</span> <span class="title class_">Node</span>();</span><br><span class="line">        <span class="comment">// 为当前节点的左右边界赋值</span></span><br><span class="line">        tree[i].l = l;</span><br><span class="line">        tree[i].r = r;</span><br><span class="line">        <span class="comment">// 终止条件，遍历到叶子节点，直接赋值</span></span><br><span class="line">        <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">            tree[i].sum = data[r];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> l + (r - l) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        build(i &lt;&lt; <span class="number">1</span>, l, mid);</span><br><span class="line">        <span class="comment">// (i &lt;&lt; 1) | 1 为位运算，等效为 2 * i + 1</span></span><br><span class="line">        build((i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>, mid + <span class="number">1</span>, r);</span><br><span class="line">        tree[i].sum = tree[i &lt;&lt; <span class="number">1</span>].sum + tree[(i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>].sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 单点修改/区间修改</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果当前节点被[l, r]覆盖，当前节点更新，打上lazy标记</span></span><br><span class="line">        <span class="keyword">if</span> (tree[i].l &gt;= l &amp;&amp; tree[i].r &lt;= r) &#123;</span><br><span class="line">            tree[i].sum += (<span class="type">long</span>) k * (l - r + <span class="number">1</span>);</span><br><span class="line">            tree[i].lazy += k;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 如果未被覆盖，lazy下推</span></span><br><span class="line">        <span class="keyword">if</span> (tree[i].lazy != <span class="number">0</span>) &#123;</span><br><span class="line">            pushDown(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新左子区间</span></span><br><span class="line">        <span class="keyword">if</span> (tree[i &lt;&lt; <span class="number">1</span>].r &gt;= l) &#123;</span><br><span class="line">            update(i &lt;&lt; <span class="number">1</span>, l, r, k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新右子区间</span></span><br><span class="line">        <span class="keyword">if</span> (tree[(i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>].l &lt;= r) &#123;</span><br><span class="line">            update((i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>, l, r, k);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新当前节点</span></span><br><span class="line">        tree[i].sum = tree[i &lt;&lt; <span class="number">1</span>].sum + tree[(i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>].sum;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// lazy下推操作</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pushDown</span><span class="params">(<span class="type">int</span> i)</span> &#123;</span><br><span class="line">        <span class="comment">// 更新子区间lazy值</span></span><br><span class="line">        <span class="type">long</span> <span class="variable">lazy</span> <span class="operator">=</span> tree[i].lazy;</span><br><span class="line">        tree[i &lt;&lt; <span class="number">1</span>].lazy += lazy;</span><br><span class="line">        tree[(i &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>].lazy += lazy;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> tree[i].l + (tree[i].r - tree[i].l) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 更新子区间和</span></span><br><span class="line">        tree[i &lt;&lt; <span class="number">1</span>].sum += lazy * (mid - tree[i].l + <span class="number">1</span>);</span><br><span class="line">        tree[(i &lt;&lt; <span class="number">1</span>) + <span class="number">1</span>].sum += lazy * (tree[i].r - mid);</span><br><span class="line">        tree[i].lazy = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 区间查询</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">long</span> <span class="title function_">query</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> l, <span class="type">int</span> r)</span> &#123;</span><br><span class="line">        <span class="comment">// 覆盖则直接返回</span></span><br><span class="line">        <span class="keyword">if</span> (tree[i].r &lt;= r &amp;&amp; tree[i].l &gt;= l) &#123;</span><br><span class="line">            <span class="keyword">return</span> tree[i].sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (tree[i].lazy != <span class="number">0</span>) &#123;</span><br><span class="line">            pushDown(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">long</span> <span class="variable">temp</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (tree[i &lt;&lt; <span class="number">1</span>].r &gt;= l) &#123;</span><br><span class="line">            temp += query(i &lt;&lt; <span class="number">1</span>, l, r);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (tree[(i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>].l &lt;= r) &#123;</span><br><span class="line">            temp += query((i &lt;&lt; <span class="number">1</span>) | <span class="number">1</span>, l, r);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%8C%AB%E7%84%B6%E7%9A%84%E6%84%9F%E8%A7%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%8C%AB%E7%84%B6%E7%9A%84%E6%84%9F%E8%A7%89/" class="post-title-link" itemprop="url">怎样面对茫然的感觉</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-07 14:50:12 / Modified: 15:00:08" itemprop="dateCreated datePublished" datetime="2024-11-07T14:50:12+08:00">2024-11-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>现在是下午三点，我刚才写了一篇面试复盘的博客，然后突然不知道下一步该做什么了。有点茫然，而茫然就是焦虑滋生的土壤。</p>
-<p>其实我要做的事情还挺多的——</p>
-<ul>
-<li>继续做rpc项目</li>
-<li>实现前面学的线段树数据结构</li>
-<li>复习面试题</li>
-</ul>
-<p>那有事情做为什么又会感到茫然呢？因为感觉做这些事情都会花一个大段的时间，而我面对这样一个事情有点抗拒，并且要在三个事情中做选择，也会加重我的犹豫。本质上还是我的惰性又开始冒头了。</p>
-<p>明确了原因，解决方法就自然出现了，那就是根据喜好选择一件事情，然后爽快利落地开始吧，不要给犹豫和茫然继续生长的空间。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/07/%E9%97%B2%E9%B1%BC%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/07/%E9%97%B2%E9%B1%BC%E9%9D%A2%E8%AF%95%E5%A4%8D%E7%9B%98/" class="post-title-link" itemprop="url">闲鱼面试复盘</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2024-11-07 14:07:18 / Modified: 14:43:06" itemprop="dateCreated datePublished" datetime="2024-11-07T14:07:18+08:00">2024-11-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>上周五有一场闲鱼的面试，预定的晚上七点开始，我在六点五十就连上了视频会议，然后面试官隔了一两分钟也连上来了，这打了我一个措手不及，因为我觉得他应该会掐点上线，他没让我自我介绍，给了我一道算法题——用O(n)的时间复杂度查找一个无序数组中第k大的元素。</p>
-<p>我当时的第一想法是用小顶堆来做，但这个时间复杂度应该是O(nlogn)，第二想法是直接调用Arrays.sort()，但是这个时间复杂度同样也是O(nlogn)，都不满足要求。我向面试官说了我的想法，请他给我一点提示，最后还是没有想出来，第一道题就pass掉了。面试结束之后我上网去查，发现可以用快排的思路来做这道题，但是我快排没有仔细学过（捂脸）……然后就是补学快排，最后成功做出了这道题。</p>
-<p>来到第二题——<a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedule-ii/description/" >210. 课程表II<i class="fas fa-external-link-alt"></i></a>，给出课程之间的依赖关系，要求输出一个课程的修读顺序。当时我第一感觉这有点像我之前做过的一道二分图的题，我感到一阵惊喜，于是我喜滋滋地跟面试官说这道题可以用二分图来做。我当时隐约感觉二分图算法有点不对劲，但是由于先入为主的思想，最后我还是在二分图的框架上做了这道题，导致方向从一开始就错了，最后40多分钟没做出来，面试官说由于时间问题，今天就面试到这了……尴尬。事后一想，二分图解决的是能否把一些节点分为两个部分，其中一个部分依赖另一个部分，这道题其实应该用环检测和拓扑排序来做。但是，由于我当时学这两个算法的时候没有学的很熟，只是草草看了一遍教学视频，没有自己写代码，导致最终没有想到这个上面。</p>
-<p>总结：</p>
-<ul>
-<li>学习的时候不能马虎，哪种问题用哪种解决方案要理解清楚，这样在面试的时候才不会搞混。出现误判本质上还是熟练度不够。</li>
-<li>在学算法的时候，每个辅助变量的作用要理解清楚，还有它们的更新过程，这样掌握得更牢固，具体运用得时候也不容易忘记。</li>
-<li>前面两个是技术问题，第三个就纯是面试经验问题了。在做不出来题的时候，不应该闷着头继续做，不应该把面试官晾在一边，需要跟他保持交流，让他提供一点思路，也让他了解我的思路。而且还要主动关注时间，如果实在做不出来，应该跟他说明当前的思路是什么，可能哪哪有点问题，请他让我下来再思考一下，然后申请进入下一个环节。如果就卡在算法题环节，那指定是没戏了。</li>
-<li>面试出现问题不要怕，积极寻求解决之道，就算最后解决不了，但是也向面试官展示了解决问题的能力。说不定就祸兮福所倚了。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/11/05/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/05/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">拓扑排序</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-05 09:05:52" itemprop="dateCreated datePublished" datetime="2024-11-05T09:05:52+08:00">2024-11-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-07 11:49:40" itemprop="dateModified" datetime="2024-11-07T11:49:40+08:00">2024-11-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/course-schedule-ii/description/" >210. 课程表 II<i class="fas fa-external-link-alt"></i></a></p>
-<ol>
-<li><strong><code>dfs</code>实现</strong></li>
-</ol>
-<p>实际上就是在环检测算法的基础上，加入了一个后续遍历，并且对后续遍历的结果做了一个翻转，通过这种方式就可以保证一门课程的所有前置课程一定先于该课程被修读。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FindOrderByDFS_210</span> &#123;</span><br><span class="line">    <span class="comment">// 访问控制数组，避免重复访问</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span>[] visited;</span><br><span class="line">    <span class="comment">// 记录当前路径上的节点访问情况，需要回溯，用于环检测</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span>[] onPath;</span><br><span class="line">    <span class="comment">// 用于记录环检测结果</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> hasCycle;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] findOrder(<span class="type">int</span> numCourses, <span class="type">int</span>[][] prerequisites) &#123;</span><br><span class="line">        visited = <span class="keyword">new</span> <span class="title class_">boolean</span>[numCourses];</span><br><span class="line">        onPath = <span class="keyword">new</span> <span class="title class_">boolean</span>[numCourses];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化邻接表</span></span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; graph = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            graph.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; prerequisites.length; i++) &#123;</span><br><span class="line">            graph.get(prerequisites[i][<span class="number">1</span>]).add(prerequisites[i][<span class="number">0</span>]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取后续遍历结果</span></span><br><span class="line">        List&lt;Integer&gt; postOrder = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!visited[i]) &#123;</span><br><span class="line">                dfs(graph, i, postOrder);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 翻转</span></span><br><span class="line">        Collections.reverse(postOrder);</span><br><span class="line">        <span class="type">int</span>[] result = <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="comment">// 根据环检测情况返回结果</span></span><br><span class="line">        <span class="keyword">if</span> (!hasCycle) &#123;</span><br><span class="line">            result = postOrder.stream().mapToInt(Integer::intValue).toArray();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(List&lt;List&lt;Integer&gt;&gt; graph, <span class="type">int</span> node, List&lt;Integer&gt; postOrder)</span> &#123;</span><br><span class="line">        <span class="comment">// 如果同意路径上出现重复节点，说明存在环，记录结果并返回</span></span><br><span class="line">        <span class="keyword">if</span> (onPath[node]) &#123;</span><br><span class="line">            hasCycle = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 避免重复访问节点</span></span><br><span class="line">        <span class="keyword">if</span> (visited[node] || hasCycle) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 更新访问信息</span></span><br><span class="line">        visited[node] = <span class="literal">true</span>;</span><br><span class="line">        onPath[node] = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">// 遍历dfs</span></span><br><span class="line">        <span class="keyword">for</span> (Integer nextNode : graph.get(node)) &#123;</span><br><span class="line">            dfs(graph, nextNode, postOrder);</span><br><span class="line">            <span class="comment">// 剪枝</span></span><br><span class="line">            <span class="keyword">if</span> (hasCycle) &#123;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        postOrder.add(node);</span><br><span class="line">        onPath[node] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><strong><code>bfs</code>实现</strong></li>
-</ol>
-<p>总的思路就是利用队列来保存下一轮要访问的节点，用入度数组来控制每一轮哪些节点应该入队——当入度为零，即当前节点的所有先修课都修读完毕之后，才可以修读这门课，这个访问的顺序就已经是一个拓扑排序的结果了，只需要按顺序把这些访问节点记录起来即可。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FindOrderByBFS_210</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] findOrder(<span class="type">int</span> numCourses, <span class="type">int</span>[][] prerequisites) &#123;</span><br><span class="line">        <span class="comment">// 定义入度数组</span></span><br><span class="line">        <span class="type">int</span>[] inDegree = <span class="keyword">new</span> <span class="title class_">int</span>[numCourses];</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; graph = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            graph.add(<span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 初始化入度数组和邻接表</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span>[] prerequisite : prerequisites) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">from</span> <span class="operator">=</span> prerequisite[<span class="number">1</span>];</span><br><span class="line">            <span class="type">int</span> <span class="variable">to</span> <span class="operator">=</span> prerequisite[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">            graph.get(from).add(to);</span><br><span class="line">            inDegree[to]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将第一轮可以访问的节点入队</span></span><br><span class="line">        Queue&lt;Integer&gt; que = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; numCourses; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (inDegree[i] == <span class="number">0</span>) &#123;</span><br><span class="line">                que.offer(i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// count记录当前访问的节点数</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 记录节点访问顺序</span></span><br><span class="line">        <span class="type">int</span>[] order = <span class="keyword">new</span> <span class="title class_">int</span>[numCourses];</span><br><span class="line">        <span class="keyword">while</span> (!que.isEmpty()) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">course</span> <span class="operator">=</span> que.poll();</span><br><span class="line">            order[count] = course;</span><br><span class="line">            count++;</span><br><span class="line">            <span class="comment">// 遍历当前节点的子节点，将子节点的入度减一，若子节点入度为零，将其入队，下一轮即可访问</span></span><br><span class="line">            <span class="keyword">for</span> (Integer nextCourse : graph.get(course)) &#123;</span><br><span class="line">                inDegree[nextCourse]--;</span><br><span class="line">                <span class="keyword">if</span> (inDegree[nextCourse] == <span class="number">0</span>) &#123;</span><br><span class="line">                    que.add(nextCourse);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 若遍历节点数等于课程总数，说明无环，可以正常返回结果，否则返回空数组</span></span><br><span class="line">        <span class="keyword">if</span> (count == numCourses) &#123;</span><br><span class="line">            <span class="keyword">return</span> order;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" title="Previous page" aria-label="Previous page" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" title="Next page" aria-label="Next page" href="/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2025</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">John Doe</span>
-  </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
-    </div>
-  </footer>
-
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
 
 </body>
 </html>

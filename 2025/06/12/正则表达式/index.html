@@ -9,7 +9,7 @@
     
     <title>
         
-            快排 |
+            正则表达式——ChatGpt生成 |
         
         一锅炖不下的博客
     </title>
@@ -232,7 +232,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        快排
+                        正则表达式——ChatGpt生成
                     </div>
                 
 
@@ -258,13 +258,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2024-11-05 08:15:14</span>
+                <span class="datetime">2025-06-12 21:39:58</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Tue Nov 05 2024 09:04:53 GMT+0800">2024-11-05 09:04:53</span>
+                    <span class="datetime" data-updated="Thu Jun 12 2025 22:13:57 GMT+0800">2025-06-12 22:13:57</span>
                 </span>
             
         
@@ -275,7 +275,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -300,18 +300,262 @@
                     
 
                     
-                         <p>快排的基本思路是每次选出一个基准元素，将小于该元素的移动到一边，大于该元素的移到另一边，最后将基准元素移动到它应该在的位置，找到这个位置后，对左右两边的元素递归快排，直到不再满足left &lt; right的条件。</p>
-<p>按照上面的逻辑，快排具有一个好用的性质，即每轮能最终确定一个基准元素的位置，基于这个性质，能实现在无序数组中以O(n)时间复杂度找到第k大元素的算法。</p>
-<p>快排类似于二叉树的前序遍历，排序方法其实就是一个递归函数的结构，终止条件——&gt;处理当前节点——&gt;处理左右子区间。</p>
-<p>一个完整的快排实现包含两个方法，一个递归调用的quickSort方法，一个用于处理每个节点的partition方法。</p>
-<p>partition方法的具体逻辑是选择一个元素，用快慢双指针的方式将大于和小于该元素的值分别划分到一边——快指针遍历，慢指针记录当前区间的末位置，遍历完成后，将基准元素交换到慢指针标记的位置，并且返回该位置，后续以该位置划分左右子区间。</p>
-<p>快排实现：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivotIndex</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivotIndex - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivotIndex + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在无序数组中以O(n)时间复杂度找到第k大元素算法实现：</p>
-<p>与快排最大的不同是，每一轮不再需要搜寻左右两个区间，而只需要根据基准下标与k的关系，搜索k所在的那一个子区间，搜到了就直接返回，不需要再往下递归，时间复杂度为：n&#x2F;2 + n&#x2F;4 + n&#x2F;8 + ··· + 1，等比数列求和为 2n + 1。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">KthLargest</span> &#123;</span><br><span class="line"><span class="comment">//    private static int res = -1;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">findKthLargest</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr == <span class="literal">null</span> || arr.length &lt; k) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">int</span> <span class="variable">pivotIndex</span> <span class="operator">=</span> partition(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">while</span> (pivotIndex + <span class="number">1</span> != k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pivotIndex + <span class="number">1</span> &lt; k) &#123;</span><br><span class="line">                pivotIndex = partition(arr, pivotIndex + <span class="number">1</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                pivotIndex = partition(arr, <span class="number">0</span>, pivotIndex - <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr[pivotIndex];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; pivot) &#123;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i, right);</span><br><span class="line">        <span class="comment">// System.out.println(Arrays.toString(arr));</span></span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+                         <hr>
+<h2 id="🧠-通俗类比：正则表达式是“文字筛子”"><a href="#🧠-通俗类比：正则表达式是“文字筛子”" class="headerlink" title="🧠 通俗类比：正则表达式是“文字筛子”"></a>🧠 通俗类比：正则表达式是“文字筛子”</h2><p>想象你在沙滩上找贝壳（文字中找内容）：</p>
+<ul>
+<li>如果用手捡，效率低，还可能漏掉（人工查找）。</li>
+<li>如果用一个精细的筛子，只让“贝壳”掉下来，其它沙子就被过滤掉了（正则表达式）！</li>
+</ul>
+<h3 id="比喻："><a href="#比喻：" class="headerlink" title="比喻："></a>比喻：</h3><table>
+<thead>
+<tr>
+<th>正则术语</th>
+<th>类比解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模式（pattern）</td>
+<td>筛子的“孔洞形状”，决定你要抓什么</td>
+</tr>
+<tr>
+<td>匹配（match）</td>
+<td>贝壳正好卡在筛子里</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>沙滩（原始文字）</td>
+</tr>
+<tr>
+<td>提取&#x2F;替换</td>
+<td>把找到的贝壳收起来 &#x2F; 换成别的</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="✨-正则表达式的优点"><a href="#✨-正则表达式的优点" class="headerlink" title="✨ 正则表达式的优点"></a>✨ 正则表达式的优点</h2><ol>
+<li><strong>高效准确</strong>：可以一行代码找出成千上万行文字中符合规则的部分。</li>
+<li><strong>灵活强大</strong>：能处理邮箱、身份证、日期、手机号等各种“格式”的文本。</li>
+<li><strong>跨语言支持广泛</strong>：JavaScript、Python、Java、C# 都支持，写一次可以多处使用。</li>
+<li><strong>替代手工写循环判断</strong>：本来几十行 if 判断，用一行正则就解决。</li>
+</ol>
+<hr>
+<h2 id="🎯-正则表达式的设计思想"><a href="#🎯-正则表达式的设计思想" class="headerlink" title="🎯 正则表达式的设计思想"></a>🎯 正则表达式的设计思想</h2><p>正则的核心思想是“<strong>用最简短的方式描述一类字符串模式</strong>”。不是去写死具体内容，而是用“通配规则”说：</p>
+<blockquote>
+<p>“我想找那些<strong>以abc开头、后面是3个数字、以xyz结尾</strong>的字符串。”</p>
+</blockquote>
+<p>你不关心具体是哪个“abc123xyz”，你只关心它<strong>长什么样</strong>（形状）。</p>
+<hr>
+<h2 id="📘-正则表达式常见语法汇总（常用-通俗解释）"><a href="#📘-正则表达式常见语法汇总（常用-通俗解释）" class="headerlink" title="📘 正则表达式常见语法汇总（常用 + 通俗解释）"></a>📘 正则表达式常见语法汇总（常用 + 通俗解释）</h2><h3 id="1-字符匹配"><a href="#1-字符匹配" class="headerlink" title="1. 字符匹配"></a>1. <strong>字符匹配</strong></h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>含义</th>
+<th>举例匹配</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.</code></td>
+<td>任意一个字符（除换行）</td>
+<td><code>a.b</code> 匹配 <code>acb</code>, <code>a9b</code></td>
+</tr>
+<tr>
+<td><code>\d</code></td>
+<td>数字（0-9）</td>
+<td><code>\d\d</code> 匹配 <code>12</code></td>
+</tr>
+<tr>
+<td><code>\w</code></td>
+<td>字母、数字、下划线</td>
+<td><code>\w\w</code> 匹配 <code>ab</code>, <code>A1</code>, <code>_x</code></td>
+</tr>
+<tr>
+<td><code>\s</code></td>
+<td>空白符（空格、\t、\n）</td>
+<td><code>a\sb</code> 匹配 <code>a b</code></td>
+</tr>
+<tr>
+<td><code>\D</code>, <code>\W</code>, <code>\S</code></td>
+<td>非数字、非单词、非空白</td>
+<td>相反含义</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="2-重复数量"><a href="#2-重复数量" class="headerlink" title="2. 重复数量"></a>2. <strong>重复数量</strong></h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>含义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>a*</code></td>
+<td>0次或多次a</td>
+<td>匹配空串、a、aaaa</td>
+</tr>
+<tr>
+<td><code>a+</code></td>
+<td>1次或多次a</td>
+<td>匹配a、aa</td>
+</tr>
+<tr>
+<td><code>a?</code></td>
+<td>0次或1次a</td>
+<td>匹配空、a</td>
+</tr>
+<tr>
+<td><code>a&#123;3&#125;</code></td>
+<td>恰好3次a</td>
+<td>匹配<code>aaa</code></td>
+</tr>
+<tr>
+<td><code>a&#123;2,4&#125;</code></td>
+<td>2到4次a</td>
+<td>匹配<code>aa</code>、<code>aaa</code>、<code>aaaa</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="3-边界"><a href="#3-边界" class="headerlink" title="3. 边界"></a>3. <strong>边界</strong></h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>含义</th>
+<th>举例匹配</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>^</code></td>
+<td>行的开头</td>
+<td><code>^abc</code> 匹配以abc开头</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>行的结尾</td>
+<td><code>xyz$</code> 匹配以xyz结尾</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>单词边界</td>
+<td><code>\bthe\b</code> 匹配“the”这个完整单词</td>
+</tr>
+<tr>
+<td><code>\B</code></td>
+<td>非单词边界</td>
+<td><code>\Bthe\B</code> 匹配中间的the，如<code>others</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="4-字符集-排除"><a href="#4-字符集-排除" class="headerlink" title="4. 字符集 &amp; 排除"></a>4. <strong>字符集 &amp; 排除</strong></h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>含义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>[abc]</code></td>
+<td>匹配 a 或 b 或 c</td>
+<td><code>[aeiou]</code> 匹配元音</td>
+</tr>
+<tr>
+<td><code>[^abc]</code></td>
+<td>除了 a&#x2F;b&#x2F;c</td>
+<td>排除特定字符</td>
+</tr>
+<tr>
+<td><code>[a-z]</code></td>
+<td>匹配a到z</td>
+<td><code>[A-Za-z0-9]</code> 匹配字母或数字</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="5-分组和或"><a href="#5-分组和或" class="headerlink" title="5. 分组和或"></a>5. <strong>分组和或</strong></h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>含义</th>
+<th>举例</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>(abc)</code></td>
+<td>分组，整体匹配</td>
+<td>可以用作提取、替换</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>`a</td>
+<td>b`</td>
+<td>匹配a或b</td>
+<td>`(cat</td>
+<td>dog)` 匹配cat或dog</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="6-贪婪与懒惰匹配"><a href="#6-贪婪与懒惰匹配" class="headerlink" title="6. 贪婪与懒惰匹配"></a>6. <strong>贪婪与懒惰匹配</strong></h3><table>
+<thead>
+<tr>
+<th>正则</th>
+<th>含义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.*</code></td>
+<td>贪婪：尽可能多地匹配</td>
+<td><code>&lt;.*&gt;</code> 会匹配整个<code>&lt;a&gt;hello&lt;/a&gt;</code></td>
+</tr>
+<tr>
+<td><code>.*?</code></td>
+<td>懒惰：尽可能少地匹配</td>
+<td><code>&lt;.*?&gt;</code> 匹配<code>&lt;a&gt;</code>、<code>&lt;/a&gt;</code>各自</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="📍-应用实例"><a href="#📍-应用实例" class="headerlink" title="📍 应用实例"></a>📍 应用实例</h2><ol>
+<li><strong>匹配手机号</strong>（11位以1开头的数字）：<code>^1\d&#123;10&#125;$</code></li>
+<li><strong>邮箱地址</strong>：<code>^\w+@\w+\.\w+$</code></li>
+<li><strong>日期（如 2025-06-12）</strong>：<code>\d&#123;4&#125;-\d&#123;2&#125;-\d&#123;2&#125;</code></li>
+<li><strong>查找所有HTML标签名</strong>：<code>&lt;([a-zA-Z][a-zA-Z0-9]*)[^&gt;]*&gt;</code></li>
+</ol>
+<hr>
+<h2 id="🛠-小提示"><a href="#🛠-小提示" class="headerlink" title="🛠 小提示"></a>🛠 小提示</h2><ul>
+<li>可以用网站测试正则表达式，如：<a target="_blank" rel="noopener" href="https://regex101.com/">regex101.com</a></li>
+<li>编程中常搭配 <code>.match()</code>、<code>.replace()</code>、<code>.test()</code>、<code>.search()</code> 等函数使用。</li>
+</ul>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="1-匹配所有由-3个小写字母组成的单词"><a href="#1-匹配所有由-3个小写字母组成的单词" class="headerlink" title="1. 匹配所有由 3个小写字母组成的单词"></a>1. 匹配所有由 <strong>3个小写字母组成的单词</strong></h3><p>例子：<code>cat</code>、<code>dog</code>、<code>sun</code> ✔<br> 不匹配：<code>Cat</code>、<code>cats</code>、<code>a1b</code> ❌<br> → 答案：<code>^[a-z]&#123;3&#125;$</code></p>
+<hr>
+<h3 id="2-匹配一个-整数（正负都可以）"><a href="#2-匹配一个-整数（正负都可以）" class="headerlink" title="2. 匹配一个 整数（正负都可以）"></a>2. 匹配一个 <strong>整数</strong>（正负都可以）</h3><p>例子：<code>123</code>、<code>-456</code>、<code>0</code> ✔<br> 不匹配：<code>12.3</code>、<code>+34</code> ❌<br> → 答案：<code>^-?\d+$</code></p>
+<hr>
+<h3 id="3-匹配一个-手机号（中国大陆-11-位，以-1-开头）"><a href="#3-匹配一个-手机号（中国大陆-11-位，以-1-开头）" class="headerlink" title="3. 匹配一个 手机号（中国大陆 11 位，以 1 开头）"></a>3. 匹配一个 <strong>手机号</strong>（中国大陆 11 位，以 1 开头）</h3><p>例子：<code>13812345678</code> ✔<br> 不匹配：<code>23812345678</code>、<code>1381234567</code> ❌<br> → 答案：<code>^1\d&#123;10&#125;$</code></p>
+<hr>
+<h3 id="4-匹配一个以-a-开头，以-z-结尾的字符串，中间可以是任意字符"><a href="#4-匹配一个以-a-开头，以-z-结尾的字符串，中间可以是任意字符" class="headerlink" title="4. 匹配一个以 a 开头，以 z 结尾的字符串，中间可以是任意字符"></a>4. 匹配一个以 <code>a</code> 开头，以 <code>z</code> 结尾的字符串，中间可以是任意字符</h3><p>例子：<code>abcz</code>、<code>a123z</code>、<code>az</code> ✔<br> → 答案：<code>^a.*z$</code></p>
+<hr>
+<h2 id="🔧-中级练习（掌握分组、选择、边界）"><a href="#🔧-中级练习（掌握分组、选择、边界）" class="headerlink" title="🔧 中级练习（掌握分组、选择、边界）"></a>🔧 中级练习（掌握分组、选择、边界）</h2><h3 id="5-匹配所有的-合法邮箱地址"><a href="#5-匹配所有的-合法邮箱地址" class="headerlink" title="5. 匹配所有的 合法邮箱地址"></a>5. 匹配所有的 <strong>合法邮箱地址</strong></h3><p>例子：<code>hello@domain.com</code>、<code>user.name_12@mail.cn</code> ✔<br> → 答案：<code>^\w+([.-]?\w+)*@\w+([.-]?\w+)*\.\w&#123;2,&#125;$</code></p>
+<hr>
+<h3 id="6-匹配一个-IPv4-地址"><a href="#6-匹配一个-IPv4-地址" class="headerlink" title="6. 匹配一个 IPv4 地址"></a>6. 匹配一个 <strong>IPv4 地址</strong></h3><p>例子：<code>192.168.0.1</code> ✔<br> → 答案：（简化版）<code>^(\d&#123;1,3&#125;\.)&#123;3&#125;\d&#123;1,3&#125;$</code></p>
+<blockquote>
+<p>（严格判断需加范围判断，如：<code>25[0-5]|2[0-4]\d|1\d&#123;2&#125;|[1-9]?\d</code>）</p>
+</blockquote>
+<hr>
+<h3 id="7-匹配所有以-http-或-https-开头的-URL"><a href="#7-匹配所有以-http-或-https-开头的-URL" class="headerlink" title="7. 匹配所有以 http:// 或 https:// 开头的 URL"></a>7. 匹配所有以 <code>http://</code> 或 <code>https://</code> 开头的 URL</h3><p>例子：<code>https://example.com</code> ✔<br> → 答案：<code>^https?:\/\/[^\s]+$</code></p>
+<hr>
+<h3 id="8-匹配-HTML-标签（如-、-等）"><a href="#8-匹配-HTML-标签（如-、-等）" class="headerlink" title="8. 匹配 HTML 标签（如 &lt;div&gt;、&lt;a href=&quot;#&quot;&gt; 等）"></a>8. 匹配 HTML 标签（如 <code>&lt;div&gt;</code>、<code>&lt;a href=&quot;#&quot;&gt;</code> 等）</h3><p>→ 答案：<code>&lt;[^&gt;]+&gt;</code></p>
+<hr>
+<h2 id="🧠-高级挑战（应用分组、非贪婪匹配、断言）"><a href="#🧠-高级挑战（应用分组、非贪婪匹配、断言）" class="headerlink" title="🧠 高级挑战（应用分组、非贪婪匹配、断言）"></a>🧠 高级挑战（应用分组、非贪婪匹配、断言）</h2><h3 id="9-提取所有-HTML-中的标签名（不含尖括号）"><a href="#9-提取所有-HTML-中的标签名（不含尖括号）" class="headerlink" title="9. 提取所有 HTML 中的标签名（不含尖括号）"></a>9. 提取所有 HTML 中的标签名（不含尖括号）</h3><p>例子：从 <code>&lt;div class=&quot;test&quot;&gt;</code> 提取 <code>div</code><br> → 答案：<code>&lt;\s*([a-zA-Z][a-zA-Z0-9]*)\b[^&gt;]*&gt;</code></p>
+<hr>
+<h3 id="10-匹配-身份证号码（18位，支持末尾-X）"><a href="#10-匹配-身份证号码（18位，支持末尾-X）" class="headerlink" title="10. 匹配 身份证号码（18位，支持末尾 X）"></a>10. 匹配 <strong>身份证号码</strong>（18位，支持末尾 X）</h3><p>例子：<code>110105199909098877</code>、<code>33010220001212X123</code> ✔<br> → 答案：<code>^\d&#123;17&#125;[\dXx]$</code></p>
+<hr>
+<h3 id="11-匹配重复的单词（如-“is-is”-“hello-hello”）"><a href="#11-匹配重复的单词（如-“is-is”-“hello-hello”）" class="headerlink" title="11. 匹配重复的单词（如 “is is”, “hello hello”）"></a>11. 匹配<strong>重复的单词</strong>（如 “is is”, “hello hello”）</h3><p>例子：<code>This is is a test.</code> 中匹配 <code>is is</code><br> → 答案：<code>\b(\w+)\s+\1\b</code></p>
+<hr>
+<h3 id="12-匹配用双引号括起来的内容（懒惰模式）"><a href="#12-匹配用双引号括起来的内容（懒惰模式）" class="headerlink" title="12. 匹配用双引号括起来的内容（懒惰模式）"></a>12. 匹配用双引号括起来的内容（懒惰模式）</h3><p>例子：<code>&quot;hello&quot;</code>、<code>&quot;name is Tom&quot;</code> ✔<br> → 答案：<code>&quot;(.+?)&quot;</code></p>
+<hr>
+<h2 id="🎁-Bonus：实战迷你项目题"><a href="#🎁-Bonus：实战迷你项目题" class="headerlink" title="🎁 Bonus：实战迷你项目题"></a>🎁 Bonus：实战迷你项目题</h2><h3 id="13-从一段文本中提取出所有金额（如￥100-00-¥200-3-5）"><a href="#13-从一段文本中提取出所有金额（如￥100-00-¥200-3-5）" class="headerlink" title="13. 从一段文本中提取出所有金额（如￥100.00, ¥200, $3.5）"></a>13. 从一段文本中提取出所有金额（如￥100.00, ¥200, $3.5）</h3><p>示例文本：<code>我花了￥100.00和$3.5买了东西。</code><br> → 预期匹配结果：<code>￥100.00</code>、<code>$3.5</code><br> → 答案：<code>[¥$￥]\d+(\.\d&#123;1,2&#125;)?</code></p>
+<hr>
+<h3 id="14-验证密码强度（最少8位，必须包含大小写字母和数字）"><a href="#14-验证密码强度（最少8位，必须包含大小写字母和数字）" class="headerlink" title="14. 验证密码强度（最少8位，必须包含大小写字母和数字）"></a>14. 验证密码强度（最少8位，必须包含大小写字母和数字）</h3><p>→ 答案：<code>^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]&#123;8,&#125;$</code></p>
 
                     
                 </div>
@@ -324,7 +568,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a>
                                     </li>
                                 
                             </ul>
@@ -340,31 +584,15 @@
                 
                     <div class="post-nav border-box">
                         
-                            <div class="prev-post">
-                                <a class="prev"
-                                   rel="prev"
-                                   href="/2024/11/05/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
-                                   title="归并排序"
-                                >
-                                    <span class="left arrow-icon flex-center">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                    <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">归并排序</span>
-                                        <span class="post-nav-item">Prev posts</span>
-                                    </span>
-                                </a>
-                            </div>
-                        
                         
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2024/11/04/%E7%8E%AF%E6%A3%80%E6%B5%8B/"
-                                   title="环检测"
+                                   href="/2025/06/12/%E5%86%85%E9%83%A8%E7%B1%BB/"
+                                   title="内部类"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">环检测</span>
+                                        <span class="post-nav-title-item text-ellipsis">内部类</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
