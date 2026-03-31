@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+            ES初体验 |
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/OnePiece.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/OnePiece.ico","favicon":"/images/OnePiece.ico"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/OnePiece.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        ES初体验
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/luffy.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">一锅炖不下</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-03-31 22:01:18</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Tue Mar 31 2026 22:36:35 GMT+0800">2026-03-31 22:36:35</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/ES/">ES</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><h3 id="倒排索引（Inverted-Index）"><a href="#倒排索引（Inverted-Index）" class="headerlink" title="倒排索引（Inverted Index）"></a>倒排索引（Inverted Index）</h3><p>将长文本分词，把词项作为索引，对应原始文本 id 作为内容组织成的索引。会对词项按字典序排序，便于后续二分查找。</p>
+<h3 id="Term-Index"><a href="#Term-Index" class="headerlink" title="Term Index"></a>Term Index</h3><p>不可能将整个倒排索引所有词项都加载到内存，Term Index 是一个字典树（Trie），每个节点保存它对应在倒排索引中的位置，用于快速定位词项。</p>
+<h3 id="词项（Term）"><a href="#词项（Term）" class="headerlink" title="词项（Term）"></a>词项（Term）</h3><p>分词后得到的拆分内容。</p>
+<h3 id="Doc-Values"><a href="#Doc-Values" class="headerlink" title="Doc Values"></a>Doc Values</h3><p>想针对原始文本中的某个属性（例如时间）排序时，就把这个属性和 id 抽出来，单独排序，用空间换时间。Doc Values 是 ES 默认开启的列式存储结构。</p>
+<h3 id="Segment"><a href="#Segment" class="headerlink" title="Segment"></a>Segment</h3><p>是 Lucene 中完整的查询最小单元，每个 Segment 内部包含独立的倒排索引。多个 Segment 共同构成一个分片。</p>
+<h3 id="Stored-Fields"><a href="#Stored-Fields" class="headerlink" title="Stored Fields"></a>Stored Fields</h3><p>原始文本字段，指 _source 中存储的原始 JSON 文档。</p>
+<h3 id="Segment-Merge"><a href="#Segment-Merge" class="headerlink" title="Segment Merge"></a>Segment Merge</h3><p>可以对 Segment 并发读写，但 Segment 数量过多会耗尽文件句柄，因此需要定期合并，合并时会删除已标记为删除的文档。</p>
+<h3 id="Shard"><a href="#Shard" class="headerlink" title="Shard"></a>Shard</h3><p>分片，可基于文档 id 哈希路由，实现数据水平扩展。</p>
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><p>物理组织，一个 ES 节点是一个运行中的 ES 实例。</p>
+<h3 id="三大特性"><a href="#三大特性" class="headerlink" title="三大特性"></a>三大特性</h3><ul>
+<li><strong>高性能</strong>：基于倒排索引、内存缓存、列式存储等机制保证快速检索</li>
+<li><strong>高扩展性</strong>：通过分片机制实现水平扩展</li>
+<li><strong>高可用</strong>：通过副本分片实现故障转移</li>
+</ul>
+<h3 id="集群选主"><a href="#集群选主" class="headerlink" title="集群选主"></a>集群选主</h3><p>去中心化——不引入中心节点实现选主协调，基于 Raft 模块实现 Master 节点选举。</p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
+<li><strong>结构化数据</strong>：有固定 schema 的数据，如关系型数据库中的表</li>
+<li><strong>非结构化数据</strong>：无固定格式的数据，如文本、日志</li>
+<li><strong>半结构化数据</strong>：介于两者之间，如 JSON、XML</li>
+</ul>
+<hr>
+<h2 id="端口说明"><a href="#端口说明" class="headerlink" title="端口说明"></a>端口说明</h2><ul>
+<li><strong>9300</strong>：ES 集群节点间通信端口（TCP）</li>
+<li><strong>9200</strong>：HTTP REST API 访问端口</li>
+</ul>
+<hr>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>需要先使用 PUT 方法创建索引，不能用 POST，因为 PUT 是幂等的，多次执行结果一致；POST 语义是非幂等的，通常用于创建文档。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PUT /user</span><br><span class="line">&#123;</span><br><span class="line">  &quot;settings&quot;: &#123;</span><br><span class="line">    &quot;number_of_shards&quot;: 1,</span><br><span class="line">    &quot;number_of_replicas&quot;: 1</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;mappings&quot;: &#123;</span><br><span class="line">    &quot;properties&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &#123; &quot;type&quot;: &quot;text&quot; &#125;,</span><br><span class="line">      &quot;age&quot;: &#123; &quot;type&quot;: &quot;integer&quot; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h3><ul>
+<li>使用 POST 时，ES 自动生成文档 id</li>
+<li>使用 PUT 时，需指定文档 id，且是幂等的</li>
+</ul>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">POST /user/_doc</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;张三&quot;,</span><br><span class="line">  &quot;age&quot;: 25</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PUT /user/_doc/1001</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;李四&quot;,</span><br><span class="line">  &quot;age&quot;: 30</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># 使用 _create 时，如果文档已存在则报错</span><br><span class="line">PUT /user/_create/1002</span><br><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;王五&quot;,</span><br><span class="line">  &quot;age&quot;: 28</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 根据 id 查询</span><br><span class="line">GET /user/_doc/1001</span><br><span class="line"></span><br><span class="line"># 查询所有</span><br><span class="line">GET /user/_search</span><br><span class="line"></span><br><span class="line"># 条件查询</span><br><span class="line">GET /user/_search</span><br><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;match&quot;: &#123;</span><br><span class="line">      &quot;name&quot;: &quot;张三&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 部分更新</span><br><span class="line">POST /user/_update/1001</span><br><span class="line">&#123;</span><br><span class="line">  &quot;doc&quot;: &#123;</span><br><span class="line">    &quot;age&quot;: 31</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE /user/_doc/1001</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DELETE /user</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Java-REST-API"><a href="#Java-REST-API" class="headerlink" title="Java REST API"></a>Java REST API</h2><h3 id="客户端创建"><a href="#客户端创建" class="headerlink" title="客户端创建"></a>客户端创建</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">RestHighLevelClient</span> <span class="variable">esClient</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RestHighLevelClient</span>(</span><br><span class="line">    RestClient.builder(<span class="keyword">new</span> <span class="title class_">HttpHost</span>(<span class="string">&quot;localhost&quot;</span>, <span class="number">9200</span>, <span class="string">&quot;http&quot;</span>))</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="请求构建"><a href="#请求构建" class="headerlink" title="请求构建"></a>请求构建</h3><ul>
+<li><code>SearchRequest</code>：查询请求</li>
+<li><code>IndexRequest</code>：插入&#x2F;更新文档请求</li>
+<li><code>DeleteRequest</code>：删除文档请求</li>
+<li><code>UpdateRequest</code>：部分更新文档请求</li>
+</ul>
+<h3 id="索引与-id-指定"><a href="#索引与-id-指定" class="headerlink" title="索引与 id 指定"></a>索引与 id 指定</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.index(<span class="string">&quot;user&quot;</span>).id(<span class="string">&quot;1001&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="复杂查询条件构建"><a href="#复杂查询条件构建" class="headerlink" title="复杂查询条件构建"></a>复杂查询条件构建</h3><h4 id="SearchSourceBuilder"><a href="#SearchSourceBuilder" class="headerlink" title="SearchSourceBuilder"></a>SearchSourceBuilder</h4><p>对整个查询请求体的抽象，可以添加查询条件、分页、排序、高亮、聚合等配置。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SearchSourceBuilder</span> <span class="variable">sourceBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SearchSourceBuilder</span>();</span><br><span class="line">sourceBuilder.query(QueryBuilders.matchAllQuery());</span><br><span class="line">sourceBuilder.from(<span class="number">0</span>);</span><br><span class="line">sourceBuilder.size(<span class="number">10</span>);</span><br><span class="line">sourceBuilder.fetchSource(<span class="keyword">new</span> <span class="title class_">String</span>[]&#123;<span class="string">&quot;name&quot;</span>, <span class="string">&quot;age&quot;</span>&#125;, <span class="keyword">new</span> <span class="title class_">String</span>[]&#123;&#125;);  <span class="comment">// includes, excludes</span></span><br><span class="line">sourceBuilder.sort(<span class="string">&quot;age&quot;</span>, SortOrder.DESC);</span><br></pre></td></tr></table></figure>
+
+<h4 id="QueryBuilders"><a href="#QueryBuilders" class="headerlink" title="QueryBuilders"></a>QueryBuilders</h4><p>单个查询条件的构造工厂，可以构造多种查询类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配所有</span></span><br><span class="line">QueryBuilders.matchAllQuery()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 精确匹配 term（不分词）</span></span><br><span class="line">QueryBuilders.termQuery(<span class="string">&quot;age&quot;</span>, <span class="number">30</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全文检索 match（分词）</span></span><br><span class="line">QueryBuilders.matchQuery(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模糊查询</span></span><br><span class="line">QueryBuilders.fuzzyQuery(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;wangwu&quot;</span>).fuzziness(Fuzziness.AUTO)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 范围查询</span></span><br><span class="line">QueryBuilders.rangeQuery(<span class="string">&quot;age&quot;</span>).gte(<span class="number">18</span>).lte(<span class="number">35</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="BoolQueryBuilder"><a href="#BoolQueryBuilder" class="headerlink" title="BoolQueryBuilder"></a>BoolQueryBuilder</h4><p>组合多个查询条件，支持 must、should、must_not、filter。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">BoolQueryBuilder</span> <span class="variable">boolQuery</span> <span class="operator">=</span> QueryBuilders.boolQuery();</span><br><span class="line">boolQuery.must(QueryBuilders.matchQuery(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>));</span><br><span class="line">boolQuery.filter(QueryBuilders.rangeQuery(<span class="string">&quot;age&quot;</span>).gte(<span class="number">18</span>));</span><br><span class="line">boolQuery.mustNot(QueryBuilders.termQuery(<span class="string">&quot;status&quot;</span>, <span class="string">&quot;deleted&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h4 id="HighLightBuilder"><a href="#HighLightBuilder" class="headerlink" title="HighLightBuilder"></a>HighLightBuilder</h4><p>高亮展示查询结果。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">HighlightBuilder</span> <span class="variable">highlightBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HighlightBuilder</span>();</span><br><span class="line">highlightBuilder.preTags(<span class="string">&quot;&lt;font color=&#x27;red&#x27;&gt;&quot;</span>);</span><br><span class="line">highlightBuilder.postTags(<span class="string">&quot;&lt;/font&gt;&quot;</span>);</span><br><span class="line">highlightBuilder.field(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">sourceBuilder.highlighter(highlightBuilder);</span><br></pre></td></tr></table></figure>
+
+<h3 id="完整查询示例"><a href="#完整查询示例" class="headerlink" title="完整查询示例"></a>完整查询示例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">SearchRequest</span> <span class="variable">searchRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SearchRequest</span>(<span class="string">&quot;user&quot;</span>);</span><br><span class="line"><span class="type">SearchSourceBuilder</span> <span class="variable">sourceBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SearchSourceBuilder</span>();</span><br><span class="line"></span><br><span class="line"><span class="type">BoolQueryBuilder</span> <span class="variable">boolQuery</span> <span class="operator">=</span> QueryBuilders.boolQuery();</span><br><span class="line">boolQuery.must(QueryBuilders.matchQuery(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;张三&quot;</span>));</span><br><span class="line">boolQuery.filter(QueryBuilders.rangeQuery(<span class="string">&quot;age&quot;</span>).gte(<span class="number">18</span>));</span><br><span class="line"></span><br><span class="line">sourceBuilder.query(boolQuery);</span><br><span class="line">sourceBuilder.from(<span class="number">0</span>);</span><br><span class="line">sourceBuilder.size(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">HighlightBuilder</span> <span class="variable">highlightBuilder</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HighlightBuilder</span>();</span><br><span class="line">highlightBuilder.field(<span class="string">&quot;name&quot;</span>).preTags(<span class="string">&quot;&lt;em&gt;&quot;</span>).postTags(<span class="string">&quot;&lt;/em&gt;&quot;</span>);</span><br><span class="line">sourceBuilder.highlighter(highlightBuilder);</span><br><span class="line"></span><br><span class="line">searchRequest.source(sourceBuilder);</span><br><span class="line"></span><br><span class="line"><span class="type">SearchResponse</span> <span class="variable">response</span> <span class="operator">=</span> esClient.search(searchRequest, RequestOptions.DEFAULT);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (SearchHit hit : response.getHits().getHits()) &#123;</span><br><span class="line">    System.out.println(hit.getSourceAsString());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">esClient.close();</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="REST-API-与-Java-API-对比"><a href="#REST-API-与-Java-API-对比" class="headerlink" title="REST API 与 Java API 对比"></a>REST API 与 Java API 对比</h2><table>
+<thead>
+<tr>
+<th>REST API</th>
+<th>Java API</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GET /user/_search</code></td>
+<td><code>SearchRequest</code></td>
+</tr>
+<tr>
+<td><code>POST /user/_doc</code></td>
+<td><code>IndexRequest</code></td>
+</tr>
+<tr>
+<td><code>PUT /user/_doc/1001</code></td>
+<td><code>IndexRequest</code> + <code>id()</code></td>
+</tr>
+<tr>
+<td><code>POST /user/_update/1001</code></td>
+<td><code>UpdateRequest</code></td>
+</tr>
+<tr>
+<td><code>DELETE /user/_doc/1001</code></td>
+<td><code>DeleteRequest</code></td>
+</tr>
+<tr>
+<td><code>&#123;&quot;query&quot;: &#123;...&#125;&#125;</code></td>
+<td><code>SearchSourceBuilder.query()</code></td>
+</tr>
+<tr>
+<td><code>&#123;&quot;bool&quot;: &#123;...&#125;&#125;</code></td>
+<td><code>BoolQueryBuilder</code></td>
+</tr>
+<tr>
+<td><code>&#123;&quot;match&quot;: &#123;...&#125;&#125;</code></td>
+<td><code>QueryBuilders.matchQuery()</code></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="补充：POST-与-PUT-的语义区别"><a href="#补充：POST-与-PUT-的语义区别" class="headerlink" title="补充：POST 与 PUT 的语义区别"></a>补充：POST 与 PUT 的语义区别</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>语义</th>
+<th>ES 中的使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PUT</td>
+<td>幂等，指定完整路径</td>
+<td>创建索引、指定 id 创建&#x2F;更新文档</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>非幂等，可自动生成资源标识</td>
+<td>自动生成 id 创建文档、部分更新</td>
+</tr>
+</tbody></table>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/ES/">ES</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/03/24/Reactor%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"
+                                   title="Sinks"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Sinks</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

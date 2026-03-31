@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+            匹配子序列的单词数_792_多指针_桶排序or二分查找 |
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/OnePiece.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/OnePiece.ico","favicon":"/images/OnePiece.ico"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/OnePiece.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        匹配子序列的单词数_792_多指针_桶排序or二分查找
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/luffy.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">一锅炖不下</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-12-04 11:07:59</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Dec 04 2025 11:55:21 GMT+0800">2025-12-04 11:55:21</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>题目：<a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-matching-subsequences/description/" >https://leetcode.cn/problems/number-of-matching-subsequences/description/<i class="fas fa-external-link-alt"></i></a></p>
+<p>给定字符串 <code>s</code> 和字符串数组 <code>words</code>, 返回 <em><code>words[i]</code> 中是<code>s</code>的子序列的单词个数</em> 。</p>
+<p>字符串的 <strong>子序列</strong> 是从原始字符串中生成的新字符串，可以从中删去一些字符(可以是none)，而不改变其余字符的相对顺序。</p>
+<ul>
+<li>例如， <code>“ace”</code> 是 <code>“abcde”</code> 的子序列。</li>
+</ul>
+<h1 id="解法一——二分查找"><a href="#解法一——二分查找" class="headerlink" title="解法一——二分查找"></a>解法一——二分查找</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">numMatchingSubseq</span><span class="params">(String s, String[] words)</span> &#123;</span><br><span class="line">        Map&lt;Character, List&lt;Integer&gt;&gt; wordMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            List&lt;Integer&gt; wordList = wordMap.getOrDefault(s.charAt(i), <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;());</span><br><span class="line">            wordList.add(i);</span><br><span class="line">            wordMap.put(s.charAt(i), wordList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">result</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; words.length; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">searchIndex</span> <span class="operator">=</span> -<span class="number">1</span>;</span><br><span class="line">            <span class="type">String</span> <span class="variable">word</span> <span class="operator">=</span> words[i];</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">isSub</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j &lt; word.length(); j++) &#123;</span><br><span class="line">                List&lt;Integer&gt; wordList = wordMap.get(word.charAt(j));</span><br><span class="line">                <span class="keyword">if</span> (wordList == <span class="literal">null</span>) &#123;</span><br><span class="line">                    isSub = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = wordList.size() - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right - left) / <span class="number">2</span>;</span><br><span class="line">                    <span class="comment">// 错误原因，漏掉了对相等情况的处理</span></span><br><span class="line">                    <span class="keyword">if</span> (wordList.get(mid) &lt;= searchIndex) &#123;</span><br><span class="line">                        left = mid + <span class="number">1</span>;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (wordList.get(mid) &gt; searchIndex) &#123;</span><br><span class="line">                        right = mid - <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (left &lt; wordList.size()) &#123;</span><br><span class="line">                    searchIndex = wordList.get(left);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    isSub = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (isSub) &#123;</span><br><span class="line">                result++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="核心思想：空间换时间-有序性利用"><a href="#核心思想：空间换时间-有序性利用" class="headerlink" title="核心思想：空间换时间 + 有序性利用"></a>核心思想：<strong>空间换时间 + 有序性利用</strong></h2><h3 id="1-预构建索引表（空间换时间）"><a href="#1-预构建索引表（空间换时间）" class="headerlink" title="1. 预构建索引表（空间换时间）"></a>1. <strong>预构建索引表（空间换时间）</strong></h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;Character, List&lt;Integer&gt;&gt; wordMap = new HashMap&lt;&gt;();</span><br><span class="line">for (int i = 0; i &lt; s.length(); i++) &#123;</span><br><span class="line">    wordMap.getOrDefault(s.charAt(i), new ArrayList&lt;&gt;()).add(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>目的</strong>：</p>
+<ul>
+<li>将字符串 <code>s</code> 中每个字符出现的<strong>所有位置</strong>记录下来</li>
+<li>建立：字符 → 位置列表 的映射</li>
+</ul>
+<p><strong>示例</strong>：<code>s = &quot;abcba&quot;</code></p>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wordMap = &#123;</span><br><span class="line">    &#x27;a&#x27;: [0, 4],    // &#x27;a&#x27;出现在位置0和4</span><br><span class="line">    &#x27;b&#x27;: [1, 3],    // &#x27;b&#x27;出现在位置1和3  </span><br><span class="line">    &#x27;c&#x27;: [2]        // &#x27;c&#x27;出现在位置2</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-有序位置列表的关键特性"><a href="#2-有序位置列表的关键特性" class="headerlink" title="2. 有序位置列表的关键特性"></a>2. <strong>有序位置列表的关键特性</strong></h3><p>每个字符的位置列表是<strong>自然有序</strong>的（因为是按遍历顺序添加的）：</p>
+<ul>
+<li><code>&#39;a&#39;: [0, 4]</code> 已经是升序</li>
+<li><code>&#39;b&#39;: [1, 3]</code> 已经是升序</li>
+<li>这个有序性使得<strong>二分查找</strong>成为可能</li>
+</ul>
+<h3 id="3-贪心匹配-二分查找（核心算法）"><a href="#3-贪心匹配-二分查找（核心算法）" class="headerlink" title="3. 贪心匹配 + 二分查找（核心算法）"></a>3. <strong>贪心匹配 + 二分查找（核心算法）</strong></h3><p>对于每个单词的每个字符：</p>
+<ol>
+<li><strong>找到该字符在s中大于上一个匹配位置的最小位置</strong></li>
+<li><strong>使用二分查找在有序列表中快速定位</strong></li>
+</ol>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">int searchIndex = -1;  // 上一个匹配的位置</span><br><span class="line">for (每个字符c in word) &#123;</span><br><span class="line">    List&lt;Integer&gt; positions = wordMap.get(c);</span><br><span class="line">    // 二分查找：找到第一个 &gt; searchIndex 的位置</span><br><span class="line">    int pos = binarySearchGreaterThan(positions, searchIndex);</span><br><span class="line">    if (找到) &#123;</span><br><span class="line">        searchIndex = pos;  // 更新上一个匹配位置</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        不是子序列;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-二分查找的逻辑（有错误的版本）"><a href="#4-二分查找的逻辑（有错误的版本）" class="headerlink" title="4. 二分查找的逻辑（有错误的版本）"></a>4. <strong>二分查找的逻辑（有错误的版本）</strong></h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while (left &lt;= right) &#123;</span><br><span class="line">    int mid = left + (right - left) / 2;</span><br><span class="line">    if (wordList.get(mid) &lt;= searchIndex) &#123;</span><br><span class="line">        left = mid + 1;  // 太小，向右搜索</span><br><span class="line">    &#125; else if (wordList.get(mid) &gt; searchIndex) &#123;</span><br><span class="line">        right = mid - 1; // 太大，向左搜索</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// 最后 left 指向第一个 &gt; searchIndex 的位置</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>这里的逻辑错误</strong>：</p>
+<ul>
+<li>当 <code>wordList.get(mid) == searchIndex</code> 时，应该继续向右找（因为需要大于）</li>
+<li>但代码中 <code>if (wordList.get(mid) &lt;= searchIndex)</code> 包含了等于情况</li>
+<li>这会导致找到的是第一个 <strong>大于等于</strong> searchIndex 的位置，而不是<strong>大于</strong></li>
+</ul>
+<h3 id="5-修正后的二分查找"><a href="#5-修正后的二分查找" class="headerlink" title="5. 修正后的二分查找"></a>5. <strong>修正后的二分查找</strong></h3><p>正确做法应该是找<strong>严格大于</strong> searchIndex 的最小位置：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while (left &lt;= right) &#123;</span><br><span class="line">    int mid = left + (right - left) / 2;</span><br><span class="line">    if (wordList.get(mid) &lt;= searchIndex) &#123;</span><br><span class="line">        left = mid + 1;  // 需要更大的位置</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        right = mid - 1; // 这个位置可能合适，继续向左找更小的</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">// left 是第一个 &gt; searchIndex 的位置</span><br></pre></td></tr></table></figure>
+
+
+
+<p>或者更清晰的写法：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 找第一个大于 searchIndex 的位置</span><br><span class="line">int left = 0, right = positions.size() - 1;</span><br><span class="line">int result = -1;</span><br><span class="line">while (left &lt;= right) &#123;</span><br><span class="line">    int mid = left + (right - left) / 2;</span><br><span class="line">    if (positions.get(mid) &gt; searchIndex) &#123;</span><br><span class="line">        result = positions.get(mid);  // 记录候选</span><br><span class="line">        right = mid - 1;  // 继续向左找更小的</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        left = mid + 1;   // 向右找</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="算法示例演示"><a href="#算法示例演示" class="headerlink" title="算法示例演示"></a>算法示例演示</h2><p>假设：<code>s = &quot;abcde&quot;</code>, <code>word = &quot;ace&quot;</code></p>
+<h3 id="构建索引："><a href="#构建索引：" class="headerlink" title="构建索引："></a>构建索引：</h3><p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wordMap = &#123;</span><br><span class="line">    &#x27;a&#x27;: [0],</span><br><span class="line">    &#x27;b&#x27;: [1], </span><br><span class="line">    &#x27;c&#x27;: [2],</span><br><span class="line">    &#x27;d&#x27;: [3],</span><br><span class="line">    &#x27;e&#x27;: [4]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="匹配过程："><a href="#匹配过程：" class="headerlink" title="匹配过程："></a>匹配过程：</h3><ol>
+<li>**匹配 ‘a’**：<ul>
+<li>searchIndex &#x3D; -1</li>
+<li>在 <code>[0]</code> 中找 &gt; -1 的最小位置 → 找到 0</li>
+<li>searchIndex &#x3D; 0</li>
+</ul>
+</li>
+<li>**匹配 ‘c’**：<ul>
+<li>在 <code>[2]</code> 中找 &gt; 0 的最小位置 → 找到 2</li>
+<li>searchIndex &#x3D; 2</li>
+</ul>
+</li>
+<li>**匹配 ‘e’**：<ul>
+<li>在 <code>[4]</code> 中找 &gt; 2 的最小位置 → 找到 4</li>
+<li>searchIndex &#x3D; 4</li>
+<li>匹配成功！</li>
+</ul>
+</li>
+</ol>
+<h2 id="关键优化点"><a href="#关键优化点" class="headerlink" title="关键优化点"></a>关键优化点</h2><h3 id="1-避免重复扫描s"><a href="#1-避免重复扫描s" class="headerlink" title="1. 避免重复扫描s"></a>1. <strong>避免重复扫描s</strong></h3><p>传统方法对每个单词都要从头扫描s，时间复杂度 O(N×M)。<br>此方法只需一次扫描s构建索引，然后每个字符用二分查找 O(log K)。</p>
+<h3 id="2-利用有序性"><a href="#2-利用有序性" class="headerlink" title="2. 利用有序性"></a>2. <strong>利用有序性</strong></h3><p>位置列表自然有序，二分查找 O(log N) 比线性扫描 O(N) 快得多。</p>
+<h3 id="3-贪心选择最小位置"><a href="#3-贪心选择最小位置" class="headerlink" title="3. 贪心选择最小位置"></a>3. <strong>贪心选择最小位置</strong></h3><p>每次选择满足条件的最小位置，确保为后续字符留下最大空间。</p>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>预处理</strong>：O(S)，S是s的长度</li>
+<li><strong>每个单词匹配</strong>：O(L × log K)<ul>
+<li>L：单词长度</li>
+<li>K：字符在s中的平均出现次数</li>
+</ul>
+</li>
+<li><strong>总复杂度</strong>：O(S + Σ(L × log K))</li>
+</ul>
+<h2 id="与”多指针桶排序”方法的对比"><a href="#与”多指针桶排序”方法的对比" class="headerlink" title="与”多指针桶排序”方法的对比"></a>与”多指针桶排序”方法的对比</h2><table>
+<thead>
+<tr>
+<th align="left">方面</th>
+<th align="left">预索引+二分查找</th>
+<th align="left">多指针桶排序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">思想</td>
+<td align="left">空间换时间，二分加速</td>
+<td align="left">事件驱动，并行处理</td>
+</tr>
+<tr>
+<td align="left">数据结构</td>
+<td align="left">HashMap&lt;Character, List&gt;</td>
+<td align="left">Queue数组</td>
+</tr>
+<tr>
+<td align="left">优势</td>
+<td align="left">查找速度快，适合字符分布稀疏</td>
+<td align="left">处理流程清晰，适合大量单词</td>
+</tr>
+<tr>
+<td align="left">劣势</td>
+<td align="left">需要存储所有位置，空间较大</td>
+<td align="left">需要维护队列状态</td>
+</tr>
+<tr>
+<td align="left">适用场景</td>
+<td align="left">s中等大小，words较少</td>
+<td align="left">s很大，words很多</td>
+</tr>
+</tbody></table>
+<h2 id="算法本质"><a href="#算法本质" class="headerlink" title="算法本质"></a>算法本质</h2><p>这个算法的本质是：<strong>将子序列匹配问题转化为有序序列上的贪心选择问题</strong></p>
+<ol>
+<li><strong>索引化</strong>：将线性搜索空间转化为结构化的查找表</li>
+<li><strong>有序化</strong>：利用位置的自然有序性</li>
+<li><strong>二分化</strong>：用二分查找替代线性扫描</li>
+<li><strong>贪心化</strong>：每次选择最小可行解</li>
+</ol>
+<p>这是一种典型的<strong>预处理+快速查询</strong>的算法设计模式，在数据库索引、搜索引擎等领域有广泛应用。</p>
+<h1 id="解法二——多指针-桶排序"><a href="#解法二——多指针-桶排序" class="headerlink" title="解法二——多指针+桶排序"></a>解法二——多指针+桶排序</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">numMatchingSubseq</span><span class="params">(String s, String[] words)</span> &#123;</span><br><span class="line">        Queue&lt;<span class="type">int</span>[]&gt;[] p=<span class="keyword">new</span> <span class="title class_">Queue</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">26</span>;i++)&#123;</span><br><span class="line">            p[i]=<span class="keyword">new</span> <span class="title class_">ArrayDeque</span>&lt;<span class="type">int</span>[]&gt;();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;words.length;i++)&#123;</span><br><span class="line">            p[words[i].charAt(<span class="number">0</span>)-<span class="string">&#x27;a&#x27;</span>].offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;i,<span class="number">0</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="type">char</span> c=s.charAt(i);</span><br><span class="line">            <span class="type">int</span> len=p[c-<span class="string">&#x27;a&#x27;</span>].size();</span><br><span class="line">            <span class="keyword">while</span>(len&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="type">int</span>[] t=p[c-<span class="string">&#x27;a&#x27;</span>].poll();</span><br><span class="line">                <span class="keyword">if</span>(t[<span class="number">1</span>]==words[t[<span class="number">0</span>]].length()-<span class="number">1</span>)&#123;</span><br><span class="line">                    ++res;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    ++t[<span class="number">1</span>];</span><br><span class="line">                    p[words[t[<span class="number">0</span>]].charAt(t[<span class="number">1</span>])-<span class="string">&#x27;a&#x27;</span>].offer(t);</span><br><span class="line">                &#125;</span><br><span class="line">                --len;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>不主动为每个单词在 s 中寻找匹配，而是<strong>让 s 的每个字符主动去匹配等待它的单词</strong>。</p>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;int[]&gt;[] p = new Queue[26];</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>创建了26个队列（对应26个小写字母）</li>
+<li>每个队列存储：等待匹配该字符的单词信息</li>
+<li>每个单词信息用 <code>int[]&#123;i, j&#125;</code> 表示：<ul>
+<li><code>i</code>：单词在 words 数组中的索引</li>
+<li><code>j</code>：该单词下一个要匹配的字符索引</li>
+</ul>
+</li>
+</ul>
+<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><h3 id="1-初始化阶段"><a href="#1-初始化阶段" class="headerlink" title="1. 初始化阶段"></a>1. 初始化阶段</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;words.length;i++)&#123;</span><br><span class="line">    p[words[i].charAt(0)-&#x27;a&#x27;].offer(new int[]&#123;i,0&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>将所有单词的第一个字符放入对应的队列</li>
+<li>例如：单词 “ace” 会放入队列 <code>p[&#39;a&#39;-&#39;a&#39;]</code> 中，存储 <code>&#123;单词索引, 0&#125;</code></li>
+</ul>
+<h3 id="2-遍历-s-进行匹配"><a href="#2-遍历-s-进行匹配" class="headerlink" title="2. 遍历 s 进行匹配"></a>2. 遍历 s 进行匹配</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;s.length();i++)&#123;</span><br><span class="line">    char c = s.charAt(i);</span><br><span class="line">    int len = p[c-&#x27;a&#x27;].size();</span><br><span class="line">    while(len&gt;0)&#123;</span><br><span class="line">        // 处理所有等待字符 c 的单词</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>遍历 s 的每个字符 <code>c</code></li>
+<li>从队列 <code>p[c-&#39;a&#39;]</code> 中取出所有等待字符 <code>c</code> 的单词</li>
+</ul>
+<h3 id="3-处理匹配到的单词"><a href="#3-处理匹配到的单词" class="headerlink" title="3. 处理匹配到的单词"></a>3. 处理匹配到的单词</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int[] t = p[c-&#x27;a&#x27;].poll();</span><br><span class="line">if(t[1] == words[t[0]].length()-1)&#123;</span><br><span class="line">    ++res;  // 单词完全匹配完成</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    ++t[1];  // 移动到下一个字符</span><br><span class="line">    p[words[t[0]].charAt(t[1])-&#x27;a&#x27;].offer(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><strong>如果当前字符是单词的最后一个字符</strong>：匹配完成，计数器加1</li>
+<li><strong>如果不是最后一个字符</strong>：<ol>
+<li>将指针移动到下一个字符 (<code>t[1]++</code>)</li>
+<li>将这个单词放入它<strong>下一个需要匹配的字符</strong>对应的队列中</li>
+</ol>
+</li>
+</ul>
+<h2 id="示例演示"><a href="#示例演示" class="headerlink" title="示例演示"></a>示例演示</h2><p>假设：</p>
+<ul>
+<li><code>s = &quot;abcde&quot;</code></li>
+<li><code>words = [&quot;a&quot;, &quot;bb&quot;, &quot;acd&quot;, &quot;ace&quot;]</code></li>
+</ul>
+<h3 id="初始化："><a href="#初始化：" class="headerlink" title="初始化："></a>初始化：</h3><p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p[&#x27;a&#x27;]: [&#123;0,0&#125;, &#123;2,0&#125;, &#123;3,0&#125;]  // 单词0:&quot;a&quot;, 单词2:&quot;acd&quot;, 单词3:&quot;ace&quot;</span><br><span class="line">p[&#x27;b&#x27;]: [&#123;1,0&#125;]                // 单词1:&quot;bb&quot;</span><br><span class="line">其他队列：空</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="遍历过程："><a href="#遍历过程：" class="headerlink" title="遍历过程："></a>遍历过程：</h3><ol>
+<li><p><strong>s[0] &#x3D; ‘a’</strong></p>
+<ul>
+<li>处理 <code>p[&#39;a&#39;]</code> 中的3个单词：<ul>
+<li>单词0:”a” → 完成匹配，res&#x3D;1</li>
+<li>单词2:”acd” → 下一个字符是’c’，放入 <code>p[&#39;c&#39;]</code></li>
+<li>单词3:”ace” → 下一个字符是’c’，放入 <code>p[&#39;c&#39;]</code></li>
+</ul>
+</li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p[&#x27;c&#x27;]: [&#123;2,1&#125;, &#123;3,1&#125;]</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>s[1] &#x3D; ‘b’</strong></p>
+<ul>
+<li>处理 <code>p[&#39;b&#39;]</code> 中的1个单词：<ul>
+<li>单词1:”bb” → 下一个字符是’b’，放入 <code>p[&#39;b&#39;]</code></li>
+</ul>
+</li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p[&#x27;b&#x27;]: [&#123;1,1&#125;]</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>s[2] &#x3D; ‘c’</strong></p>
+<ul>
+<li>处理 <code>p[&#39;c&#39;]</code> 中的2个单词：<ul>
+<li>单词2:”acd” → 下一个字符是’d’，放入 <code>p[&#39;d&#39;]</code></li>
+<li>单词3:”ace” → 下一个字符是’e’，放入 <code>p[&#39;e&#39;]</code></li>
+</ul>
+</li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p[&#x27;d&#x27;]: [&#123;2,2&#125;]</span><br><span class="line">p[&#x27;e&#x27;]: [&#123;3,2&#125;]</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>s[3] &#x3D; ‘d’</strong></p>
+<ul>
+<li>处理 <code>p[&#39;d&#39;]</code> 中的1个单词：<ul>
+<li>单词2:”acd” → 完成匹配，res&#x3D;2</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>s[4] &#x3D; ‘e’</strong></p>
+<ul>
+<li>处理 <code>p[&#39;e&#39;]</code> 中的1个单词：<ul>
+<li>单词3:”ace” → 完成匹配，res&#x3D;3</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>最终结果</strong>：res&#x3D;3（”bb”不是子序列）</p>
+<h2 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>：O(S + ΣL)<ul>
+<li>S：字符串 s 的长度</li>
+<li>ΣL：所有单词的总长度</li>
+<li>每个字符最多被处理一次</li>
+</ul>
+</li>
+<li><strong>空间复杂度</strong>：O(N)<ul>
+<li>N：单词数量</li>
+<li>最多存储 N 个指针信息</li>
+</ul>
+</li>
+</ul>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li><strong>高效</strong>：避免了为每个单词重复遍历 s</li>
+<li><strong>并行处理</strong>：s 的每个字符可以同时处理多个等待的单词</li>
+<li><strong>减少冗余</strong>：只处理真正需要的匹配</li>
+</ol>
+<p>这种方法的本质是<strong>反向思考</strong>：不是”单词去s中找匹配”，而是”s的字符去通知等待它的单词”。</p>
+<h4 id="1-每个单词都有自己的独立指针"><a href="#1-每个单词都有自己的独立指针" class="headerlink" title="1. 每个单词都有自己的独立指针"></a>1. <strong>每个单词都有自己的独立指针</strong></h4><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int[] t = p[c-&#x27;a&#x27;].poll();  // 每个 t 代表一个单词及其进度</span><br><span class="line">// t[0]: 单词索引</span><br><span class="line">// t[1]: 当前匹配到的字符位置（指针位置）</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>具体体现</strong>：</p>
+<ul>
+<li>单词 “acd” 有自己的指针：开始指向0，匹配’a’后指向1，匹配’c’后指向2</li>
+<li>单词 “ace” 有自己的指针：同样的流程但独立维护</li>
+<li>这两个指针<strong>独立移动</strong>，互不影响</li>
+</ul>
+<h4 id="2-指针的并行推进"><a href="#2-指针的并行推进" class="headerlink" title="2. 指针的并行推进"></a>2. <strong>指针的并行推进</strong></h4><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 处理同一个字符时，多个单词的指针同时前进</span><br><span class="line">while(len&gt;0)&#123;</span><br><span class="line">    int[] t = p[c-&#x27;a&#x27;].poll();  // 取出一个单词</span><br><span class="line">    ++t[1];  // 指针向前移动一位</span><br><span class="line">    // 将更新后的指针放入新队列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>实际效果</strong>：<br>当 s&#x3D;”abcde”，同时处理”acd”和”ace”时：</p>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">时间点      &quot;acd&quot;指针    &quot;ace&quot;指针</span><br><span class="line">初始:       0          0</span><br><span class="line">匹配&#x27;a&#x27;后:  1          1  ← 同时前进！</span><br><span class="line">匹配&#x27;c&#x27;后:  2          2  ← 同时前进！</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-指针的差异化存储"><a href="#3-指针的差异化存储" class="headerlink" title="3. 指针的差异化存储"></a>3. <strong>指针的差异化存储</strong></h4><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 指针根据下一步需要的字符存储在不同队列中</span><br><span class="line">p[words[t[0]].charAt(t[1])-&#x27;a&#x27;].offer(t);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>关键点</strong>：</p>
+<ul>
+<li>虽然指针同时处理，但<strong>下一步目标不同</strong></li>
+<li>“acd”匹配完’a’后，需要’c’ → 放入<code>p[&#39;c&#39;]</code></li>
+<li>“ace”匹配完’a’后，需要’c’ → 放入<code>p[&#39;c&#39;]</code></li>
+<li>两者暂时存放在<strong>同一个队列</strong>，等待同一个字符</li>
+</ul>
+<h4 id="4-指针的生命周期管理"><a href="#4-指针的生命周期管理" class="headerlink" title="4. 指针的生命周期管理"></a>4. <strong>指针的生命周期管理</strong></h4><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if(t[1] == words[t[0]].length()-1)&#123;</span><br><span class="line">    ++res;  // 指针完成使命</span><br><span class="line">&#125;else&#123;</span><br><span class="line">    ++t[1];  // 指针继续前进</span><br><span class="line">    // 重新激活指针</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>每个指针</strong>：</p>
+<ol>
+<li><strong>创建</strong>：初始化时放入第一个字符的队列</li>
+<li><strong>激活</strong>：遇到匹配字符时从队列取出</li>
+<li><strong>前进</strong>：指针位置+1</li>
+<li><strong>休眠</strong>：放入新的等待队列</li>
+<li><strong>终止</strong>：到达单词末尾</li>
+</ol>
+<h2 id="1-按关键值分桶（核心桶操作）"><a href="#1-按关键值分桶（核心桶操作）" class="headerlink" title="1. 按关键值分桶（核心桶操作）"></a>1. <strong>按关键值分桶（核心桶操作）</strong></h2><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Queue&lt;int[]&gt;[] p = new Queue[26];  // 创建26个桶</span><br><span class="line">for(int i=0;i&lt;words.length;i++)&#123;</span><br><span class="line">    p[words[i].charAt(0)-&#x27;a&#x27;].offer(new int[]&#123;i,0&#125;);  // 按首字符分桶</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>类比桶排序</strong>：</p>
+<ul>
+<li>桶排序：根据数值范围分到不同桶</li>
+<li>此算法：根据<strong>下一个需要匹配的字符</strong>分到不同桶</li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">桶排序：[17, 23, 15, 8] 按十位数分桶</span><br><span class="line">桶0: [08]</span><br><span class="line">桶1: [15, 17]  </span><br><span class="line">桶2: [23]</span><br><span class="line"></span><br><span class="line">此算法：[&quot;ace&quot;, &quot;bb&quot;, &quot;acd&quot;] 按下一个字符分桶</span><br><span class="line">桶&#x27;a&#x27;: [&quot;ace&quot;(0), &quot;acd&quot;(0)]</span><br><span class="line">桶&#x27;b&#x27;: [&quot;bb&quot;(0)]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-桶的重新分配（动态重分桶）"><a href="#2-桶的重新分配（动态重分桶）" class="headerlink" title="2. 桶的重新分配（动态重分桶）"></a>2. <strong>桶的重新分配（动态重分桶）</strong></h2><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">++t[1];  // 指针前进</span><br><span class="line">p[words[t[0]].charAt(t[1])-&#x27;a&#x27;].offer(t);  // 重新分桶</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>类比桶排序的多次分配</strong>：</p>
+<ul>
+<li>基数排序：先按个位分桶，再按十位重新分桶</li>
+<li>此算法：匹配一个字符后，按<strong>下一个字符</strong>重新分桶</li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">第一次分桶（按首字符）：</span><br><span class="line">桶&#x27;a&#x27;: [&quot;ace&quot;, &quot;acd&quot;]</span><br><span class="line">桶&#x27;b&#x27;: [&quot;bb&quot;]</span><br><span class="line"></span><br><span class="line">处理&#x27;a&#x27;后重新分桶（按第二个字符）：</span><br><span class="line">桶&#x27;c&#x27;: [&quot;ace&quot;, &quot;acd&quot;]  ← 从桶&#x27;a&#x27;移来</span><br><span class="line">桶&#x27;b&#x27;: [&quot;bb&quot;]          ← 保持不变</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-桶的按序处理（与输入顺序对应）"><a href="#3-桶的按序处理（与输入顺序对应）" class="headerlink" title="3. 桶的按序处理（与输入顺序对应）"></a>3. <strong>桶的按序处理（与输入顺序对应）</strong></h2><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;s.length();i++)&#123;</span><br><span class="line">    char c = s.charAt(i);  // 按s的顺序</span><br><span class="line">    int len = p[c-&#x27;a&#x27;].size();  // 只处理对应字符的桶</span><br><span class="line">    // ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>类比桶排序的收集</strong>：</p>
+<ul>
+<li>桶排序：按桶的顺序收集元素</li>
+<li>此算法：<strong>按s的字符顺序触发对应桶的处理</strong></li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">桶排序：先处理桶0，再桶1，再桶2...</span><br><span class="line">此算法：s=&quot;abc&quot;，先触发桶&#x27;a&#x27;，再桶&#x27;b&#x27;，再桶&#x27;c&#x27;...</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="4-完整的”排序式”处理流程"><a href="#4-完整的”排序式”处理流程" class="headerlink" title="4. 完整的”排序式”处理流程"></a>4. <strong>完整的”排序式”处理流程</strong></h2><p>让我们将算法步骤与桶排序对应：</p>
+<table>
+<thead>
+<tr>
+<th align="left">桶排序步骤</th>
+<th align="left">此算法步骤</th>
+<th align="left">具体操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1. 初始化桶</td>
+<td align="left">初始化26个字符桶</td>
+<td align="left"><code>Queue[] p = new Queue[26]</code></td>
+</tr>
+<tr>
+<td align="left">2. 第一次分桶</td>
+<td align="left">按单词首字符分桶</td>
+<td align="left"><code>p[word.charAt(0)-&#39;a&#39;].offer()</code></td>
+</tr>
+<tr>
+<td align="left">3. 处理数据流</td>
+<td align="left">按s字符顺序遍历</td>
+<td align="left"><code>for(char c : s)</code></td>
+</tr>
+<tr>
+<td align="left">4. 处理当前桶</td>
+<td align="left">处理匹配字符的桶</td>
+<td align="left"><code>p[c-&#39;a&#39;].poll()</code></td>
+</tr>
+<tr>
+<td align="left">5. 重新分桶</td>
+<td align="left">更新指针并重新分桶</td>
+<td align="left"><code>p[nextChar-&#39;a&#39;].offer()</code></td>
+</tr>
+<tr>
+<td align="left">6. 收集结果</td>
+<td align="left">完成时计数</td>
+<td align="left"><code>res++</code></td>
+</tr>
+</tbody></table>
+<h2 id="5-与基数排序的对比"><a href="#5-与基数排序的对比" class="headerlink" title="5. 与基数排序的对比"></a>5. <strong>与基数排序的对比</strong></h2><h3 id="基数排序（LSD）："><a href="#基数排序（LSD）：" class="headerlink" title="基数排序（LSD）："></a>基数排序（LSD）：</h3><p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">原始: [170, 45, 75, 90, 802, 24, 2, 66]</span><br><span class="line"></span><br><span class="line">第1轮（按个位分桶）：</span><br><span class="line">桶0: [170, 90]</span><br><span class="line">桶2: [802, 2]</span><br><span class="line">桶4: [24]</span><br><span class="line">桶5: [45, 75]</span><br><span class="line">桶6: [66]</span><br><span class="line"></span><br><span class="line">收集: [170, 90, 802, 2, 24, 45, 75, 66]</span><br><span class="line"></span><br><span class="line">第2轮（按十位重新分桶）：</span><br><span class="line">桶0: [802, 2]</span><br><span class="line">桶2: [24]</span><br><span class="line">桶4: [45]</span><br><span class="line">桶6: [66]</span><br><span class="line">桶7: [170, 75]</span><br><span class="line">桶9: [90]</span><br><span class="line"></span><br><span class="line">收集: [802, 2, 24, 45, 66, 170, 75, 90]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="此算法："><a href="#此算法：" class="headerlink" title="此算法："></a>此算法：</h3><p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">原始: [&quot;acd&quot;, &quot;ace&quot;, &quot;bb&quot;]</span><br><span class="line"></span><br><span class="line">第1轮（按首字符分桶）：</span><br><span class="line">桶&#x27;a&#x27;: [&quot;acd&quot;(0), &quot;ace&quot;(0)]</span><br><span class="line">桶&#x27;b&#x27;: [&quot;bb&quot;(0)]</span><br><span class="line"></span><br><span class="line">s遍历到&#x27;a&#x27;，处理桶&#x27;a&#x27;：</span><br><span class="line">&quot;acd&quot; → 指针到1，需要&#x27;c&#x27; → 放入桶&#x27;c&#x27;</span><br><span class="line">&quot;ace&quot; → 指针到1，需要&#x27;c&#x27; → 放入桶&#x27;c&#x27;</span><br><span class="line"></span><br><span class="line">第2轮（重新分桶后状态）：</span><br><span class="line">桶&#x27;b&#x27;: [&quot;bb&quot;(0)]</span><br><span class="line">桶&#x27;c&#x27;: [&quot;acd&quot;(1), &quot;ace&quot;(1)]</span><br><span class="line"></span><br><span class="line">s遍历到&#x27;b&#x27;，处理桶&#x27;b&#x27;：</span><br><span class="line">&quot;bb&quot; → 指针到1，需要&#x27;b&#x27; → 放入桶&#x27;b&#x27;</span><br><span class="line"></span><br><span class="line">第3轮状态：</span><br><span class="line">桶&#x27;b&#x27;: [&quot;bb&quot;(1)]</span><br><span class="line">桶&#x27;c&#x27;: [&quot;acd&quot;(1), &quot;ace&quot;(1)]</span><br><span class="line">桶&#x27;d&#x27;: 空</span><br><span class="line">桶&#x27;e&#x27;: 空</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6-桶的稀疏性处理优化"><a href="#6-桶的稀疏性处理优化" class="headerlink" title="6. 桶的稀疏性处理优化"></a>6. <strong>桶的稀疏性处理优化</strong></h2><p>这个算法还体现了<strong>稀疏桶的优化思想</strong>：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 只处理有数据的桶，跳过空桶</span><br><span class="line">char c = s.charAt(i);</span><br><span class="line">int len = p[c-&#x27;a&#x27;].size();  // 如果size=0，直接跳过</span><br><span class="line">if(len &gt; 0)&#123;</span><br><span class="line">    // 只处理有数据的桶</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>类比稀疏矩阵或稀疏数据的桶排序优化</strong>：不处理空桶，提高效率。</p>
+<h2 id="7-桶作为等待队列的妙用"><a href="#7-桶作为等待队列的妙用" class="headerlink" title="7. 桶作为等待队列的妙用"></a>7. <strong>桶作为等待队列的妙用</strong></h2><p>这里的桶不仅仅是容器，更是<strong>等待队列</strong>：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 桶作为等待特定条件的队列</span><br><span class="line">p[nextChar-&#x27;a&#x27;].offer(t);  // 进入等待&#x27;nextChar&#x27;的队列</span><br><span class="line"></span><br><span class="line">// 当条件满足时（s中出现该字符），处理整个队列</span><br><span class="line">while(len &gt; 0)&#123;</span><br><span class="line">    process(p[c-&#x27;a&#x27;].poll());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这类似于：</p>
+<ul>
+<li><strong>事件驱动架构</strong>：注册事件监听器（入桶），事件触发时处理（出桶）</li>
+<li><strong>条件变量等待</strong>：线程等待条件，条件满足时被唤醒</li>
+</ul>
+<h2 id="总结：桶排序思想的体现"><a href="#总结：桶排序思想的体现" class="headerlink" title="总结：桶排序思想的体现"></a>总结：桶排序思想的体现</h2><ol>
+<li><strong>分桶思想</strong>：按关键值（下一个字符）将元素分配到不同桶</li>
+<li><strong>桶内聚集</strong>：相同条件的元素聚集在同一桶中</li>
+<li><strong>按序处理</strong>：按特定顺序（s的字符顺序）处理桶</li>
+<li><strong>重新分桶</strong>：处理完后根据新关键值重新分配到其他桶</li>
+<li><strong>稀疏优化</strong>：跳过空桶，只处理有数据的桶</li>
+</ol>
+<p>虽然这不是标准的排序算法，但它<strong>借用了桶排序的核心思想</strong>——<strong>通过分桶将全局顺序问题分解为局部并行问题</strong>，从而：</p>
+<ul>
+<li><strong>降低复杂度</strong>：从O(N×M)降到O(S+ΣL)</li>
+<li><strong>实现并行</strong>：多个单词的匹配可以同时进行</li>
+<li><strong>按需处理</strong>：只在必要时才处理相关数据</li>
+</ul>
+<p>这种”桶式分发，事件驱动”的模式在很多高效算法中都有应用，是分布式计算、流处理等领域的重要思想。</p>
+<h2 id="核心思想框架：生产者-消费者模式的反向驱动"><a href="#核心思想框架：生产者-消费者模式的反向驱动" class="headerlink" title="核心思想框架：生产者-消费者模式的反向驱动"></a>核心思想框架：<strong>生产者-消费者模式的反向驱动</strong></h2><h3 id="核心模式"><a href="#核心模式" class="headerlink" title="核心模式"></a>核心模式</h3><p><strong>不是让消费者（words）主动寻找资源（s），而是让资源（s）主动通知等待它的消费者。</strong></p>
+<h2 id="通用框架的四个步骤"><a href="#通用框架的四个步骤" class="headerlink" title="通用框架的四个步骤"></a>通用框架的四个步骤</h2><h3 id="1-状态抽象"><a href="#1-状态抽象" class="headerlink" title="1. 状态抽象"></a>1. <strong>状态抽象</strong></h3><p>将每个待处理对象抽象为：</p>
+<ul>
+<li><strong>标识符</strong>：对象的唯一标识</li>
+<li><strong>状态指针</strong>：当前处理进度</li>
+<li><strong>等待条件</strong>：下一步需要什么条件才能继续</li>
+</ul>
+<h3 id="2-条件分桶"><a href="#2-条件分桶" class="headerlink" title="2. 条件分桶"></a>2. <strong>条件分桶</strong></h3><p>创建<strong>条件等待队列</strong>，将对象按下一步所需条件分组存放。</p>
+<h3 id="3-资源驱动"><a href="#3-资源驱动" class="headerlink" title="3. 资源驱动"></a>3. <strong>资源驱动</strong></h3><p>让资源（输入流）主动触发：</p>
+<ul>
+<li>每个资源项检查对应条件的等待队列</li>
+<li>处理所有等待该资源的对象</li>
+<li>更新对象状态，重新放入新的等待队列</li>
+</ul>
+<h3 id="4-完成检测"><a href="#4-完成检测" class="headerlink" title="4. 完成检测"></a>4. <strong>完成检测</strong></h3><p>当对象达到终止条件时，记录完成。</p>
+<h2 id="适用场景分类"><a href="#适用场景分类" class="headerlink" title="适用场景分类"></a>适用场景分类</h2><h3 id="场景1：多序列匹配问题"><a href="#场景1：多序列匹配问题" class="headerlink" title="场景1：多序列匹配问题"></a>场景1：多序列匹配问题</h3><p><strong>特征</strong>：一个主序列，多个查询序列，判断是否为子序列</p>
+<ul>
+<li>DNA序列匹配</li>
+<li>日志流中的模式检测</li>
+<li>视频流中的动作序列识别</li>
+</ul>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 通用模板</span><br><span class="line">public &lt;T&gt; List&lt;Query&gt; matchSequences(Stream&lt;T&gt; mainStream, List&lt;Query&gt; queries) &#123;</span><br><span class="line">    Map&lt;Condition, Queue&lt;Query&gt;&gt; waiting = new HashMap&lt;&gt;();</span><br><span class="line">    // 初始化：所有查询按第一个条件分桶</span><br><span class="line">    for (Query q : queries) &#123;</span><br><span class="line">        waiting.computeIfAbsent(q.firstCondition(), k -&gt; new LinkedList&lt;&gt;())</span><br><span class="line">               .add(q);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    List&lt;Query&gt; results = new ArrayList&lt;&gt;();</span><br><span class="line">    for (T item : mainStream) &#123;</span><br><span class="line">        Condition cond = extractCondition(item);</span><br><span class="line">        Queue&lt;Query&gt; queue = waiting.get(cond);</span><br><span class="line">        if (queue != null) &#123;</span><br><span class="line">            processQueue(queue, item, waiting, results);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return results;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="场景2：依赖关系解析"><a href="#场景2：依赖关系解析" class="headerlink" title="场景2：依赖关系解析"></a>场景2：依赖关系解析</h3><p><strong>特征</strong>：任务有依赖关系，需要按特定顺序执行</p>
+<ul>
+<li>构建系统的依赖编译</li>
+<li>工作流引擎的任务调度</li>
+<li>课程学习的先修关系</li>
+</ul>
+<p>java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 课程学习计划示例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">CourseScheduler</span> &#123;</span><br><span class="line">    <span class="comment">// 每门课等待其先修课程完成</span></span><br><span class="line">    Map&lt;Course, Queue&lt;Student&gt;&gt; waitingForPrereq = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 学生完成课程时触发</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">completeCourse</span><span class="params">(Student student, Course course)</span> &#123;</span><br><span class="line">        <span class="comment">// 通知所有等待这门课作为先修的学生</span></span><br><span class="line">        <span class="keyword">for</span> (Course next : course.getNextCourses()) &#123;</span><br><span class="line">            Queue&lt;Student&gt; queue = waitingForPrereq.get(next);</span><br><span class="line">            <span class="keyword">if</span> (queue != <span class="literal">null</span>) &#123;</span><br><span class="line">                processWaitingStudents(queue, next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择这个框架当："><a href="#选择这个框架当：" class="headerlink" title="选择这个框架当："></a>选择这个框架当：</h3><ol>
+<li><strong>一个主数据流 + 多个查询&#x2F;任务</strong></li>
+<li><strong>查询之间有重叠匹配机会</strong></li>
+<li><strong>需要避免重复遍历主数据</strong></li>
+<li><strong>实时性要求高</strong></li>
+</ol>
+<h3 id="不要选择这个框架当："><a href="#不要选择这个框架当：" class="headerlink" title="不要选择这个框架当："></a>不要选择这个框架当：</h3><ol>
+<li>数据量很小，简单遍历即可</li>
+<li>查询之间完全独立，没有共享匹配</li>
+<li>主数据是静态的，可以预处理索引</li>
+</ol>
+<h2 id="模式识别技巧"><a href="#模式识别技巧" class="headerlink" title="模式识别技巧"></a>模式识别技巧</h2><p>当你遇到以下关键词时，可以考虑这个框架：</p>
+<ul>
+<li>“在流中查找多个模式”</li>
+<li>“多个依赖的并行处理”</li>
+<li>“事件驱动的状态转移”</li>
+<li>“避免重复扫描大数据集”</li>
+<li>“实时匹配和触发”</li>
+</ul>
+<h2 id="性能优化变体"><a href="#性能优化变体" class="headerlink" title="性能优化变体"></a>性能优化变体</h2><ol>
+<li><strong>懒加载分桶</strong>：只在需要时创建等待队列</li>
+<li><strong>批量处理</strong>：一次处理多个等待对象</li>
+<li><strong>优先级队列</strong>：按优先级处理等待对象</li>
+<li><strong>超时机制</strong>：清理长时间等待的对象</li>
+</ol>
+<p>这个框架的核心价值在于<strong>将主动查询转变为被动通知</strong>，在合适的场景下可以极大提高效率。</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/12/04/%E6%89%BE%E5%88%B0K%E4%B8%AA%E6%9C%80%E8%BF%91%E7%9A%84%E5%85%83%E7%B4%A0-658/"
+                                   title="找到K个最近的元素_658"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">找到K个最近的元素_658</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/12/01/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%BB%86%E8%8A%82/"
+                                   title="二分查找细节"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">二分查找细节</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>

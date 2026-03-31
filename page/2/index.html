@@ -232,80 +232,27 @@
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/04/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E7%96%B2%E6%83%AB/">
-                            为什么这么疲惫
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            最近两天到了下午都感觉很疲惫，就感觉脑子里的想法都是负面的，两眼之间的神经像是被绷紧了，眼眶火辣辣的，脑子像灌了水一样，完全跑不起来。到这个时候我对自己的评价就开始降低，怎么能这样，效率一点都不高，情绪是又愤怒又无奈，迫切想摆脱这种状态，然而又感到无...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Mon Apr 28 2025 21:22:08 GMT+0800"
-                >2025-04-28 21:22:08</span>
-            </span>
-        
-
-        
-
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%94%9F%E6%B4%BB/">生活</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2025/04/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E7%96%B2%E6%83%AB/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2025/04/27/%E9%94%BB%E7%82%BC%E8%AE%B0%E5%BD%95/">
-                            锻炼记录
+                        <a href="/2025/06/14/IO%E6%B5%81/">
+                            IO流
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
                             
-2025&#x2F;04&#x2F;27
-一公里跑，7：14，有点慢，不过跑完1公里就算胜利
-6组卷腹，第一次做有点难，没练到视频要求的6分钟
+作用: 读写文件中的数据(读写文件, 或网络中的数据等)
+
+几个问题: 谁在读?谁在写?以什么为参照物看读写方向?程序或者内存
+
+分类
+
+按流的方向分
+输入流: 程序–&gt;文件
+输出流: 文件–&gt;程序
 
 
-2025&#x2F;04&#x2F;28
-一公里跑，8：10，中间有拿快递的时间，应该比昨天快一点？...
+按操作文件类型
+字节流: 所有类...
                         
                     </div>
 
@@ -316,8 +263,8 @@
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Apr 27 2025 21:48:08 GMT+0800"
-                >2025-04-27 21:48:08</span>
+                                                                                data-updated="Sat Jun 14 2025 17:04:41 GMT+0800"
+                >2025-06-14 17:04:41</span>
             </span>
         
 
@@ -329,7 +276,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E4%BF%AE%E7%82%BC/">修炼</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -343,7 +290,7 @@
     </div>
 
     
-        <a class="home-read-more" href="/2025/04/27/%E9%94%BB%E7%82%BC%E8%AE%B0%E5%BD%95/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/14/IO%E6%B5%81/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -357,14 +304,30 @@
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2025/04/24/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                            vue学习笔记
+                        <a href="/2025/06/14/java-File%E7%9B%B8%E5%85%B3/">
+                            java File相关
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            创建vue实例：12345678910111213const app = new vue(&#123; // 数据挂在在app实例下，可通过app.count访问	el: &#x27;#app&#x27;, //关联容器	data: &#123; /...
+                            基本概念：
+
+File对象表示一个路径，可以是文件夹的路径发动反也可以是文件的路径
+路径可以存在,也可以不存在?
+
+常用方法:
+
+判断
+
+exists
+isDirectory
+isFile
+
+
+获取
+
+length: 不能获取文件夹大小, 只能把文件...
                         
                     </div>
 
@@ -375,8 +338,8 @@
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Thu Apr 24 2025 11:15:02 GMT+0800"
-                >2025-04-24 11:15:02</span>
+                                                                                data-updated="Sat Jun 14 2025 15:36:53 GMT+0800"
+                >2025-06-14 15:36:53</span>
             </span>
         
 
@@ -388,7 +351,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -402,7 +365,7 @@
     </div>
 
     
-        <a class="home-read-more" href="/2025/04/24/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/14/java-File%E7%9B%B8%E5%85%B3/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -416,19 +379,22 @@
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/12/02/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%AC%E4%B8%83%E7%AB%A0/">
-                            虚拟机类加载机制——《深入理解Java虚拟机》第七章笔记
+                        <a href="/2025/06/14/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">
+                            可变参数
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            类加载的作用是什么？
-把描述类的数据从class文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接使用的Java类型。
-Java类加载的特点？
-类型的加载、连接和初始化都在程序运行期完成。
+                            
+灵魂拷问：可变参数有什么用呢？可以用数组做参数为啥不直接用数组呢？
 
-优势：极高的扩展性和灵活性，Ja...
+答曰：在参数个数不确定时，可以节省构造入参时定义数组的操作,方便一点。
+
+语法:
+
+
+12345int getSum(int...args) &#123;    for(int ...
                         
                     </div>
 
@@ -439,8 +405,8 @@ Java类加载的特点？
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Mon Dec 02 2024 19:38:49 GMT+0800"
-                >2024-12-02 19:38:49</span>
+                                                                                data-updated="Sat Jun 14 2025 15:27:10 GMT+0800"
+                >2025-06-14 15:27:10</span>
             </span>
         
 
@@ -452,7 +418,7 @@ Java类加载的特点？
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/JVM/">JVM</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E2%80%98java%E5%9F%BA%E7%A1%80%E2%80%99/">‘java基础’</a></li>
                         
                     
                 </ul>
@@ -466,7 +432,7 @@ Java类加载的特点？
     </div>
 
     
-        <a class="home-read-more" href="/2024/12/02/%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%B1%BB%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6%E2%80%94%E2%80%94%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA%E3%80%8B%E7%AC%AC%E4%B8%83%E7%AB%A0/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/14/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -480,16 +446,28 @@ Java类加载的特点？
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/11/15/%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F/">
-                            垃圾回收第一部分——对象已死？
+                        <a href="/2025/06/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                            正则表达式——ChatGpt生成
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            垃圾收集需要考虑三件事情：
+                            
+🧠 通俗类比：正则表达式是“文字筛子”想象你在沙滩上找贝壳（文字中找内容）：
 
-哪些内存需要回收？——从回收区域上来看，伴随线程而生灭的程序计数器、虚拟机栈、本地方法栈是不需要回收的，需要回收的是共享的堆内存，而其中对象的生命周期是不确定的，因此更近一步地需要确定哪些对象需要被回收，这也是垃圾回收的...
+如果用手捡，效率低，还可能漏掉（人工查找）。
+如果用一个精细的筛子，只让“贝壳”掉下来，其它沙子就被过滤掉了（正则表达式）！
+
+比喻：
+
+
+正则术语
+类比解释
+
+
+
+...
                         
                     </div>
 
@@ -500,29 +478,20 @@ Java类加载的特点？
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Fri Nov 15 2024 23:06:18 GMT+0800"
-                >2024-11-15 23:06:18</span>
+                                                                                data-updated="Thu Jun 12 2025 21:39:58 GMT+0800"
+                >2025-06-12 21:39:58</span>
             </span>
         
 
         
 
-        
-            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
-                <ul class="post-category-ul">
-                    
-                            <li class="category-item"><a href="/categories/JVM/">JVM</a></li>
-                        
-                    
-                </ul>
-            </span>
         
 
         
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86/">垃圾收集</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -536,7 +505,7 @@ Java类加载的特点？
     </div>
 
     
-        <a class="home-read-more" href="/2024/11/15/%E5%AF%B9%E8%B1%A1%E5%B7%B2%E6%AD%BB%EF%BC%9F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/12/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -550,15 +519,31 @@ Java类加载的特点？
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/11/13/SumofAllSubstrings/">
-                            E-Sum of All Substrings——atcoder379
+                        <a href="/2025/06/12/%E5%86%85%E9%83%A8%E7%B1%BB/">
+                            内部类
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            E - Sum of All Substrings
-观察答案的贡献结构，可以发现，不必按照公式给出的方式用双重循环的方式去做，而可以对每个数字单独计算贡献度，记第i位的数字为ai，那么它的贡献度为(i + 1) * (10(0) + 10(1) + ...
+                            
+内部类访问特点：
+
+
+内部类可以直接访问外部类成员，包括私有
+外部类要访问内部类成员，必须创建对象
+
+
+概念：
+
+B类表示的事物是A类的一部分，单独存在没有意义，则B类可以设计为A类的内部类
+
+内部类的分类
+
+成员内部类
+静态内部类
+局部内部类
+匿...
                         
                     </div>
 
@@ -569,8 +554,8 @@ Java类加载的特点？
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Wed Nov 13 2024 15:19:08 GMT+0800"
-                >2024-11-13 15:19:08</span>
+                                                                                data-updated="Thu Jun 12 2025 20:59:34 GMT+0800"
+                >2025-06-12 20:59:34</span>
             </span>
         
 
@@ -582,7 +567,7 @@ Java类加载的特点？
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -596,7 +581,7 @@ Java类加载的特点？
     </div>
 
     
-        <a class="home-read-more" href="/2024/11/13/SumofAllSubstrings/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/12/%E5%86%85%E9%83%A8%E7%B1%BB/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -610,21 +595,16 @@ Java类加载的特点？
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/11/12/HomeGarden/">
-                            D - HomeGarden——atcoder379
+                        <a href="/2025/06/12/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                            lambda表达式
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            D - Home Garden 
-几个问题：
+                            1. 本质Lambda表达式是Java 8引入的匿名函数，本质上是函数式接口（Functional Interface）的实例。
 
-怎么做区间加法？怎么快速为当前所有值加上一个数？
-怎么快速获取大于H的所有值？并且动态地删除这些值？
-怎么同时满足以上两个条件？
-
-看了答案……牛逼，用一个队列就做出来了，这个解法巧妙的地方在于它没有用...
+底层实现：通过invokedynamic指令动态生成匿名类（非直接生成.class文件），运行时绑定到函数式接口的抽象...
                         
                     </div>
 
@@ -635,8 +615,8 @@ Java类加载的特点？
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Nov 12 2024 20:14:27 GMT+0800"
-                >2024-11-12 20:14:27</span>
+                                                                                data-updated="Thu Jun 12 2025 20:54:10 GMT+0800"
+                >2025-06-12 20:54:10</span>
             </span>
         
 
@@ -648,7 +628,7 @@ Java类加载的特点？
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -662,7 +642,7 @@ Java类加载的特点？
     </div>
 
     
-        <a class="home-read-more" href="/2024/11/12/HomeGarden/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/12/lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -676,16 +656,18 @@ Java类加载的特点？
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/">
-                            怎样面对身体的疲惫
+                        <a href="/2025/06/11/stream%E6%B5%81/">
+                            stream流
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            下午健身时做了三组卷腹，晚饭后感到有一些疲惫，腹部不间断地传出一种强烈的不适感，让我难以忽视它的存在。以及脑子也想罢工了，真是难搞。
-本来的计划是晚上做几道算法题，然后写写博客。唉，真是让人沮丧。
-我有点不知道该怎么面对这种状态了。一方面，我没法心甘...
+                            stream流的思想：流水线操作，首先有原材料也就是原始数据，经过每个中间方法，最终到达终结方法
+获取stream
+单列集合：stream()方法
+双列集合：通过keyset()或entryset()转为单列集合再获取stream
+数组：Arrays...
                         
                     </div>
 
@@ -696,62 +678,8 @@ Java类加载的特点？
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Nov 12 2024 19:28:44 GMT+0800"
-                >2024-11-12 19:28:44</span>
-            </span>
-        
-
-        
-
-        
-
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/2024/11/12/%E6%80%8E%E6%A0%B7%E9%9D%A2%E5%AF%B9%E8%BA%AB%E4%BD%93%E7%9A%84%E7%96%B2%E6%83%AB/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/2024/11/12/SowingStones/">
-                            SowingStones——atcoder379
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            Sowing Stones
-第一想法是用栈来做。然后想栈和队列结合起来做，栈内保存石子数大于1的格子的下标，用于从最近的溢出格子中移动石子；队列保存格子下标，用于判断区间内的石子数量是否足够。但是这样做有点问题。如下：
-有几个问题：
-
-怎样一个区间一...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Nov 12 2024 16:25:30 GMT+0800"
-                >2024-11-12 16:25:30</span>
+                                                                                data-updated="Wed Jun 11 2025 22:35:47 GMT+0800"
+                >2025-06-11 22:35:47</span>
             </span>
         
 
@@ -763,7 +691,7 @@ Java类加载的特点？
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/java%E5%9F%BA%E7%A1%80/">java基础</a></li>
                         
                     
                 </ul>
@@ -777,7 +705,7 @@ Java类加载的特点？
     </div>
 
     
-        <a class="home-read-more" href="/2024/11/12/SowingStones/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/11/stream%E6%B5%81/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -791,15 +719,20 @@ Java类加载的特点？
                 <div class="home-post-item-bottom border-box">
                     
                     <h3 class="home-post-title border-box">
-                        <a href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/">
-                            感觉累的时候怎么办
+                        <a href="/2025/06/11/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99%E2%80%94%E2%80%94%E3%80%8A%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E3%80%8B/">
+                            服务容错——《凤凰架构》
                         </a>
                     </h3>
 
                     <div class="home-post-content keep-markdown-body">
                         
-                            感觉累的时候往往也会感到空虚，还会感觉做什么事都没劲，并且往往因为一种无望的挣扎而熬夜，导致情况继续恶化。
-累的时候只需要不任由自己做一些毁灭性的举动即可，比如说熬夜就是其中一种。还可以做一些较低限度的事，一些比较简单又能带来成就感的事，比如写博客、...
+                            容错性设计主要解决两个问题：
+
+服务雪崩
+由于请求太多，导致请求阻塞
+
+容错性设计是微服务指导性原则中完全不能妥协的一个方面。
+
                         
                     </div>
 
@@ -810,8 +743,8 @@ Java类加载的特点？
         
             <span class="meta-info-item border-box">
                 <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Sun Nov 10 2024 21:50:11 GMT+0800"
-                >2024-11-10 21:50:11</span>
+                                                                                data-updated="Wed Jun 11 2025 10:14:07 GMT+0800"
+                >2025-06-11 10:14:07</span>
             </span>
         
 
@@ -823,10 +756,10 @@ Java类加载的特点？
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%94%9F%E6%B4%BB%E8%AE%B0%E5%BD%95/">生活记录</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</a></li>
                         
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E6%97%A5%E5%B8%B8/">日常</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84/">凤凰架构</a></li>
                         
                     
                 </ul>
@@ -840,7 +773,131 @@ Java类加载的特点？
     </div>
 
     
-        <a class="home-read-more" href="/2024/11/10/%E6%84%9F%E8%A7%89%E7%B4%AF%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E5%8A%9E/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+        <a class="home-read-more" href="/2025/06/11/%E6%9C%8D%E5%8A%A1%E5%AE%B9%E9%94%99%E2%80%94%E2%80%94%E3%80%8A%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E3%80%8B/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2025/06/10/%E6%99%BA%E8%83%BD%E4%BD%93%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/">
+                            智能体工具调用
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            主流工具：
+
+文件操作
+联网操作
+网页抓取
+终端操作
+资源下载
+PDF生成
+
+AI借助外部工具来完成自己做不到的事情。
+AI是根据用户问题生成调用工具名称和参数传递给后端，后端调用工具再把结果返回，而不是AI自己来调用工具。
+AI决定使用什么工具，以...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Tue Jun 10 2025 14:49:54 GMT+0800"
+                >2025-06-10 14:49:54</span>
+            </span>
+        
+
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E2%80%98%E6%99%BA%E8%83%BD%E4%BD%93%E5%BC%80%E5%8F%91%E2%80%99/">‘智能体开发’</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2025/06/10/%E6%99%BA%E8%83%BD%E4%BD%93%E5%B7%A5%E5%85%B7%E8%B0%83%E7%94%A8/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
+    
+</div>
+
+                </div>
+            </li>
+        
+            <li class="home-post-item">
+
+                
+
+                <div class="home-post-item-bottom border-box">
+                    
+                    <h3 class="home-post-title border-box">
+                        <a href="/2025/05/30/%E6%9E%B6%E6%9E%84%E5%AE%89%E5%85%A8%E6%80%A7%E2%80%94%E2%80%94%E3%80%8A%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E3%80%8B%E7%AC%AC5%E7%AB%A0/">
+                            架构安全性——《凤凰架构》第5章
+                        </a>
+                    </h3>
+
+                    <div class="home-post-content keep-markdown-body">
+                        
+                            1 概述架构安全性应至少包含以下问题的具体解决方案：
+
+认证（Authentication）：如何正确分辨操作用户的真实身份？要确保是可信的用户，才能进行相应的操作。
+
+授权（Authorization）：系统如何控制一个用户该看到哪些数据？操作哪些...
+                        
+                    </div>
+
+                    
+
+<div class="post-meta-info-container border-box home">
+    <div class="post-meta-info border-box">
+        
+            <span class="meta-info-item border-box">
+                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
+                                                                                data-updated="Fri May 30 2025 16:05:18 GMT+0800"
+                >2025-05-30 16:05:18</span>
+            </span>
+        
+
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+        <a class="home-read-more" href="/2025/05/30/%E6%9E%B6%E6%9E%84%E5%AE%89%E5%85%A8%E6%80%A7%E2%80%94%E2%80%94%E3%80%8A%E5%87%A4%E5%87%B0%E6%9E%B6%E6%9E%84%E3%80%8B%E7%AC%AC5%E7%AB%A0/">Read more&nbsp;<i class="icon fas fa-angle-right"></i></a>
     
 </div>
 
@@ -866,8 +923,8 @@ Java类加载的特点？
                    type="number"
                    value="2"
                    min="1"
-                   max="4"
-            /><span class="delimiter base-style">/</span><span class="base-style">4</span>
+                   max="5"
+            /><span class="delimiter base-style">/</span><span class="base-style">5</span>
         </div>
 
 
@@ -896,7 +953,7 @@ Java类加载的特点？
             
 <footer class="footer border-box">
     <div class="copyright-info info-item">
-    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2025
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
     
             &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
         

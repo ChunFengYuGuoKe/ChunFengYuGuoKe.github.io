@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+            找到K个最近的元素_658 |
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/OnePiece.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/OnePiece.ico","favicon":"/images/OnePiece.ico"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/OnePiece.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        找到K个最近的元素_658
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/luffy.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">一锅炖不下</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-12-04 15:12:55</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Dec 04 2025 17:51:22 GMT+0800">2025-12-04 17:51:22</span>
+                </span>
+            
+        
+
+        
+
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p><a class="link"   target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-k-closest-elements/description/" >https://leetcode.cn/problems/find-k-closest-elements/description/<i class="fas fa-external-link-alt"></i></a><br>给定一个 排序好 的数组 arr ，两个整数 k 和 x ，从数组中找到最靠近 x（两数之差最小）的 k 个数。返回的结果必须要是按升序排好的。</p>
+<p>整数 a 比整数 b 更接近 x 需要满足：</p>
+<p>|a - x| &lt; |b - x| 或者<br>|a - x| &#x3D;&#x3D; |b - x| 且 a &lt; b</p>
+<h1 id="解法一——先找到数组中距离x最近的元素的索引，再利用双指针向两边扩散"><a href="#解法一——先找到数组中距离x最近的元素的索引，再利用双指针向两边扩散" class="headerlink" title="解法一——先找到数组中距离x最近的元素的索引，再利用双指针向两边扩散"></a>解法一——先找到数组中距离x最近的元素的索引，再利用双指针向两边扩散</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">findClosestElements</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k, <span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="comment">// 二分搜索找到 x 的位置</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">p</span> <span class="operator">=</span> left_bound(arr, x);</span><br><span class="line">        <span class="comment">// 两端都开的区间 (left, right)</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> p - <span class="number">1</span>, right = p;</span><br><span class="line">        ArrayList&lt;Integer&gt; res = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="comment">// 扩展区间，直到区间内包含 k 个元素</span></span><br><span class="line">        <span class="keyword">while</span> (right - left - <span class="number">1</span> &lt; k) &#123;</span><br><span class="line">            <span class="keyword">if</span> (left == -<span class="number">1</span>) &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (right == arr.length) &#123;</span><br><span class="line">                left--;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (x - arr[left] &gt; arr[right] - x) &#123;</span><br><span class="line">                right++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                left--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left + <span class="number">1</span>; i &lt; right; i++) &#123;</span><br><span class="line">            res.add(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 搜索左侧边界的二分搜索</span></span><br><span class="line">    <span class="type">int</span> <span class="title function_">left_bound</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">right</span> <span class="operator">=</span> nums.length;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">                right = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> left;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为什么是从int i &#x3D; left + 1开始遍历添加，这里的left是什么含义？</p>
+<h2 id="left-和-right-的含义"><a href="#left-和-right-的含义" class="headerlink" title="left 和 right 的含义"></a><strong>left 和 right 的含义</strong></h2><p>在这个解法中：</p>
+<ul>
+<li><strong><code>left</code><strong>：窗口的</strong>左边界索引的前一个位置</strong>（开区间）</li>
+<li><strong><code>right</code><strong>：窗口的</strong>右边界索引</strong>（开区间）</li>
+<li><strong>实际窗口</strong>：<code>(left, right)</code> 即从 <code>left+1</code> 到 <code>right-1</code></li>
+</ul>
+<p>text</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">实际包含的元素：arr[left+1], arr[left+2], ..., arr[right-1]</span><br><span class="line">窗口大小 = (right-1) - (left+1) + 1 = right - left - 1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="为什么-for-int-i-left-1-i-right-i-？"><a href="#为什么-for-int-i-left-1-i-right-i-？" class="headerlink" title="为什么 for (int i = left + 1; i &lt; right; i++)？"></a>为什么 <code>for (int i = left + 1; i &lt; right; i++)</code>？</h2><h3 id="1-开区间的设计"><a href="#1-开区间的设计" class="headerlink" title="1. 开区间的设计"></a>1. <strong>开区间的设计</strong></h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int left = p - 1, right = p;  // 初始：窗口是空的</span><br></pre></td></tr></table></figure>
+
+
+
+<p>初始时，窗口 <code>(p-1, p)</code> 不包含任何元素：</p>
+<ul>
+<li><code>left = p-1</code>：窗口左边的元素（不包含）</li>
+<li><code>right = p</code>：窗口右边的元素（不包含）</li>
+</ul>
+<h3 id="2-扩展过程"><a href="#2-扩展过程" class="headerlink" title="2. 扩展过程"></a>2. <strong>扩展过程</strong></h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">while (right - left - 1 &lt; k) &#123;</span><br><span class="line">    // 向左右扩展，直到包含 k 个元素</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>每次扩展时：</p>
+<ul>
+<li><code>right++</code>：向右扩展（包含更多右边的元素）</li>
+<li><code>left--</code>：向左扩展（包含更多左边的元素）</li>
+</ul>
+<p>但注意：<strong>left 和 right 始终指向窗口之外</strong></p>
+<h3 id="3-最终的窗口表示"><a href="#3-最终的窗口表示" class="headerlink" title="3. 最终的窗口表示"></a>3. <strong>最终的窗口表示</strong></h3><p>循环结束后：</p>
+<ul>
+<li>窗口包含 <code>k</code> 个元素</li>
+<li>窗口范围：<code>(left, right)</code>（开区间）</li>
+<li>实际元素：<code>arr[left+1]</code> 到 <code>arr[right-1]</code></li>
+</ul>
+<p>所以遍历时：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for (int i = left + 1; i &lt; right; i++) &#123;</span><br><span class="line">    // i 从 left+1 开始，到 right-1 结束</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="具体示例"><a href="#具体示例" class="headerlink" title="具体示例"></a>具体示例</h2><p>假设：<code>arr = [1, 2, 3, 4, 5, 6, 7]</code>, <code>x = 4</code>, <code>k = 3</code></p>
+<h3 id="步骤1：找到-x-的位置"><a href="#步骤1：找到-x-的位置" class="headerlink" title="步骤1：找到 x 的位置"></a>步骤1：找到 x 的位置</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int p = left_bound(arr, 4);  // p = 3（元素4的索引）</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="步骤2：初始化窗口"><a href="#步骤2：初始化窗口" class="headerlink" title="步骤2：初始化窗口"></a>步骤2：初始化窗口</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int left = p - 1 = 2;  // 指向元素3</span><br><span class="line">int right = p = 3;     // 指向元素4</span><br><span class="line">// 当前窗口：(2, 3)，不包含任何元素</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="步骤3：扩展窗口"><a href="#步骤3：扩展窗口" class="headerlink" title="步骤3：扩展窗口"></a>步骤3：扩展窗口</h3><p>需要包含 3 个元素，当前 0 个：</p>
+<p><strong>第1轮扩展</strong>：<br>比较 <code>x - arr[left] = 4-3=1</code> 和 <code>arr[right] - x = 4-4=0</code><br><code>1 &gt; 0</code>，所以向右扩展：<code>right++</code> → <code>right=4</code><br>现在窗口：(2, 4)，包含元素 [arr[3]] &#x3D; [4]</p>
+<p><strong>第2轮扩展</strong>：<br>比较 <code>4-3=1</code> 和 <code>5-4=1</code>，相等，根据规则向左扩展：<code>left--</code> → <code>left=1</code><br>现在窗口：(1, 4)，包含元素 [arr[2], arr[3]] &#x3D; [3, 4]</p>
+<p><strong>第3轮扩展</strong>：<br>比较 <code>4-2=2</code> 和 <code>5-4=1</code>，<code>2 &gt; 1</code>，向右扩展：<code>right++</code> → <code>right=5</code><br>现在窗口：(1, 5)，包含元素 [arr[2], arr[3], arr[4]] &#x3D; [3, 4, 5]<br>满足 k&#x3D;3 个元素，停止扩展</p>
+<h3 id="步骤4：输出结果"><a href="#步骤4：输出结果" class="headerlink" title="步骤4：输出结果"></a>步骤4：输出结果</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// left=1, right=5</span><br><span class="line">for (int i = left + 1; i &lt; right; i++) &#123;</span><br><span class="line">    // i 从 2 到 4</span><br><span class="line">    res.add(arr[2]);  // 3</span><br><span class="line">    res.add(arr[3]);  // 4</span><br><span class="line">    res.add(arr[4]);  // 5</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="与之前二分法的对比"><a href="#与之前二分法的对比" class="headerlink" title="与之前二分法的对比"></a>与之前二分法的对比</h2><table>
+<thead>
+<tr>
+<th align="left">方面</th>
+<th align="left">双指针扩展法</th>
+<th align="left">二分查找滑动窗口法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>思路</strong></td>
+<td align="left">从 x 位置向两边扩展</td>
+<td align="left">直接寻找最佳窗口起始位置</td>
+</tr>
+<tr>
+<td align="left"><strong>left 含义</strong></td>
+<td align="left">窗口左边界的前一个位置</td>
+<td align="left">窗口的起始位置</td>
+</tr>
+<tr>
+<td align="left"><strong>遍历方式</strong></td>
+<td align="left"><code>for(i = left+1; i &lt; right)</code></td>
+<td align="left"><code>for(i = left; i &lt; left+k)</code></td>
+</tr>
+<tr>
+<td align="left"><strong>时间复杂度</strong></td>
+<td align="left">O(k + log n)</td>
+<td align="left">O(log(n-k) + k)</td>
+</tr>
+<tr>
+<td align="left"><strong>空间复杂度</strong></td>
+<td align="left">O(1)</td>
+<td align="left">O(1)</td>
+</tr>
+<tr>
+<td align="left"><strong>优势</strong></td>
+<td align="left">逻辑直观，易于理解</td>
+<td align="left">效率更高，代码简洁</td>
+</tr>
+</tbody></table>
+<h2 id="为什么设计成开区间？"><a href="#为什么设计成开区间？" class="headerlink" title="为什么设计成开区间？"></a>为什么设计成开区间？</h2><h3 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h3><ol>
+<li><p><strong>边界处理简单</strong>：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (left == -1) &#123;  // 左边界到达数组开始</span><br><span class="line">    right++;  // 只能向右扩展</span><br><span class="line">&#125;</span><br><span class="line">if (right == arr.length) &#123;  // 右边界到达数组末尾</span><br><span class="line">    left--;  // 只能向左扩展</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>窗口大小计算简单</strong>：</p>
+<p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">right - left - 1  // 当前窗口大小</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>扩展操作统一</strong>：</p>
+<ul>
+<li>向左扩展：<code>left--</code></li>
+<li>向右扩展：<code>right++</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="特殊情况的处理"><a href="#特殊情况的处理" class="headerlink" title="特殊情况的处理"></a>特殊情况的处理</h2><h3 id="情况1：x-不在数组中"><a href="#情况1：x-不在数组中" class="headerlink" title="情况1：x 不在数组中"></a>情况1：x 不在数组中</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">arr = [1, 3, 5, 7], x = 4</span><br><span class="line">left_bound 返回 p = 2（第一个大于4的位置）</span><br><span class="line">初始 left=1, right=2</span><br><span class="line">然后正常扩展</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="情况2：x-在数组开头"><a href="#情况2：x-在数组开头" class="headerlink" title="情况2：x 在数组开头"></a>情况2：x 在数组开头</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [1, 2, 3, 4], x = 1, k = 2</span><br><span class="line">p = 0</span><br><span class="line">left = -1, right = 0</span><br><span class="line">扩展时 left==-1，只能向右扩展</span><br><span class="line">结果：[1, 2]</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="情况3：x-在数组末尾"><a href="#情况3：x-在数组末尾" class="headerlink" title="情况3：x 在数组末尾"></a>情况3：x 在数组末尾</h3><p>java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">arr = [1, 2, 3, 4], x = 4, k = 2  </span><br><span class="line">p = 3</span><br><span class="line">left = 2, right = 3</span><br><span class="line">扩展时 right==4，只能向左扩展</span><br><span class="line">结果：[3, 4]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在这个解法中：</p>
+<ul>
+<li><strong><code>left</code> 和 <code>right</code> 是开区间的边界</strong></li>
+<li><strong>实际元素在 <code>(left, right)</code> 之间</strong></li>
+<li><strong>所以遍历时从 <code>left+1</code> 开始，到 <code>right-1</code> 结束</strong></li>
+</ul>
+<p>这种开区间的设计使得：</p>
+<ol>
+<li>边界检查更简单</li>
+<li>窗口大小计算更方便</li>
+<li>扩展操作更统一</li>
+</ol>
+<p>这是一个很巧妙的设计，体现了<strong>区间表示法的灵活性</strong>。虽然最终结果相同，但这种思考方式在某些问题中会更简洁。</p>
+<h1 id="解法二——直接二分搜索区间的起点"><a href="#解法二——直接二分搜索区间的起点" class="headerlink" title="解法二——直接二分搜索区间的起点"></a>解法二——直接二分搜索区间的起点</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">findClosestElements</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k, <span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> arr.length;</span><br><span class="line">        <span class="type">int</span> <span class="variable">left</span> <span class="operator">=</span> <span class="number">0</span>, right = n - k - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">mid</span> <span class="operator">=</span> left + (right - left) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span> (x - arr[mid] &gt; arr[mid + k] - x) &#123;</span><br><span class="line">                left = mid + <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right = mid - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">            result.add(arr[left + i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结合二分查找实际使用框架，其实就是找到了一个单调函数f(i) &#x3D; (x - arr[i]) - (arr[i+k] - x)，及其自变量i，而目标值为0，使mid值两边相差最小。</p>
+<p>代码中最中计算出的l是什么含义，为什么具有这个含义？</p>
+<h2 id="left-的最终含义"><a href="#left-的最终含义" class="headerlink" title="left 的最终含义"></a><strong>left 的最终含义</strong></h2><p><strong>最终计算出的 <code>l</code> 是：长度为 k 的最佳连续子数组的起始索引</strong></p>
+<p>也就是说：</p>
+<ul>
+<li><code>arr[l]</code> 到 <code>arr[l + k - 1]</code> 就是我们要找的 k 个最接近 x 的数</li>
+<li>这个窗口是数组中所有长度为 k 的连续子数组中，最接近 x 的那一个</li>
+</ul>
+<h2 id="为什么-l-具有这个含义？"><a href="#为什么-l-具有这个含义？" class="headerlink" title="为什么 l 具有这个含义？"></a>为什么 l 具有这个含义？</h2><h3 id="1-二分查找的搜索目标"><a href="#1-二分查找的搜索目标" class="headerlink" title="1. 二分查找的搜索目标"></a>1. <strong>二分查找的搜索目标</strong></h3><p>我们在搜索的是：<strong>长度为 k 的滑动窗口的起始位置</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">数组： [a₀, a₁, a₂, a₃, a₄, a₅, a₆]</span><br><span class="line">k = 3</span><br><span class="line">可能的窗口起始位置：0, 1, 2, 3, 4</span><br><span class="line">（因为最后一个窗口是 [a₄, a₅, a₆]）</span><br></pre></td></tr></table></figure>
+
+<p>二分查找的范围：<code>l = 0, r = n - k - 1 = 4</code></p>
+<h3 id="2-决策条件的目标"><a href="#2-决策条件的目标" class="headerlink" title="2. 决策条件的目标"></a>2. <strong>决策条件的目标</strong></h3><p>我们比较的是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (x - arr[mid] &gt; arr[mid + k] - x) &#123;</span><br><span class="line">    l = mid + <span class="number">1</span>;  <span class="comment">// 向右移动</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    r = mid - <span class="number">1</span>;  <span class="comment">// 向左移动</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>这个比较在判断什么？</strong></p>
+<ul>
+<li><code>x - arr[mid]</code>：窗口<strong>左边界</strong>到 x 的距离</li>
+<li><code>arr[mid + k] - x</code>：窗口<strong>右边界之外第一个元素</strong>到 x 的距离</li>
+</ul>
+<p><strong>关键洞察</strong>：<br>如果 <code>x - arr[mid] &gt; arr[mid + k] - x</code>，说明：</p>
+<ul>
+<li>窗口的左边界离 x 太远</li>
+<li>窗口的右边界之外有更接近 x 的元素</li>
+<li>所以<strong>整个窗口应该向右移动</strong></li>
+</ul>
+<h3 id="3-二分查找结束时-l-的位置"><a href="#3-二分查找结束时-l-的位置" class="headerlink" title="3. 二分查找结束时 l 的位置"></a>3. <strong>二分查找结束时 l 的位置</strong></h3><p>二分查找的终止条件是 <code>l &gt; r</code>。结束时：</p>
+<ul>
+<li><code>l</code> 指向<strong>第一个不满足向右移动条件</strong>的起始位置</li>
+<li>也就是说，<code>l</code> 是使得窗口不能再向右移动的最小起始位置</li>
+</ul>
+<h2 id="数学证明为什么-l-是最佳起始位置"><a href="#数学证明为什么-l-是最佳起始位置" class="headerlink" title="数学证明为什么 l 是最佳起始位置"></a>数学证明为什么 l 是最佳起始位置</h2><h3 id="定义函数-f-i"><a href="#定义函数-f-i" class="headerlink" title="定义函数 f(i)"></a>定义函数 f(i)</h3><p>设 <code>f(i)</code> 表示以 i 为起始的窗口的”偏向性”：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(i) = (x - arr[i]) - (arr[i+k] - x)</span><br><span class="line">     = 2x - arr[i] - arr[i+k]</span><br></pre></td></tr></table></figure>
+
+<h3 id="性质："><a href="#性质：" class="headerlink" title="性质："></a>性质：</h3><ol>
+<li><strong>单调性</strong>：因为数组有序，<code>arr[i]</code> 和 <code>arr[i+k]</code> 都随 i 增大而增大<ul>
+<li>所以 <code>f(i)</code> 随 i 增大而<strong>减小</strong></li>
+</ul>
+</li>
+<li><strong>零点性质</strong>：当 <code>f(i) &gt; 0</code> 时，窗口应向右移；<code>f(i) &lt;= 0</code> 时，窗口合适</li>
+</ol>
+<h3 id="二分查找在找什么？"><a href="#二分查找在找什么？" class="headerlink" title="二分查找在找什么？"></a>二分查找在找什么？</h3><p>我们在找满足 <code>f(i) &lt;= 0</code> 的最小 i，也就是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">第一个满足 x - arr[i] &lt;= arr[i+k] - x 的 i</span><br></pre></td></tr></table></figure>
+
+<h2 id="具体示例分析"><a href="#具体示例分析" class="headerlink" title="具体示例分析"></a>具体示例分析</h2><p>假设：<code>arr = [1, 2, 3, 4, 7, 8, 9]</code>, <code>k = 3</code>, <code>x = 5</code></p>
+<h3 id="所有可能的窗口："><a href="#所有可能的窗口：" class="headerlink" title="所有可能的窗口："></a>所有可能的窗口：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i=0: [1,2,3]  比较：5-1=4 vs 4-5=-1? 不对，应该是 arr[3]-5=4-5=-1? 等等</span><br><span class="line">    实际上：x-arr[0]=4, arr[3]-x=-1 → 4 &gt; -1? 比较绝对值？</span><br><span class="line">    等一下，重新思考...</span><br></pre></td></tr></table></figure>
+
+<p>让我们用绝对值来理解：</p>
+<h3 id="实际情况："><a href="#实际情况：" class="headerlink" title="实际情况："></a>实际情况：</h3><p>窗口比较的是<strong>距离</strong>，所以应该是绝对值比较：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Math.abs(x - arr[mid]) &gt; Math.abs(arr[mid + k] - x)) &#123;</span><br><span class="line">    <span class="comment">// 向右</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但由于数组已排序，当 x 在 <code>arr[mid]</code> 和 <code>arr[mid+k]</code> 之间时，可以简化。</p>
+<h3 id="分三种情况讨论："><a href="#分三种情况讨论：" class="headerlink" title="分三种情况讨论："></a>分三种情况讨论：</h3><p><strong>情况1：x 在窗口左边</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=3, 窗口[4,5,6]</span><br><span class="line">x - arr[mid] &lt; 0, arr[mid+k] - x &gt; 0</span><br><span class="line">实际上应该用绝对值，但比较结果告诉我们窗口太靠右了</span><br></pre></td></tr></table></figure>
+
+<p><strong>情况2：x 在窗口中</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=5, 窗口[4,5,6]</span><br><span class="line">x - arr[mid]=1, arr[mid+k]-x=1</span><br><span class="line">相等，根据规则选择左边的数</span><br></pre></td></tr></table></figure>
+
+<p><strong>情况3：x 在窗口右边</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=7, 窗口[4,5,6]  </span><br><span class="line">x - arr[mid]=3, arr[mid+k]-x=0</span><br><span class="line">3 &gt; 0，所以向右移动</span><br></pre></td></tr></table></figure>
+
+<h2 id="最终-l-的特性证明"><a href="#最终-l-的特性证明" class="headerlink" title="最终 l 的特性证明"></a>最终 l 的特性证明</h2><h3 id="定理："><a href="#定理：" class="headerlink" title="定理："></a>定理：</h3><p>最终得到的 <code>l</code> 满足：</p>
+<ol>
+<li>对于所有 <code>i &lt; l</code>，以 i 为起始的窗口不如以 l 为起始的窗口好</li>
+<li>对于所有 <code>i &gt; l</code>，以 i 为起始的窗口也不如以 l 为起始的窗口好</li>
+</ol>
+<h3 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h3><ol>
+<li><p><strong>对于 i &lt; l</strong>：</p>
+<ul>
+<li>在二分过程中，当检查 i 时，我们发现它应该向右移动</li>
+<li>说明 <code>x - arr[i] &gt; arr[i+k] - x</code></li>
+<li>这意味着窗口太靠左，右边界之外有更接近 x 的元素</li>
+</ul>
+</li>
+<li><p><strong>对于 i &gt; l</strong>：</p>
+<ul>
+<li>二分结束时 <code>l</code> 是第一个不满足向右移动条件的位置</li>
+<li>所以对于 <code>i = l+1, l+2, ...</code>，虽然我们没有显式检查，但由单调性可知它们更不合适</li>
+</ul>
+</li>
+</ol>
+<h2 id="直观理解：滑动的平衡点"><a href="#直观理解：滑动的平衡点" class="headerlink" title="直观理解：滑动的平衡点"></a>直观理解：滑动的平衡点</h2><p>想象 x 是一个磁铁，窗口是 k 个铁球：</p>
+<ul>
+<li>如果窗口太靠左，右边的铁球会更想靠近磁铁</li>
+<li>如果窗口太靠右，左边的铁球会更想靠近磁铁</li>
+<li><code>l</code> 就是平衡点：窗口再往左或往右都不会让整体更接近磁铁</li>
+</ul>
+<h2 id="示例验证"><a href="#示例验证" class="headerlink" title="示例验证"></a>示例验证</h2><p>让我们用实际数据验证：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">arr = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>], k = <span class="number">3</span>, x = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">所有可能的窗口：</span><br><span class="line">i=<span class="number">0</span>: [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>]  距离：|<span class="number">6</span>-<span class="number">1</span>|=<span class="number">5</span>, |<span class="number">6</span>-<span class="number">3</span>|=<span class="number">3</span>, |<span class="number">6</span>-<span class="number">5</span>|=<span class="number">1</span>，总和=<span class="number">9</span></span><br><span class="line">i=<span class="number">1</span>: [<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>]  距离：|<span class="number">6</span>-<span class="number">3</span>|=<span class="number">3</span>, |<span class="number">6</span>-<span class="number">5</span>|=<span class="number">1</span>, |<span class="number">6</span>-<span class="number">7</span>|=<span class="number">1</span>，总和=<span class="number">5</span> ← 最佳！</span><br><span class="line">i=<span class="number">2</span>: [<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>]  距离：|<span class="number">6</span>-<span class="number">5</span>|=<span class="number">1</span>, |<span class="number">6</span>-<span class="number">7</span>|=<span class="number">1</span>, |<span class="number">6</span>-<span class="number">9</span>|=<span class="number">3</span>，总和=<span class="number">5</span></span><br><span class="line"></span><br><span class="line">二分查找过程：</span><br><span class="line">l=<span class="number">0</span>, r=<span class="number">5</span>-<span class="number">3</span>-<span class="number">1</span>=<span class="number">1</span></span><br><span class="line">mid=<span class="number">0</span>: 比较 <span class="number">6</span>-<span class="number">1</span>=<span class="number">5</span> vs <span class="number">7</span>-<span class="number">6</span>=<span class="number">1</span> → <span class="number">5</span>&gt;<span class="number">1</span> → l=<span class="number">1</span></span><br><span class="line">mid=<span class="number">1</span>: 比较 <span class="number">6</span>-<span class="number">3</span>=<span class="number">3</span> vs <span class="number">9</span>-<span class="number">6</span>=<span class="number">3</span> → <span class="number">3</span>&gt;<span class="number">3</span>? 否 → r=<span class="number">0</span></span><br><span class="line">结束，l=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">结果正是最佳起始位置！</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p><code>l</code> 的含义是经过精心设计的二分查找后得到的：</p>
+<ol>
+<li><strong>它是目标</strong>：我们要找的就是这个起始位置</li>
+<li><strong>它是最优的</strong>：数学上可以证明没有其他起始位置更好</li>
+<li><strong>它是明确的</strong>：二分查找精确地定位到了这个位置</li>
+</ol>
+<p>这种算法的美在于：<strong>将寻找 k 个离散点的问题转化为寻找一个连续窗口的问题</strong>，然后利用二分查找高效解决。<code>l</code> 就是这个转化思想的结晶。</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/2025/12/23/931-%E4%B8%8B%E9%99%8D%E8%B7%AF%E5%BE%84%E6%9C%80%E5%B0%8F%E5%92%8C/"
+                                   title="931_下降路径最小和"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">931_下降路径最小和</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2025/12/04/%E5%8C%B9%E9%85%8D%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E5%8D%95%E8%AF%8D%E6%95%B0-792-%E5%A4%9A%E6%8C%87%E9%92%88-%E6%A1%B6%E6%8E%92%E5%BA%8For%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"
+                                   title="匹配子序列的单词数_792_多指针_桶排序or二分查找"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">匹配子序列的单词数_792_多指针_桶排序or二分查找</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
