@@ -9,7 +9,7 @@
     
     <title>
         
-            Claude Code Agent Runtime 架构笔记 |
+            Nginx速查笔记：基本概念与配置 |
         
         一锅炖不下的博客
     </title>
@@ -232,7 +232,7 @@
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        Claude Code Agent Runtime 架构笔记
+                        Nginx速查笔记：基本概念与配置
                     </div>
                 
 
@@ -258,13 +258,13 @@
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2026-04-01 09:40:22</span>
+                <span class="datetime">2026-04-02 09:48:15</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Wed Apr 01 2026 10:57:42 GMT+0800">2026-04-01 10:57:42</span>
+                    <span class="datetime" data-updated="Thu Apr 02 2026 09:51:07 GMT+0800">2026-04-02 09:51:07</span>
                 </span>
             
         
@@ -275,7 +275,7 @@
             <span class="post-tag meta-info-item border-box">
                 <ul class="post-tag-ul">
                     
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Claude-Code/">Claude Code</a></li>
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Nginx/">Nginx</a></li>
                         
                     
                 </ul>
@@ -300,260 +300,135 @@
                     
 
                     
-                         <p><a class="link"   target="_blank" rel="noopener" href="https://b23.tv/aIWyFOl" >Claude Code 源码分析与复刻实现-哔哩哔哩<i class="fas fa-external-link-alt"></i></a></p>
-<h1 id="Claude-Code-Agent-Runtime-架构笔记"><a href="#Claude-Code-Agent-Runtime-架构笔记" class="headerlink" title="Claude Code Agent Runtime 架构笔记"></a>Claude Code Agent Runtime 架构笔记</h1><h2 id="一、Agent-Loop（主循环）"><a href="#一、Agent-Loop（主循环）" class="headerlink" title="一、Agent Loop（主循环）"></a>一、Agent Loop（主循环）</h2><h3 id="核心流程"><a href="#核心流程" class="headerlink" title="核心流程"></a>核心流程</h3><ol>
-<li><strong>系统提示词组装</strong>：静态前缀 + DYNAMIC_BOUNDARY + 动态上下文，支持 Prompt Cache 边界控制</li>
-<li><strong>上下文治理</strong>：5层压缩机制，预算控制</li>
-<li><strong>Claude API 流式</strong>：Streaming + 扩展思考</li>
-<li><strong>Tool 调度执行</strong>：并发分组、权限校验、Hook 拦截</li>
-<li><strong>循环控制</strong>：续轮、终止、恢复，直到纯文本返回</li>
-</ol>
-<h3 id="关键设计原则"><a href="#关键设计原则" class="headerlink" title="关键设计原则"></a>关键设计原则</h3><ul>
-<li><strong>消息驱动</strong>：用户输入、模型输出、tool 进度、系统事件全部是 Message，transcript 是恢复核心</li>
-<li><strong>高效传递工具</strong>：避免污染提示词，尽量少消耗上下文</li>
-<li><strong>Prompt Cache 优先</strong>：工具稳定排序、DYNAMIC_BOUNDARY 分界、deferred tools、cache break detection</li>
+                         <p>参考视频：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1gMX1YSEtm/?share_source=copy_web&vd_source=5ed8451e41a08dea9b96544a5363022f" >Nginx是什么？Nginx高并发架构拆解指南<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1TZ421b7SD/?share_source=copy_web&vd_source=5ed8451e41a08dea9b96544a5363022f" >Nginx入门必须懂3大功能配置 - Web服务器&#x2F;反向代理&#x2F;负载均衡<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<h2 id="一、Nginx-是什么"><a href="#一、Nginx-是什么" class="headerlink" title="一、Nginx 是什么"></a>一、Nginx 是什么</h2><p>Nginx 是一个<strong>高性能的 HTTP 服务器 &#x2F; 反向代理服务器 &#x2F; 负载均衡器</strong>。</p>
+<p>它最核心的定位是：<strong>网关</strong>。也就是所有请求的“统一入口”。</p>
+<hr>
+<h2 id="二、Nginx-能做什么"><a href="#二、Nginx-能做什么" class="headerlink" title="二、Nginx 能做什么"></a>二、Nginx 能做什么</h2><h3 id="1-Web-服务器"><a href="#1-Web-服务器" class="headerlink" title="1. Web 服务器"></a>1. Web 服务器</h3><ul>
+<li>托管前端静态资源（HTML、CSS、JS、图片）</li>
+<li>通过 <code>root</code> 或 <code>alias</code> 指定文件路径</li>
+<li>结合 <code>try_files</code> 实现 SPA 路由 fallback</li>
+</ul>
+<h3 id="2-反向代理"><a href="#2-反向代理" class="headerlink" title="2. 反向代理"></a>2. 反向代理</h3><ul>
+<li>把请求转发给后端服务（Java、Node、Go、Python 等）</li>
+<li>对前端“隐藏”真实后端地址和端口</li>
+<li>可以挂多个后端（负载均衡）</li>
+</ul>
+<h3 id="3-负载均衡"><a href="#3-负载均衡" class="headerlink" title="3. 负载均衡"></a>3. 负载均衡</h3><ul>
+<li>通过 <code>upstream</code> 定义后端服务器集群</li>
+<li>支持多种负载策略：轮询、最少连接、IP 哈希等</li>
+<li>支持动态扩缩容</li>
+</ul>
+<h3 id="4-网关能力"><a href="#4-网关能力" class="headerlink" title="4. 网关能力"></a>4. 网关能力</h3><ul>
+<li>限流、封禁 IP、修改请求&#x2F;响应内容</li>
+<li>支持 HTTP、HTTPS、HTTP&#x2F;2、WebSocket、TCP、UDP 等协议</li>
+<li>可插拔的模块化能力（压缩、缓存、日志等）</li>
 </ul>
 <hr>
-<h2 id="二、上下文治理（5层压缩）"><a href="#二、上下文治理（5层压缩）" class="headerlink" title="二、上下文治理（5层压缩）"></a>二、上下文治理（5层压缩）</h2><table>
+<h2 id="三、核心概念"><a href="#三、核心概念" class="headerlink" title="三、核心概念"></a>三、核心概念</h2><table>
 <thead>
 <tr>
-<th>层级</th>
-<th>名称</th>
-<th>策略</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>①</td>
-<td>snip compact</td>
-<td>旧 tool_result → [snipped]，保留结构</td>
-</tr>
-<tr>
-<td>②</td>
-<td>microcompact</td>
-<td>strip 旧 tool results，通知 cache detector</td>
-</tr>
-<tr>
-<td>③</td>
-<td>context collapse</td>
-<td>折叠已完成子对话</td>
-</tr>
-<tr>
-<td>④</td>
-<td>autoCompact</td>
-<td>阈值触发摘要</td>
-</tr>
-<tr>
-<td>⑤</td>
-<td>reactive</td>
-<td>PTL 错误触发压缩</td>
-</tr>
-</tbody></table>
-<h3 id="记忆机制"><a href="#记忆机制" class="headerlink" title="记忆机制"></a>记忆机制</h3><ul>
-<li><strong>MEMORY.md</strong>：项目级记忆，增大上下文但需压缩</li>
-<li><strong>compact boundary</strong>：压缩点 + 增量恢复</li>
-<li><strong>tool result 预算控制</strong>：避免上下文爆炸</li>
-</ul>
-<h3 id="子智能体隔离"><a href="#子智能体隔离" class="headerlink" title="子智能体隔离"></a>子智能体隔离</h3><ul>
-<li>子任务交给<strong>子智能体</strong>，物理隔离上下文</li>
-<li>独立 tool pool &#x2F; model &#x2F; 权限 &#x2F; worktree</li>
-<li>支持 SendMessage 团队协作</li>
-</ul>
-<hr>
-<h2 id="三、工具系统（40-工具）"><a href="#三、工具系统（40-工具）" class="headerlink" title="三、工具系统（40+ 工具）"></a>三、工具系统（40+ 工具）</h2><h3 id="注册中心（tools-ts）"><a href="#注册中心（tools-ts）" class="headerlink" title="注册中心（tools.ts）"></a>注册中心（tools.ts）</h3><ul>
-<li>只注册工具<strong>名称</strong>，稳定排序</li>
-<li>feature gate 控制</li>
-<li>prompt cache 友好</li>
-</ul>
-<h3 id="并发执行（toolOrchestration-ts）"><a href="#并发执行（toolOrchestration-ts）" class="headerlink" title="并发执行（toolOrchestration.ts）"></a>并发执行（toolOrchestration.ts）</h3><ul>
-<li>并发安全分组</li>
-<li><strong>读写分离</strong>并行执行</li>
-</ul>
-<h3 id="执行层（toolExecution-ts）"><a href="#执行层（toolExecution-ts）" class="headerlink" title="执行层（toolExecution.ts）"></a>执行层（toolExecution.ts）</h3><ul>
-<li>schema 校验（Zod v4）</li>
-<li>hook 拦截（PreToolUse &#x2F; PostToolUse）</li>
-<li>权限系统（4路竞争）</li>
-<li>遥测（OTel）</li>
-</ul>
-<h3 id="统一协议（Tool-ts）"><a href="#统一协议（Tool-ts）" class="headerlink" title="统一协议（Tool.ts）"></a>统一协议（Tool.ts）</h3><ul>
-<li><code>call</code> + <code>checkPermissions</code> + <code>render</code> + <code>isReadOnly</code></li>
-</ul>
-<h3 id="流式执行（StreamingToolExecutor）"><a href="#流式执行（StreamingToolExecutor）" class="headerlink" title="流式执行（StreamingToolExecutor）"></a>流式执行（StreamingToolExecutor）</h3><ul>
-<li>流式中并发执行</li>
-<li>进度渲染</li>
-</ul>
-<hr>
-<h2 id="四、权限系统（4路竞争）"><a href="#四、权限系统（4路竞争）" class="headerlink" title="四、权限系统（4路竞争）"></a>四、权限系统（4路竞争）</h2><table>
-<thead>
-<tr>
-<th>来源</th>
+<th>概念</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>User</td>
-<td>用户直接决策</td>
+<td><strong>master 进程</strong></td>
+<td>管理进程，负责读取配置、启动&#x2F;停止&#x2F;重启 worker，不处理实际请求</td>
 </tr>
 <tr>
-<td>Hook</td>
-<td>PreToolUse 拦截</td>
+<td><strong>worker 进程</strong></td>
+<td>真正处理请求的进程，数量通常 &#x3D; CPU 核数</td>
 </tr>
 <tr>
-<td>Classifier</td>
-<td>LLM 自动判断命令安全性（Bash Classifier）</td>
+<td><strong>多进程优势</strong></td>
+<td>进程间隔离，一个 worker 挂掉不影响其他，稳定性极高</td>
 </tr>
 <tr>
-<td>Bridge</td>
-<td>远程桥接决策</td>
-</tr>
-</tbody></table>
-<h3 id="竞争机制"><a href="#竞争机制" class="headerlink" title="竞争机制"></a>竞争机制</h3><ul>
-<li><strong>ResolveOnce 原子竞争</strong>：第一个 claim 胜出</li>
-<li>规则引擎：allow&#x2F;deny&#x2F;ask，glob 匹配，denial 追踪</li>
-</ul>
-<h3 id="安全边界"><a href="#安全边界" class="headerlink" title="安全边界"></a>安全边界</h3><ul>
-<li>isReadOnly 标记</li>
-<li>路径检查 &#x2F; 危险文件拦截</li>
-<li>Unicode 反注入 &#x2F; SSRF guard</li>
-<li>Feature Gate（GrowthBook）</li>
-</ul>
-<hr>
-<h2 id="五、扩展体系（四层叠加）"><a href="#五、扩展体系（四层叠加）" class="headerlink" title="五、扩展体系（四层叠加）"></a>五、扩展体系（四层叠加）</h2><table>
-<thead>
-<tr>
-<th>层级</th>
-<th>能力</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Commands</td>
-<td>80+ 内置命令</td>
-<td>built-in &#x2F; skills &#x2F; plugins &#x2F; MCP prompt</td>
+<td><strong>事件驱动模型</strong></td>
+<td>每个 worker 可以同时处理成千上万个连接，无需多线程锁竞争</td>
 </tr>
 <tr>
-<td>Skills</td>
-<td>技能包</td>
-<td>Markdown prompt，动态发现，条件激活</td>
-</tr>
-<tr>
-<td>Plugins</td>
-<td>插件</td>
-<td>能力包：cmd&#x2F;skill&#x2F;hook&#x2F;MCP&#x2F;agent</td>
-</tr>
-<tr>
-<td>MCP Client</td>
-<td>协议客户端</td>
-<td>stdio&#x2F;SSE&#x2F;HTTP&#x2F;WS&#x2F;claudeai-proxy</td>
-</tr>
-</tbody></table>
-<h3 id="外部能力统一映射"><a href="#外部能力统一映射" class="headerlink" title="外部能力统一映射"></a>外部能力统一映射</h3><p>MCP Server 的资源&#x2F;工具&#x2F;提示词 → 统一映射为 tool&#x2F;resource&#x2F;command&#x2F;skill</p>
-<hr>
-<h2 id="六、Agent-Task-子系统"><a href="#六、Agent-Task-子系统" class="headerlink" title="六、Agent &#x2F; Task 子系统"></a>六、Agent &#x2F; Task 子系统</h2><table>
-<thead>
-<tr>
-<th>组件</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>AgentTool</td>
-<td>子代理，独立 tool pool&#x2F;model&#x2F;workdir</td>
-</tr>
-<tr>
-<td>Task 统一壳</td>
-<td>local_agent &#x2F; remote &#x2F; bash &#x2F; workflow</td>
-</tr>
-<tr>
-<td>SendMessageTool</td>
-<td>团队上下文广播、plan 审批</td>
-</tr>
-<tr>
-<td>worktree &#x2F; remote 隔离</td>
-<td>Git worktree 隔离，远程执行</td>
-</tr>
-</tbody></table>
-<h3 id="子智能体特性"><a href="#子智能体特性" class="headerlink" title="子智能体特性"></a>子智能体特性</h3><ul>
-<li>memory 在内存或文件（MEMORY.md）</li>
-<li>物理隔离，避免上下文污染</li>
-</ul>
-<hr>
-<h2 id="七、Feature-Flagged-实验特性（GrowthBook）"><a href="#七、Feature-Flagged-实验特性（GrowthBook）" class="headerlink" title="七、Feature-Flagged 实验特性（GrowthBook）"></a>七、Feature-Flagged 实验特性（GrowthBook）</h2><table>
-<thead>
-<tr>
-<th>特性</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>BUDDY</td>
-<td>虚拟宠物，18种，500ms 精灵动画</td>
-</tr>
-<tr>
-<td>KAIROS</td>
-<td>常驻智能体，夜间 Dream，Brief 模式，持久记忆</td>
-</tr>
-<tr>
-<td>ULTRAPLAN</td>
-<td>远程规划，CCR 30min，浏览器审批，teleport</td>
-</tr>
-<tr>
-<td>Coordinator</td>
-<td>多 Agent 并行，push 通知，scratch 空间</td>
+<td><strong>多进程共享端口</strong></td>
+<td>通过 <code>SO_REUSEPORT</code> 或 <code>fork</code> 继承，多个 worker 可以同时监听同一个端口</td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="八、持久化与状态层（-claude-）"><a href="#八、持久化与状态层（-claude-）" class="headerlink" title="八、持久化与状态层（~&#x2F;.claude&#x2F;）"></a>八、持久化与状态层（~&#x2F;.claude&#x2F;）</h2><table>
-<thead>
-<tr>
-<th>模块</th>
-<th>职责</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bootstrap&#x2F;state.ts</td>
-<td>进程级全局状态</td>
-</tr>
-<tr>
-<td>AppStateStore</td>
-<td>Zustand 式运行时状态</td>
-</tr>
-<tr>
-<td>sessionStorage.ts</td>
-<td>transcript JSONL，恢复核心</td>
-</tr>
-<tr>
-<td>history.ts</td>
-<td>输入历史，项目级</td>
-</tr>
-<tr>
-<td>compact boundary</td>
-<td>压缩点，增量恢复</td>
-</tr>
-<tr>
-<td>fileHistory</td>
-<td>文件变更快照</td>
-</tr>
-<tr>
-<td>memdir&#x2F;</td>
-<td>记忆目录，MEMORY.md</td>
-</tr>
-<tr>
-<td>analytics &#x2F; OTel</td>
-<td>Datadog 遥测</td>
-</tr>
-</tbody></table>
-<hr>
-<h2 id="九、技术栈"><a href="#九、技术栈" class="headerlink" title="九、技术栈"></a>九、技术栈</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TypeScript + Bun          ← 运行时</span><br><span class="line">React / Ink               ← 终端 UI 框架</span><br><span class="line">@anthropic-ai/sdk         ← Claude API 客户端</span><br><span class="line">Zod v4                    ← 工具 schema 校验</span><br><span class="line">@modelcontextprotocol/sdk ← MCP 协议</span><br><span class="line">vendor/                   ← Rust 原生模块（audio / image / key modifiers / URL handler）</span><br></pre></td></tr></table></figure>
+<h2 id="四、配置文件核心结构"><a href="#四、配置文件核心结构" class="headerlink" title="四、配置文件核心结构"></a>四、配置文件核心结构</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局配置</span></span><br><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"></span><br><span class="line"><span class="comment"># events 配置（连接数等）</span></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># http 模块（包含所有 web 相关配置）</span></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="comment"># upstream 定义后端服务器集群</span></span><br><span class="line">    <span class="section">upstream</span> backend &#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8080</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8081</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># server 块：一个虚拟主机</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 静态资源</span></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span> /var/www/html;</span><br><span class="line">            <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 反向代理</span></span><br><span class="line">        <span class="section">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://backend/;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="十、关键架构判断（原文总结）"><a href="#十、关键架构判断（原文总结）" class="headerlink" title="十、关键架构判断（原文总结）"></a>十、关键架构判断（原文总结）</h2><ol>
-<li><strong>消息驱动</strong>：一切皆是 Message，transcript 是恢复核心</li>
-<li><strong>Prompt Cache 优先</strong>：工具稳定排序、DYNAMIC_BOUNDARY 分界、deferred tools、cache break detection</li>
-<li><strong>四层扩展叠加</strong>：Command + Skill + Plugin + MCP 并行不冲突，决定这是平台而非客户端</li>
-<li><strong>Agent 是一级概念</strong>：独立 tool pool &#x2F; model &#x2F; 权限 &#x2F; worktree，支持 SendMessage 团队协作</li>
-</ol>
+<h2 id="五、反向代理如何消除跨域"><a href="#五、反向代理如何消除跨域" class="headerlink" title="五、反向代理如何消除跨域"></a>五、反向代理如何消除跨域</h2><ul>
+<li><strong>浏览器只和 Nginx 交互</strong>（同源）</li>
+<li>Nginx 在服务器内部把请求转给真正的后端</li>
+<li>浏览器看不到后端地址和端口 → <strong>彻底绕过跨域</strong></li>
+</ul>
+<p>这是“前端同源 + 后端隐藏”的组合，本质是通过反向代理“欺骗”浏览器。</p>
 <hr>
-<p>这套架构的核心思想是：<strong>通过消息驱动、多层压缩、工具并发、扩展叠加，在有限的上下文预算内实现高效的智能体循环。</strong> 子智能体隔离和物理 worktree 是控制上下文爆炸的关键手段。</p>
+<h2 id="六、负载均衡-upstream"><a href="#六、负载均衡-upstream" class="headerlink" title="六、负载均衡 upstream"></a>六、负载均衡 upstream</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> backend &#123;</span><br><span class="line">    <span class="attribute">server</span> backend1.example.com weight=<span class="number">3</span>;</span><br><span class="line">    <span class="attribute">server</span> backend2.example.com;</span><br><span class="line">    <span class="attribute">server</span> backend3.example.com backup;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>weight</code>：权重</li>
+<li><code>backup</code>：备用服务器</li>
+<li>支持动态扩缩容，对外只暴露一个 Nginx 地址</li>
+</ul>
+<hr>
+<h2 id="七、HTTPS-配置"><a href="#七、HTTPS-配置" class="headerlink" title="七、HTTPS 配置"></a>七、HTTPS 配置</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span>     /path/to/cert.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /path/to/private.key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>80 端口和 443 端口可以配置在同一个 <code>http</code> 块中</li>
+<li>证书需要包含完整链（服务器证书 + 中间证书），浏览器内置根证书</li>
+</ul>
+<hr>
+<h2 id="八、location-匹配规则"><a href="#八、location-匹配规则" class="headerlink" title="八、location 匹配规则"></a>八、location 匹配规则</h2><table>
+<thead>
+<tr>
+<th>写法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>location /</code></td>
+<td>前缀匹配，优先级最低</td>
+</tr>
+<tr>
+<td><code>location = /</code></td>
+<td>完全匹配，优先级最高</td>
+</tr>
+<tr>
+<td><code>location ~</code></td>
+<td>正则匹配（区分大小写）</td>
+</tr>
+<tr>
+<td><code>location ~*</code></td>
+<td>正则匹配（不区分大小写）</td>
+</tr>
+<tr>
+<td><code>try_files</code></td>
+<td>按顺序尝试文件&#x2F;目录&#x2F;fallback</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="九、rewrite-与重定向"><a href="#九、rewrite-与重定向" class="headerlink" title="九、rewrite 与重定向"></a>九、rewrite 与重定向</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rewrite</span><span class="regexp"> ^/old/(.*)$</span> /new/<span class="variable">$1</span> <span class="literal">permanent</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>permanent</code>：301 永久重定向</li>
+<li><code>redirect</code>：302 临时重定向</li>
+<li><code>last</code> &#x2F; <code>break</code>：内部重写</li>
+</ul>
+<hr>
+<h2 id="十、架构图总结"><a href="#十、架构图总结" class="headerlink" title="十、架构图总结"></a>十、架构图总结</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">                   用户请求</span><br><span class="line">                       │</span><br><span class="line">                       ▼</span><br><span class="line">             ┌─────────────────┐</span><br><span class="line">             │   Nginx Master  │ (管理进程，不处理请求)</span><br><span class="line">             └─────────────────┘</span><br><span class="line">                       │</span><br><span class="line">       ┌───────────────┼───────────────┐</span><br><span class="line">       ▼               ▼               ▼</span><br><span class="line">  Worker 1         Worker 2         Worker 3</span><br><span class="line">(HTTP/反向代理)  (HTTP/反向代理)  (HTTP/反向代理)</span><br><span class="line">       │               │               │</span><br><span class="line">       └───────────────┴───────────────┘</span><br><span class="line">                       │</span><br><span class="line">       ┌───────────────┼───────────────┐</span><br><span class="line">       ▼               ▼               ▼</span><br><span class="line">  后端服务1        后端服务2        后端服务3</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="十一、学习建议"><a href="#十一、学习建议" class="headerlink" title="十一、学习建议"></a>十一、学习建议</h2><ol>
+<li><strong>先理解“反向代理”和“负载均衡”两个核心场景</strong></li>
+<li><strong>本地跑一个 Nginx + 两个简单后端服务，手动配置 upstream 和 proxy_pass</strong></li>
+<li><strong>理解跨域问题本质 + 反向代理如何解决</strong></li>
+<li><strong>理解多进程 + 端口共享的底层原理（不用太深，但要知道不是“master 分发请求”）</strong></li>
+</ol>
+<p>如果你愿意，下一步我可以帮你画一张<strong>完整的 Nginx 核心知识脑图</strong>，把“静态服务器 &#x2F; 反向代理 &#x2F; 负载均衡 &#x2F; 网关能力 &#x2F; 架构 &#x2F; 跨域”一次性串起来。</p>
 
                     
                 </div>
@@ -566,7 +441,7 @@
                             <ul class="post-tags-box border-box">
                                 
                                     <li class="tag-item border-box">
-                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Claude-Code/">Claude Code</a>
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Nginx/">Nginx</a>
                                     </li>
                                 
                             </ul>
@@ -585,14 +460,14 @@
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/2026/04/01/%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%BB%8F%E9%AA%8C%E6%A2%B3%E7%90%86/"
-                                   title="插件编写经验梳理"
+                                   href="/2026/04/02/Nginx%E9%80%9F%E6%9F%A5%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E7%AD%94/"
+                                   title="Nginx速查笔记：常见问题与解答"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">插件编写经验梳理</span>
+                                        <span class="post-nav-title-item text-ellipsis">Nginx速查笔记：常见问题与解答</span>
                                         <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
@@ -602,11 +477,11 @@
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/2026/03/31/Elasticsearch%20%E9%80%9F%E6%9F%A5%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%A6%82%E5%BF%B5%E3%80%81%E6%93%8D%E4%BD%9C%E4%B8%8E%20Java%20API/"
-                                   title="Elasticsearch 速查笔记：概念、操作与 Java API"
+                                   href="/2026/04/01/%E6%8F%92%E4%BB%B6%E7%BC%96%E5%86%99%E7%BB%8F%E9%AA%8C%E6%A2%B3%E7%90%86/"
+                                   title="插件编写经验梳理"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Elasticsearch 速查笔记：概念、操作与 Java API</span>
+                                        <span class="post-nav-title-item text-ellipsis">插件编写经验梳理</span>
                                         <span class="post-nav-item">Next posts</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">

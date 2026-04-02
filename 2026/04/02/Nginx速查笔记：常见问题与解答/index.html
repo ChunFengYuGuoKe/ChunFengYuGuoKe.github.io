@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+            Nginx速查笔记：常见问题与解答 |
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/OnePiece.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/OnePiece.ico","favicon":"/images/OnePiece.ico"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/OnePiece.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Nginx速查笔记：常见问题与解答
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/luffy.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">一锅炖不下</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-04-02 09:54:21</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Apr 02 2026 10:00:16 GMT+0800">2026-04-02 10:00:16</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/Nginx/">Nginx</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <h1 id="Nginx-核心问题与解答"><a href="#Nginx-核心问题与解答" class="headerlink" title="Nginx 核心问题与解答"></a>Nginx 核心问题与解答</h1><blockquote>
+<p>本文整理了关于 Nginx 的一系列核心问题及其详细解答，涵盖多进程架构、反向代理、跨域解决、负载均衡、配置实践等。</p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#1-nginx-%E5%A4%9A%E8%BF%9B%E7%A8%8B%E6%9E%B6%E6%9E%84%E4%B8%BA%E4%BB%80%E4%B9%88%E5%A4%9A%E4%B8%AA-worker-%E8%BF%9B%E7%A8%8B%E8%83%BD%E5%90%8C%E6%97%B6%E7%9B%91%E5%90%AC%E5%90%8C%E4%B8%80%E4%B8%AA%E7%AB%AF%E5%8F%A3">Nginx 多进程架构：为什么多个 worker 进程能同时监听同一个端口？</a></li>
+<li><a href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%80%8C%E6%98%AF%E5%A4%9A%E8%BF%9B%E7%A8%8B">为什么不使用多线程而是多进程？</a></li>
+<li><a href="#3-nginx-%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8Bmaster-%E5%92%8C-worker-%E7%9A%84%E8%81%8C%E8%B4%A3%E6%98%AF%E4%BB%80%E4%B9%88">Nginx 请求处理流程：master 和 worker 的职责是什么？</a></li>
+<li><a href="#4-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98">反向代理如何解决跨域问题？</a></li>
+<li><a href="#5-%E5%89%8D%E7%AB%AF%E6%98%AF%E5%A6%82%E4%BD%95%E8%AF%B7%E6%B1%82%E5%88%B0-nginx-%E7%9A%84">前端是如何请求到 Nginx 的？</a></li>
+<li><a href="#6-%E7%BD%91%E5%8F%8B%E8%A7%82%E7%82%B9%E8%BE%A8%E6%9E%90%E5%93%AA%E4%BA%9B%E6%98%AF%E6%AD%A3%E7%A1%AE%E7%9A%84%E5%93%AA%E4%BA%9B%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84">网友观点辨析：哪些是正确的，哪些是错误的？</a></li>
+<li><a href="#7-%E7%9C%9F%E5%AE%9E%E5%9C%BA%E6%99%AF%E6%A1%88%E4%BE%8B%E4%BA%91%E9%83%A8%E7%BD%B2%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E5%9D%91%E7%82%B9%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">真实场景案例：云部署中的常见坑点与解决方法</a></li>
+<li><a href="#8-nginx-%E9%85%8D%E7%BD%AE%E5%AE%9E%E8%B7%B5web%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1">Nginx 配置实践：Web服务器、反向代理、负载均衡</a></li>
+<li><a href="#9-nginx-%E6%9E%B6%E6%9E%84%E4%B8%8E%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E6%80%BB%E7%BB%93">Nginx 架构与核心概念总结</a></li>
+</ol>
+<hr>
+<h2 id="1-Nginx-多进程架构：为什么多个-worker-进程能同时监听同一个端口？"><a href="#1-Nginx-多进程架构：为什么多个-worker-进程能同时监听同一个端口？" class="headerlink" title="1. Nginx 多进程架构：为什么多个 worker 进程能同时监听同一个端口？"></a>1. Nginx 多进程架构：为什么多个 worker 进程能同时监听同一个端口？</h2><h3 id="核心机制"><a href="#核心机制" class="headerlink" title="核心机制"></a>核心机制</h3><p>Nginx 的多个 worker 进程能够同时监听同一个端口，主要依赖两种底层机制：</p>
+<h4 id="方式一：fork-继承文件描述符（传统模式）"><a href="#方式一：fork-继承文件描述符（传统模式）" class="headerlink" title="方式一：fork() 继承文件描述符（传统模式）"></a>方式一：<code>fork()</code> 继承文件描述符（传统模式）</h4><ol>
+<li><strong>Master 进程启动</strong>：先创建监听 socket，执行 <code>bind</code> + <code>listen</code></li>
+<li><strong>创建子进程</strong>：通过 <code>fork()</code> 创建多个 worker 子进程</li>
+<li><strong>继承特性</strong>：<code>fork()</code> 会让子进程继承父进程的所有文件描述符</li>
+<li><strong>结果</strong>：每个 worker 都拥有一个指向<strong>同一个监听 socket</strong> 的文件描述符</li>
+<li><strong>连接处理</strong>：连接到达时，所有 worker 被唤醒，通过 <code>accept()</code> 争抢，只有一个成功</li>
+</ol>
+<h4 id="方式二：SO-REUSEPORT-套接字选项（现代模式，Nginx-1-9-1-）"><a href="#方式二：SO-REUSEPORT-套接字选项（现代模式，Nginx-1-9-1-）" class="headerlink" title="方式二：SO_REUSEPORT 套接字选项（现代模式，Nginx 1.9.1+）"></a>方式二：<code>SO_REUSEPORT</code> 套接字选项（现代模式，Nginx 1.9.1+）</h4><ol>
+<li><strong>独立创建</strong>：每个 worker 独立创建自己的监听 socket</li>
+<li><strong>关键选项</strong>：绑定前设置 <code>SO_REUSEPORT</code>，告诉操作系统允许不同进程绑定同一端口</li>
+<li><strong>内核级分发</strong>：连接到达时，操作系统内核直接决定分发给哪个 worker</li>
+<li><strong>无锁高效</strong>：每个 worker 有独立的 accept 队列，无需进程间锁竞争</li>
+</ol>
+<h3 id="两种模式对比"><a href="#两种模式对比" class="headerlink" title="两种模式对比"></a>两种模式对比</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>fork() 继承模式</th>
+<th>SO_REUSEPORT 模式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工作方式</td>
+<td>共享同一个监听 socket</td>
+<td>每个 Worker 有独立的监听 socket</td>
+</tr>
+<tr>
+<td>连接分发者</td>
+<td>Worker 进程通过 accept_mutex 锁抢</td>
+<td>操作系统内核</td>
+</tr>
+<tr>
+<td>性能开销</td>
+<td>有惊群效应，需要进程间锁</td>
+<td>无惊群，无进程间锁</td>
+</tr>
+<tr>
+<td>配置方式</td>
+<td>默认开启</td>
+<td>需在 listen 指令后添加 reuseport 参数</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="2-为什么不使用多线程而是多进程？"><a href="#2-为什么不使用多线程而是多进程？" class="headerlink" title="2. 为什么不使用多线程而是多进程？"></a>2. 为什么不使用多线程而是多进程？</h2><h3 id="核心原因：稳定性、安全性、性能可扩展性"><a href="#核心原因：稳定性、安全性、性能可扩展性" class="headerlink" title="核心原因：稳定性、安全性、性能可扩展性"></a>核心原因：稳定性、安全性、性能可扩展性</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Nginx 多进程模型</th>
+<th>传统多线程模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>稳定性</strong></td>
+<td>极高。一个 Worker 进程崩溃，不影响其他 Worker，Master 会立即拉起新进程</td>
+<td>脆弱。一个线程崩溃可能导致整个进程挂掉</td>
+</tr>
+<tr>
+<td><strong>安全性</strong></td>
+<td>强。进程间天然隔离，内存无法互相访问</td>
+<td>弱。线程间可访问彼此内存，一个线程的错误可能污染其他线程数据</td>
+</tr>
+<tr>
+<td><strong>锁竞争</strong></td>
+<td>几乎无锁。每个 Worker 独立处理请求</td>
+<td>锁竞争严重。共享数据结构需要大量锁</td>
+</tr>
+<tr>
+<td><strong>可扩展性</strong></td>
+<td>强。可平滑调整 Worker 数量，完美适配 NUMA 架构</td>
+<td>受限于全局锁和内存争用，线程数增加性能先升后降</td>
+</tr>
+<tr>
+<td><strong>资源开销</strong></td>
+<td>进程切换开销稍大，但 Nginx 通过固定进程数 + 长连接复用，开销可控</td>
+<td>线程切换开销小，但锁等待和内存管理开销往往更大</td>
+</tr>
+</tbody></table>
+<h3 id="为什么这种设计适合-Nginx？"><a href="#为什么这种设计适合-Nginx？" class="headerlink" title="为什么这种设计适合 Nginx？"></a>为什么这种设计适合 Nginx？</h3><ol>
+<li><strong>稳定压倒一切</strong>：作为流量入口，必须保证即使某个请求处理出错，也不会拖垮整个服务</li>
+<li><strong>无锁高性能</strong>：每个 Worker 独立处理连接，几乎不需要锁，高并发下依然保持低延迟、高吞吐</li>
+<li><strong>CPU 亲和性与 NUMA 优化</strong>：可将每个 Worker 绑定到特定 CPU 核心，避免跨核心内存访问</li>
+<li><strong>平滑升级与热部署</strong>：通过新旧进程逐步迁移连接，实现毫秒级服务重启</li>
+</ol>
+<hr>
+<h2 id="3-Nginx-请求处理流程：master-和-worker-的职责是什么？"><a href="#3-Nginx-请求处理流程：master-和-worker-的职责是什么？" class="headerlink" title="3. Nginx 请求处理流程：master 和 worker 的职责是什么？"></a>3. Nginx 请求处理流程：master 和 worker 的职责是什么？</h2><h3 id="正确流程"><a href="#正确流程" class="headerlink" title="正确流程"></a>正确流程</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    Client[客户端请求] --&gt; Kernel[操作系统内核&lt;br/&gt;TCP协议栈]</span><br><span class="line">    </span><br><span class="line">    Kernel --&gt; W1[Worker 1&lt;br/&gt;监听 80]</span><br><span class="line">    Kernel --&gt; W2[Worker 2&lt;br/&gt;监听 80]</span><br><span class="line">    Kernel --&gt; W3[Worker 3&lt;br/&gt;监听 80]</span><br><span class="line">    </span><br><span class="line">    W1 --&gt; Process[处理请求&lt;br/&gt;HTTP解析 / 业务逻辑 / 响应]</span><br><span class="line">    W2 --&gt; Process</span><br><span class="line">    W3 --&gt; Process</span><br><span class="line">    </span><br><span class="line">    style Client fill:#e1f5fe,stroke:#01579b,stroke-width:2px</span><br><span class="line">    style Kernel fill:#fff9c4,stroke:#fbc02d,stroke-width:2px</span><br><span class="line">    style W1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px</span><br><span class="line">    style W2 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px</span><br><span class="line">    style W3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px</span><br><span class="line">    style Process fill:#ffe0b2,stroke:#e65100,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<h3 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h3><ul>
+<li><strong>Master 进程</strong>：不参与网络 I&#x2F;O，不分发请求。职责是管理 Worker（启动、停止、重启、监控）</li>
+<li><strong>Worker 进程</strong>：真正接收和处理请求，直接通过 <code>accept()</code> 从内核获取连接</li>
+</ul>
+<blockquote>
+<p>常见误区：Master 进程负责监听端口并分发请求 → <strong>这是错误的！</strong></p>
+</blockquote>
+<hr>
+<h2 id="4-反向代理如何解决跨域问题？"><a href="#4-反向代理如何解决跨域问题？" class="headerlink" title="4. 反向代理如何解决跨域问题？"></a>4. 反向代理如何解决跨域问题？</h2><h3 id="跨域的本质"><a href="#跨域的本质" class="headerlink" title="跨域的本质"></a>跨域的本质</h3><p>浏览器的同源策略规定：当前页面的源（协议+域名+端口）与请求的目标源必须一致，否则请求会被拦截。</p>
+<h3 id="Nginx-解决方案"><a href="#Nginx-解决方案" class="headerlink" title="Nginx 解决方案"></a>Nginx 解决方案</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /api/ &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:8080/;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>原理</strong>：</p>
+<ul>
+<li>浏览器访问 <code>example.com/api/xxx</code> → 同源请求</li>
+<li>Nginx 收到后，内部转发给 <code>localhost:8080</code></li>
+<li>拿到响应后返回给浏览器</li>
+</ul>
+<p><strong>关键</strong>：浏览器全程只与 <code>example.com</code> 交互，看不到后端地址和端口 → 不存在跨域</p>
+<hr>
+<h2 id="5-前端是如何请求到-Nginx-的？"><a href="#5-前端是如何请求到-Nginx-的？" class="headerlink" title="5. 前端是如何请求到 Nginx 的？"></a>5. 前端是如何请求到 Nginx 的？</h2><h3 id="场景假设"><a href="#场景假设" class="headerlink" title="场景假设"></a>场景假设</h3><ul>
+<li>前端部署在 <code>http://example.com</code>（Nginx 托管）</li>
+<li>后端运行在 <code>http://localhost:8080</code></li>
+</ul>
+<h3 id="请求路径"><a href="#请求路径" class="headerlink" title="请求路径"></a>请求路径</h3><ol>
+<li>前端代码：<code>fetch(&#39;/api/user&#39;)</code></li>
+<li>浏览器自动补全为 <code>http://example.com/api/user</code></li>
+<li>因为 <code>example.com</code> 的 80 端口由 Nginx 监听，请求到达 Nginx</li>
+<li>Nginx 根据 <code>location /api/</code> 配置，转发到 <code>http://localhost:8080/user</code></li>
+<li>后端响应 → Nginx → 浏览器</li>
+</ol>
+<h3 id="为什么这样就不跨域了？"><a href="#为什么这样就不跨域了？" class="headerlink" title="为什么这样就不跨域了？"></a>为什么这样就不跨域了？</h3><p><strong>浏览器视角</strong>：页面地址 <code>http://example.com</code>，请求地址 <code>http://example.com/api/user</code> → 同源 → 放行</p>
+<p><strong>实际情况</strong>：Nginx 在背后偷偷把请求转给了真正的后端</p>
+<blockquote>
+<p>这就是反向代理消除跨域的本质：<strong>前端只问 Nginx 要数据，Nginx 偷偷去找后端拿。</strong></p>
+</blockquote>
+<hr>
+<h2 id="6-网友观点辨析：哪些是正确的，哪些是错误的？"><a href="#6-网友观点辨析：哪些是正确的，哪些是错误的？" class="headerlink" title="6. 网友观点辨析：哪些是正确的，哪些是错误的？"></a>6. 网友观点辨析：哪些是正确的，哪些是错误的？</h2><h3 id="网友1"><a href="#网友1" class="headerlink" title="网友1"></a>网友1</h3><blockquote>
+<p>云服务器部署会遇到跨域、Docker 里为什么要套 Nginx、MongoDB 集群 localhost 不行等问题，这些都是反向代理的应用场景。</p>
+</blockquote>
+<p><strong>✅ 正确</strong>。真实场景描述准确，反向代理确实是解决这些问题的核心手段。</p>
+<h3 id="网友2"><a href="#网友2" class="headerlink" title="网友2"></a>网友2</h3><blockquote>
+<p>跨域一般是 nginx 或后端代码处理，个人建议后端处理，写个中间件改响应头就行。</p>
+</blockquote>
+<p><strong>⚠️ 部分正确</strong>。后端处理 CORS 确实可行，但”不推荐 Nginx 处理”就绝对了。两种方式都可以，取决于架构设计。</p>
+<h3 id="网友3"><a href="#网友3" class="headerlink" title="网友3"></a>网友3</h3><blockquote>
+<p>跨域后端可以处理，生产环境一般不是前端和 nginx 解决。</p>
+</blockquote>
+<p><strong>⚠️ 个人经验，非通用标准</strong>。很多生产环境恰恰是用 Nginx 统一处理跨域的，尤其是微服务架构。</p>
+<hr>
+<h2 id="7-真实场景案例：云部署中的常见坑点与解决方法"><a href="#7-真实场景案例：云部署中的常见坑点与解决方法" class="headerlink" title="7. 真实场景案例：云部署中的常见坑点与解决方法"></a>7. 真实场景案例：云部署中的常见坑点与解决方法</h2><h3 id="坑点1：本地正常，上云跨域"><a href="#坑点1：本地正常，上云跨域" class="headerlink" title="坑点1：本地正常，上云跨域"></a>坑点1：本地正常，上云跨域</h3><p><strong>原因</strong>：本地开发框架（Vite&#x2F;Webpack）自动做了代理，上云后没有代理，前后端端口不同触发跨域。</p>
+<p><strong>解决</strong>：用 Nginx 做反向代理，让前端请求同源地址。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:8080/;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="坑点2：Docker-里跑-Node，为什么还要套-Nginx？"><a href="#坑点2：Docker-里跑-Node，为什么还要套-Nginx？" class="headerlink" title="坑点2：Docker 里跑 Node，为什么还要套 Nginx？"></a>坑点2：Docker 里跑 Node，为什么还要套 Nginx？</h3><p><strong>原因</strong>：Node 不适合处理静态文件、SSL 证书管理复杂、缺少成熟的反向代理&#x2F;限流&#x2F;缓存能力。</p>
+<p><strong>解决</strong>：Nginx 做”大门”，Node 只做业务逻辑。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户 → Nginx (80/443) → Node (127.0.0.1:3000)</span><br></pre></td></tr></table></figure>
+
+<h3 id="坑点3：MongoDB-集群用-localhost-不行，必须公网-IP"><a href="#坑点3：MongoDB-集群用-localhost-不行，必须公网-IP" class="headerlink" title="坑点3：MongoDB 集群用 localhost 不行，必须公网 IP"></a>坑点3：MongoDB 集群用 localhost 不行，必须公网 IP</h3><p><strong>原因</strong>：副本集成员通信时，会把自己配置中的 host 告诉其他成员。<code>localhost</code> 对其他成员来说指向的是自己，不是真正的节点。</p>
+<p><strong>解决</strong>：用公网 IP 或内网 IP（如 <code>10.0.0.2</code>），或用 <code>127.0.0.1</code> 替代 <code>localhost</code>。</p>
+<hr>
+<h2 id="8-Nginx-配置实践：Web服务器、反向代理、负载均衡"><a href="#8-Nginx-配置实践：Web服务器、反向代理、负载均衡" class="headerlink" title="8. Nginx 配置实践：Web服务器、反向代理、负载均衡"></a>8. Nginx 配置实践：Web服务器、反向代理、负载均衡</h2><h3 id="基础配置结构"><a href="#基础配置结构" class="headerlink" title="基础配置结构"></a>基础配置结构</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局配置</span></span><br><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="comment"># 负载均衡：定义后端集群</span></span><br><span class="line">    <span class="section">upstream</span> backend &#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8080</span> weight=<span class="number">3</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8081</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">127.0.0.1:8082</span> backup;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Web 服务器 + 反向代理</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 静态文件</span></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span> /var/www/html;</span><br><span class="line">            <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 反向代理</span></span><br><span class="line">        <span class="section">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://backend/;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># HTTPS 配置</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">        <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">ssl_certificate</span>     /path/to/cert.pem;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span> /path/to/private.key;</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span> /var/www/html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://backend/;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="location-匹配规则"><a href="#location-匹配规则" class="headerlink" title="location 匹配规则"></a>location 匹配规则</h3><table>
+<thead>
+<tr>
+<th>写法</th>
+<th>说明</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>location = /</code></td>
+<td>完全匹配</td>
+<td>最高</td>
+</tr>
+<tr>
+<td><code>location ^~ /static/</code></td>
+<td>前缀匹配，不再匹配正则</td>
+<td>次高</td>
+</tr>
+<tr>
+<td><code>location ~ \.php$</code></td>
+<td>正则匹配（区分大小写）</td>
+<td>中</td>
+</tr>
+<tr>
+<td><code>location /</code></td>
+<td>前缀匹配</td>
+<td>最低</td>
+</tr>
+</tbody></table>
+<h3 id="常用指令速查"><a href="#常用指令速查" class="headerlink" title="常用指令速查"></a>常用指令速查</h3><table>
+<thead>
+<tr>
+<th>指令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>proxy_pass</code></td>
+<td>反向代理目标地址</td>
+</tr>
+<tr>
+<td><code>proxy_set_header</code></td>
+<td>设置转发请求头</td>
+</tr>
+<tr>
+<td><code>upstream</code></td>
+<td>定义后端服务器集群</td>
+</tr>
+<tr>
+<td><code>try_files</code></td>
+<td>按顺序尝试文件&#x2F;目录&#x2F;fallback</td>
+</tr>
+<tr>
+<td><code>rewrite</code></td>
+<td>URL 重写</td>
+</tr>
+<tr>
+<td><code>return</code></td>
+<td>直接返回状态码或内容</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="9-Nginx-架构与核心概念总结"><a href="#9-Nginx-架构与核心概念总结" class="headerlink" title="9. Nginx 架构与核心概念总结"></a>9. Nginx 架构与核心概念总结</h2><h3 id="架构图"><a href="#架构图" class="headerlink" title="架构图"></a>架构图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    User[用户请求] --&gt; Master[&quot;Master 管理进程 不处理请求&quot;]</span><br><span class="line">    </span><br><span class="line">    Master --&gt; W1[&quot;Worker 1 HTTP/反向代理&quot;]</span><br><span class="line">    Master --&gt; W2[&quot;Worker 2 HTTP/反向代理&quot;]</span><br><span class="line">    Master --&gt; W3[&quot;Worker 3 HTTP/反向代理&quot;]</span><br><span class="line">    </span><br><span class="line">    W1 --&gt; B1[后端服务1]</span><br><span class="line">    W2 --&gt; B2[后端服务2]</span><br><span class="line">    W3 --&gt; B3[后端服务3]</span><br><span class="line">    </span><br><span class="line">    W1 -.-&gt; B2</span><br><span class="line">    W1 -.-&gt; B3</span><br><span class="line">    W2 -.-&gt; B1</span><br><span class="line">    W2 -.-&gt; B3</span><br><span class="line">    W3 -.-&gt; B1</span><br><span class="line">    W3 -.-&gt; B2</span><br><span class="line">    </span><br><span class="line">    style User fill:#e1f5fe,stroke:#01579b,stroke-width:2px</span><br><span class="line">    style Master fill:#fff9c4,stroke:#fbc02d,stroke-width:2px</span><br><span class="line">    style W1 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px</span><br><span class="line">    style W2 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px</span><br><span class="line">    style W3 fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px</span><br><span class="line">    style B1 fill:#ffccbc,stroke:#bf360c,stroke-width:2px</span><br><span class="line">    style B2 fill:#ffccbc,stroke:#bf360c,stroke-width:2px</span><br><span class="line">    style B3 fill:#ffccbc,stroke:#bf360c,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<h3 id="核心能力总结"><a href="#核心能力总结" class="headerlink" title="核心能力总结"></a>核心能力总结</h3><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Web 服务器</td>
+<td>托管静态文件，支持 SPA 路由</td>
+</tr>
+<tr>
+<td>反向代理</td>
+<td>隐藏后端，解决跨域，统一入口</td>
+</tr>
+<tr>
+<td>负载均衡</td>
+<td>分发请求，动态扩缩容，故障自动剔除</td>
+</tr>
+<tr>
+<td>网关</td>
+<td>限流、封禁、日志、压缩、WebSocket</td>
+</tr>
+<tr>
+<td>协议支持</td>
+<td>HTTP、HTTPS、HTTP&#x2F;2、TCP、UDP</td>
+</tr>
+</tbody></table>
+<h3 id="关键记忆点"><a href="#关键记忆点" class="headerlink" title="关键记忆点"></a>关键记忆点</h3><ol>
+<li><strong>Master 不处理请求</strong>，Worker 才是真正的”干活的人”</li>
+<li><strong>反向代理消除跨域</strong>的本质是让浏览器”看不到”后端</li>
+<li><strong>多个 Worker 可以同时监听同一端口</strong>，依赖 <code>fork()</code> 继承或 <code>SO_REUSEPORT</code></li>
+<li><strong>Nginx 选择多进程而非多线程</strong>，是为了极致的稳定性、安全性和可扩展性</li>
+<li><strong>配置文件是核心</strong>，理解 <code>http</code> → <code>server</code> → <code>location</code> 的层级结构</li>
+</ol>
+<hr>
+<h2 id="附录：常见问题速查"><a href="#附录：常见问题速查" class="headerlink" title="附录：常见问题速查"></a>附录：常见问题速查</h2><table>
+<thead>
+<tr>
+<th>问题</th>
+<th>答案</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Nginx 默认配置文件在哪？</td>
+<td><code>/etc/nginx/nginx.conf</code></td>
+</tr>
+<tr>
+<td>如何重新加载配置？</td>
+<td><code>nginx -s reload</code></td>
+</tr>
+<tr>
+<td>如何测试配置文件是否正确？</td>
+<td><code>nginx -t</code></td>
+</tr>
+<tr>
+<td>如何查看错误日志？</td>
+<td><code>tail -f /var/log/nginx/error.log</code></td>
+</tr>
+<tr>
+<td>如何配置 HTTPS？</td>
+<td><code>listen 443 ssl;</code> + <code>ssl_certificate</code> + <code>ssl_certificate_key</code></td>
+</tr>
+<tr>
+<td>如何实现负载均衡？</td>
+<td>用 <code>upstream</code> 定义后端集群，<code>proxy_pass</code> 引用</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>本文整理自实际学习笔记与问题解答，旨在帮助理解 Nginx 的核心原理与实践应用。</em></p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/Nginx/">Nginx</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/04/02/Nginx%E9%80%9F%E6%9F%A5%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E9%85%8D%E7%BD%AE/"
+                                   title="Nginx速查笔记：基本概念与配置"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Nginx速查笔记：基本概念与配置</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
