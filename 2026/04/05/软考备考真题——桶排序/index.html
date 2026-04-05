@@ -264,7 +264,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Sun Apr 05 2026 22:39:14 GMT+0800">2026-04-05 22:39:14</span>
+                    <span class="datetime" data-updated="Sun Apr 05 2026 22:41:29 GMT+0800">2026-04-05 22:41:29</span>
                 </span>
             
         
@@ -310,8 +310,9 @@
 <li><p>做这道题的时候第一个困惑的点是数组的边界问题。因为一般来说，对于一个规模为n的数组，它的最大索引应该是<code>n - 1</code>，而在题目的代码中，却出现了<code>j &lt;= n</code>和<code>i = n</code>这样的条件，这是不合常理的，那么假设数组的最大索引确实是n，则最小索引应该是1，思考一下就会发现，这样确实是合理且必须的，因为要用<code>2 * i</code>和<code>2 * i + 1</code>来表示i的左右子节点，就必须从1开始，从0开始是有问题的，如果从0开始，那么 2 * 0 &#x3D; 0，它的子节点是它自己，这显然是错误的，2 * 0 + 1 &#x3D; 1，显然也是错误的，一个元素的右子节点不可能是它紧挨的下一个元素！</p>
 </li>
 <li><p>好，既然第一个问题澄清了，元素是从索引1开始的，那么代码中多次出现的<code>R[0]</code>是什么作用呢？经过分析，<code>R[0]</code>起到了一个temp变量的作用，用于在交换数据的时候暂存其中一个即将被覆盖的值，也算是没有浪费数组空间了</p>
-</li>
-<li><p>算法逻辑？见代码中注释。</p>
+<ol>
+<li>算法逻辑？见代码中注释。</li>
+</ol>
 </li>
 <li><p>为什么 <code>n / 2 ~ n</code>之间的元素不用建堆？因为堆是一个完全二叉树，<code>n / 2 ~ n</code>之间的元素是不会有子节点的，所以它们本身就是合法的堆，不用再以它们为根节点建堆了。</p>
 </li>
@@ -323,9 +324,6 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7 (索引0)&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10 (索引1)&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;13 (索引2)&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15 (索引3)&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4 (索引4)&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;20 (索引5)&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19 (索引6)&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8 (索引7)&quot;]</span><br><span class="line">    n3 --&gt; n8[&quot;(空)&quot;]</span><br><span class="line">    n4 --&gt; n9[&quot;(空)&quot;]</span><br><span class="line">    n4 --&gt; n10[&quot;(空)&quot;]</span><br><span class="line">    </span><br><span class="line">    style n8 fill:#f9f9f9,stroke:#ccc,stroke-dasharray: 5 5</span><br><span class="line">    style n9 fill:#f9f9f9,stroke:#ccc,stroke-dasharray: 5 5</span><br><span class="line">    style n10 fill:#f9f9f9,stroke:#ccc,stroke-dasharray: 5 5</span><br></pre></td></tr></table></figure>
 
 <p>建堆详细过程：</p>
-<p>好的，我来用 Mermaid 图展示从 <code>[7, 10, 13, 15, 4, 20, 19, 8]</code> 构建大顶堆 <code>[20, 15, 19, 10, 4, 13, 7, 8]</code> 的每一步。</p>
-<p>堆排序的建堆过程通常采用 <strong>从最后一个非叶子节点开始，自底向上进行下沉（heapify）</strong> 的方式。</p>
-<p>对于长度为 8 的数组，最后一个非叶子节点的索引为 <code>floor(8/2)-1 = 3</code>。</p>
 <hr>
 <h2 id="📊-初始数组（索引与值）"><a href="#📊-初始数组（索引与值）" class="headerlink" title="📊 初始数组（索引与值）"></a>📊 初始数组（索引与值）</h2><table>
 <thead>
