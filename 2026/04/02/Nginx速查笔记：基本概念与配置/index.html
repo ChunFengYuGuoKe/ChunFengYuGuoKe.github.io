@@ -264,7 +264,7 @@
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Apr 02 2026 09:51:07 GMT+0800">2026-04-02 09:51:07</span>
+                    <span class="datetime" data-updated="Thu Apr 02 2026 18:15:21 GMT+0800">2026-04-02 18:15:21</span>
                 </span>
             
         
@@ -422,13 +422,6 @@
 <h2 id="十、架构图总结"><a href="#十、架构图总结" class="headerlink" title="十、架构图总结"></a>十、架构图总结</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">                   用户请求</span><br><span class="line">                       │</span><br><span class="line">                       ▼</span><br><span class="line">             ┌─────────────────┐</span><br><span class="line">             │   Nginx Master  │ (管理进程，不处理请求)</span><br><span class="line">             └─────────────────┘</span><br><span class="line">                       │</span><br><span class="line">       ┌───────────────┼───────────────┐</span><br><span class="line">       ▼               ▼               ▼</span><br><span class="line">  Worker 1         Worker 2         Worker 3</span><br><span class="line">(HTTP/反向代理)  (HTTP/反向代理)  (HTTP/反向代理)</span><br><span class="line">       │               │               │</span><br><span class="line">       └───────────────┴───────────────┘</span><br><span class="line">                       │</span><br><span class="line">       ┌───────────────┼───────────────┐</span><br><span class="line">       ▼               ▼               ▼</span><br><span class="line">  后端服务1        后端服务2        后端服务3</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="十一、学习建议"><a href="#十一、学习建议" class="headerlink" title="十一、学习建议"></a>十一、学习建议</h2><ol>
-<li><strong>先理解“反向代理”和“负载均衡”两个核心场景</strong></li>
-<li><strong>本地跑一个 Nginx + 两个简单后端服务，手动配置 upstream 和 proxy_pass</strong></li>
-<li><strong>理解跨域问题本质 + 反向代理如何解决</strong></li>
-<li><strong>理解多进程 + 端口共享的底层原理（不用太深，但要知道不是“master 分发请求”）</strong></li>
-</ol>
-<p>如果你愿意，下一步我可以帮你画一张<strong>完整的 Nginx 核心知识脑图</strong>，把“静态服务器 &#x2F; 反向代理 &#x2F; 负载均衡 &#x2F; 网关能力 &#x2F; 架构 &#x2F; 跨域”一次性串起来。</p>
 
                     
                 </div>

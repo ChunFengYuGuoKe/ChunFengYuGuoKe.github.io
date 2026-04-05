@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="一锅炖不下">
+    
+    <title>
+        
+            软考备考真题笔记——桶排序 |
+        
+        一锅炖不下的博客
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/images/OnePiece.ico">
+    
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#0066cc","title":"一锅炖不下的博客","author":"一锅炖不下","avatar":"/images/luffy.jpg","logo":"/images/OnePiece.ico","favicon":"/images/OnePiece.ico"},"menu":{"home":"/                       || fa-solid fa-home","archives":"/archives           || fa-solid fa-box-archive","tags":"/tags                 || fa-solid fa-tags","categories":"/categories     || fa-solid fa-layer-group"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":null,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":null}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":true,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":false,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.36"},"waline":{"server_url":null,"reaction":false,"version":"3.2.1"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2020,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"","source_data":{},"version":"4.2.3"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/">
+                    <img src="/images/OnePiece.ico">
+                </a>
+            
+            <a class="site-name border-box" href="/">
+               一锅炖不下的博客
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-home"></i>
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/archives">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/tags">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-tags"></i>
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/categories">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-home"></i>
+                                </span>
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/archives">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-box-archive"></i>
+                                </span>
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/tags">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-tags"></i>
+                                </span>
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/categories">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-layer-group"></i>
+                                </span>
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        软考备考真题笔记——桶排序
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/images/luffy.jpg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">一锅炖不下</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-04-05 20:53:52</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Sun Apr 05 2026 22:35:20 GMT+0800">2026-04-05 22:35:20</span>
+                </span>
+            
+        
+
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/tags/%E8%BD%AF%E8%80%83/">软考</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>题目出自软件设计师2022年下半年第5题，题目：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Heapify</span><span class="params">(<span class="type">int</span> R[MAXITEM], <span class="type">int</span> v, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i = v;</span><br><span class="line">    <span class="type">int</span> j = <span class="number">2</span> * v;</span><br><span class="line">    </span><br><span class="line">    R[<span class="number">0</span>] = R[i];</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= n) &#123;</span><br><span class="line">        <span class="comment">// 1. 找到当前节点的两个子节点中更大的那一个</span></span><br><span class="line">        <span class="comment">// 限制 j &lt; n 是因为马上就会用的的 R[j + 1]，避免越界</span></span><br><span class="line">        <span class="keyword">if</span> (j &lt; n &amp;&amp; R[j] &lt; R[j + <span class="number">1</span>]) &#123;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 2. 比较入堆元素和当前节点的左右子节点中较大值的大小，</span></span><br><span class="line">        <span class="comment">// 如果大于或等于，说明它的位置就该在当前位置;</span></span><br><span class="line">        <span class="comment">// 如果小于，则还需要继续往下找位置，所以(1)处应填 R[0] &lt; R[j]，</span></span><br><span class="line">        <span class="comment">// 因为 R[0] 暂存的值正是待入堆的R[i]</span></span><br><span class="line">        <span class="keyword">if</span> ( (<span class="number">1</span>) ) &#123;</span><br><span class="line">            R[i] = R[j];</span><br><span class="line">            i = j;</span><br><span class="line">            j *= <span class="number">2</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            j = n + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    R[i] = R[<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HeapSort</span><span class="params">(<span class="type">int</span> R[MAXITEM], <span class="type">int</span> n)</span> &#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1. 建堆</span></span><br><span class="line">    <span class="keyword">for</span> (i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        (<span class="number">2</span>) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 2. 排序</span></span><br><span class="line">    <span class="keyword">for</span> (i = n; (<span class="number">3</span>) ; i--) &#123;</span><br><span class="line">        <span class="comment">// 交换堆顶元素和 R[1] 堆尾 R[i]，即把当前最大值交换到数组尾部，</span></span><br><span class="line">        <span class="comment">// 如此不断交换，从末尾到起始索引就是递顺序，反过来也就是递增了</span></span><br><span class="line">        R[<span class="number">0</span>] = R[i];</span><br><span class="line">        R[i] = R[<span class="number">1</span>];</span><br><span class="line">        (<span class="number">4</span>) ;</span><br><span class="line">        Heapify(R, <span class="number">1</span>, i - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>做这道题的时候第一个困惑的点是数组的边界问题。因为一般来说，对于一个规模为n的数组，它的最大索引应该是<code>n - 1</code>，而在题目的代码中，却出现了<code>j &lt;= n</code>和<code>i = n</code>这样的条件，这是不合常理的，那么假设数组的最大索引确实是n，则最小索引应该是1，思考一下就会发现，这样确实是合理且必须的，因为要用<code>2 * i</code>和<code>2 * i + 1</code>来表示i的左右子节点，就必须从1开始，从0开始是有问题的，如果从0开始，那么 2 * 0 &#x3D; 0，它的子节点是它自己，这显然是错误的，2 * 0 + 1 &#x3D; 1，显然也是错误的，一个元素的右子节点不可能是它紧挨的下一个元素！</p>
+</li>
+<li><p>好，既然第一个问题澄清了，元素是从索引1开始的，那么代码中多次出现的<code>R[0]</code>是什么作用呢？经过分析，<code>R[0]</code>起到了一个temp变量的作用，用于在交换数据的时候暂存其中一个即将被覆盖的值，也算是没有浪费数组空间了。</p>
+</li>
+<li><p>算法逻辑？见代码中注释</p>
+</li>
+<li><p>为什么 <code>n / 2 ~ n</code>之间的元素不用建堆？因为堆是一个完全二叉树，<code>n / 2 ~ n</code>之间的元素是不会有子节点的，所以它们本身就是合法的堆，不用再以它们为根节点建堆了。</p>
+</li>
+<li><p>为什么 <code>HeapSort</code> 函数中建堆是从 <code>n / 2</code>开始往前建？从后往前建是因为在以更高层位置为根节点建堆时，必须保证以子节点为根节点的字数已经是合法堆，否则就会有错误。</p>
+</li>
+<li><p>为什么在每一轮排序之后还需要<code>Heapify(R, 1, i - 1);</code>并且排序的规模是<code>i - 1</code>？索引i的元素已经是归位了，问题的规模缩减了，并且原来索引i位置的元素交换到了堆顶，那这个时候就要对它重新入堆，给它找到一个合适的位置，维护整个堆的合法性。</p>
+</li>
+<li><p>将<code>[7, 10, 13, 15, 4, 20, 19, 8]</code>转化成大顶堆，方法是先画图，然后按照算法从第n &#x2F; 2个元素开始网上构建堆：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7 (索引0)&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10 (索引1)&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;13 (索引2)&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15 (索引3)&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4 (索引4)&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;20 (索引5)&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19 (索引6)&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8 (索引7)&quot;]</span><br><span class="line">    n3 --&gt; n8[&quot;(空)&quot;]</span><br><span class="line">    n4 --&gt; n9[&quot;(空)&quot;]</span><br><span class="line">    n4 --&gt; n10[&quot;(空)&quot;]</span><br><span class="line">    </span><br><span class="line">    style n8 fill:#f9f9f9,stroke:#ccc,stroke-dasharray: 5 5</span><br><span class="line">    style n9 fill:#f9f9f9,stroke:#ccc,stroke-dasharray: 5 5</span><br><span class="line">    style n10 fill:#f9f9f9,stroke:#ccc,stroke-dasharray: 5 5</span><br></pre></td></tr></table></figure>
+
+<p>建堆详细过程：</p>
+<p>好的，我来用 Mermaid 图展示从 <code>[7, 10, 13, 15, 4, 20, 19, 8]</code> 构建大顶堆 <code>[20, 15, 19, 10, 4, 13, 7, 8]</code> 的每一步。</p>
+<p>堆排序的建堆过程通常采用 <strong>从最后一个非叶子节点开始，自底向上进行下沉（heapify）</strong> 的方式。</p>
+<p>对于长度为 8 的数组，最后一个非叶子节点的索引为 <code>floor(8/2)-1 = 3</code>。</p>
+<hr>
+<h2 id="📊-初始数组（索引与值）"><a href="#📊-初始数组（索引与值）" class="headerlink" title="📊 初始数组（索引与值）"></a>📊 初始数组（索引与值）</h2><table>
+<thead>
+<tr>
+<th align="center">索引</th>
+<th align="center">0</th>
+<th align="center">1</th>
+<th align="center">2</th>
+<th align="center">3</th>
+<th align="center">4</th>
+<th align="center">5</th>
+<th align="center">6</th>
+<th align="center">7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">值</td>
+<td align="center">7</td>
+<td align="center">10</td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">4</td>
+<td align="center">20</td>
+<td align="center">19</td>
+<td align="center">8</td>
+</tr>
+</tbody></table>
+<p>初始完全二叉树：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7 (索引0)&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10 (索引1)&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;13 (索引2)&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15 (索引3)&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4 (索引4)&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;20 (索引5)&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19 (索引6)&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8 (索引7)&quot;]</span><br><span class="line"></span><br><span class="line">    style n0 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n1 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n2 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n3 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n4 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n5 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n6 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br><span class="line">    style n7 fill:#f9f9f9,stroke:#333,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第-1-步：处理索引-3（值-15）"><a href="#第-1-步：处理索引-3（值-15）" class="headerlink" title="第 1 步：处理索引 3（值 15）"></a>第 1 步：处理索引 3（值 15）</h2><p>节点 15 的左子节点是索引 7（值 8），右子节点不存在。</p>
+<p>15 ≥ 8，<strong>不需要调整</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7 (索引0)&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10 (索引1)&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;13 (索引2)&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15 (索引3)&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4 (索引4)&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;20 (索引5)&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19 (索引6)&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8 (索引7)&quot;]</span><br><span class="line"></span><br><span class="line">    style n0 fill:#f9f9f9,stroke:#333,stroke-width:1px</span><br><span class="line">    style n1 fill:#f9f9f9,stroke:#333,stroke-width:1px</span><br><span class="line">    style n2 fill:#f9f9f9,stroke:#333,stroke-width:1px</span><br><span class="line">    style n3 fill:#90EE90,stroke:#333,stroke-width:3px</span><br><span class="line">    style n4 fill:#f9f9f9,stroke:#333,stroke-width:1px</span><br><span class="line">    style n5 fill:#f9f9f9,stroke:#333,stroke-width:1px</span><br><span class="line">    style n6 fill:#f9f9f9,stroke:#333,stroke-width:1px</span><br><span class="line">    style n7 fill:#FFD700,stroke:#333,stroke-width:1px</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第-2-步：处理索引-2（值-13）"><a href="#第-2-步：处理索引-2（值-13）" class="headerlink" title="第 2 步：处理索引 2（值 13）"></a>第 2 步：处理索引 2（值 13）</h2><p>节点 13 的子节点：左子节点索引 5（值 20），右子节点索引 6（值 19）。</p>
+<p>最大值是 20（索引 5），13 &lt; 20，<strong>交换 13 和 20</strong>。</p>
+<h3 id="交换前"><a href="#交换前" class="headerlink" title="交换前"></a>交换前</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;13&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;20&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n2 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br><span class="line">    style n5 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换后"><a href="#交换后" class="headerlink" title="交换后"></a>交换后</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;20&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n2 fill:#90EE90,stroke:#333,stroke-width:2px</span><br><span class="line">    style n5 fill:#90EE90,stroke:#333,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第-3-步：处理索引-1（值-10）"><a href="#第-3-步：处理索引-1（值-10）" class="headerlink" title="第 3 步：处理索引 1（值 10）"></a>第 3 步：处理索引 1（值 10）</h2><p>节点 10 的子节点：左子节点索引 3（值 15），右子节点索引 4（值 4）。</p>
+<p>最大值是 15（索引 3），10 &lt; 15，<strong>交换 10 和 15</strong>。</p>
+<h3 id="交换前-1"><a href="#交换前-1" class="headerlink" title="交换前"></a>交换前</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;10&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;20&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;15&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n1 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br><span class="line">    style n3 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换后-1"><a href="#交换后-1" class="headerlink" title="交换后"></a>交换后</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;15&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;20&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;10&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n1 fill:#90EE90,stroke:#333,stroke-width:2px</span><br><span class="line">    style n3 fill:#90EE90,stroke:#333,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第-4-步：检查索引-1-的子节点（是否需要继续下沉）"><a href="#第-4-步：检查索引-1-的子节点（是否需要继续下沉）" class="headerlink" title="第 4 步：检查索引 1 的子节点（是否需要继续下沉）"></a>第 4 步：检查索引 1 的子节点（是否需要继续下沉）</h2><p>交换后，值 10 移动到索引 3。检查索引 3 的子节点：左子节点索引 7（值 8），右子节点不存在。</p>
+<p>10 ≥ 8，<strong>不需要调整</strong>。</p>
+<hr>
+<h2 id="第-5-步：处理索引-0（值-7）"><a href="#第-5-步：处理索引-0（值-7）" class="headerlink" title="第 5 步：处理索引 0（值 7）"></a>第 5 步：处理索引 0（值 7）</h2><p>节点 7 的子节点：左子节点索引 1（值 15），右子节点索引 2（值 20）。</p>
+<p>最大值是 20（索引 2），7 &lt; 20，<strong>交换 7 和 20</strong>。</p>
+<h3 id="交换前-2"><a href="#交换前-2" class="headerlink" title="交换前"></a>交换前</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;7&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;15&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;20&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;10&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n0 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br><span class="line">    style n2 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换后-2"><a href="#交换后-2" class="headerlink" title="交换后"></a>交换后</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;20&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;15&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;7&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;10&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n0 fill:#90EE90,stroke:#333,stroke-width:2px</span><br><span class="line">    style n2 fill:#90EE90,stroke:#333,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="第-6-步：检查索引-2（是否需要继续下沉）"><a href="#第-6-步：检查索引-2（是否需要继续下沉）" class="headerlink" title="第 6 步：检查索引 2（是否需要继续下沉）"></a>第 6 步：检查索引 2（是否需要继续下沉）</h2><p>交换后，值 7 移动到索引 2。检查索引 2 的子节点：左子节点索引 5（值 13），右子节点索引 6（值 19）。</p>
+<p>最大值是 19（索引 6），7 &lt; 19，<strong>交换 7 和 19</strong>。</p>
+<h3 id="交换前-3"><a href="#交换前-3" class="headerlink" title="交换前"></a>交换前</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;20&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;15&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;7&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;10&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;19&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n2 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br><span class="line">    style n6 fill:#FFB6C1,stroke:#FF0000,stroke-width:3px</span><br></pre></td></tr></table></figure>
+
+<h3 id="交换后-3"><a href="#交换后-3" class="headerlink" title="交换后"></a>交换后</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    n0[&quot;20&quot;]</span><br><span class="line">    n0 --&gt; n1[&quot;15&quot;]</span><br><span class="line">    n0 --&gt; n2[&quot;19&quot;]</span><br><span class="line">    n1 --&gt; n3[&quot;10&quot;]</span><br><span class="line">    n1 --&gt; n4[&quot;4&quot;]</span><br><span class="line">    n2 --&gt; n5[&quot;13&quot;]</span><br><span class="line">    n2 --&gt; n6[&quot;7&quot;]</span><br><span class="line">    n3 --&gt; n7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style n0 fill:#FFD700,stroke:#333,stroke-width:2px</span><br><span class="line">    style n2 fill:#90EE90,stroke:#333,stroke-width:2px</span><br><span class="line">    style n6 fill:#90EE90,stroke:#333,stroke-width:2px</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="✅-最终大顶堆"><a href="#✅-最终大顶堆" class="headerlink" title="✅ 最终大顶堆"></a>✅ 最终大顶堆</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">    f0[&quot;20&quot;]</span><br><span class="line">    f0 --&gt; f1[&quot;15&quot;]</span><br><span class="line">    f0 --&gt; f2[&quot;19&quot;]</span><br><span class="line">    f1 --&gt; f3[&quot;10&quot;]</span><br><span class="line">    f1 --&gt; f4[&quot;4&quot;]</span><br><span class="line">    f2 --&gt; f5[&quot;13&quot;]</span><br><span class="line">    f2 --&gt; f6[&quot;7&quot;]</span><br><span class="line">    f3 --&gt; f7[&quot;8&quot;]</span><br><span class="line"></span><br><span class="line">    style f0 fill:#FFD700,stroke:#333,stroke-width:3px</span><br><span class="line">    style f1 fill:#90EE90,stroke:#333,stroke-width:1px</span><br><span class="line">    style f2 fill:#90EE90,stroke:#333,stroke-width:1px</span><br><span class="line">    style f3 fill:#90EE90,stroke:#333,stroke-width:1px</span><br><span class="line">    style f4 fill:#90EE90,stroke:#333,stroke-width:1px</span><br><span class="line">    style f5 fill:#90EE90,stroke:#333,stroke-width:1px</span><br><span class="line">    style f6 fill:#90EE90,stroke:#333,stroke-width:1px</span><br><span class="line">    style f7 fill:#90EE90,stroke:#333,stroke-width:1px</span><br></pre></td></tr></table></figure>
+
+<hr>
+</li>
+</ol>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/tags/%E8%BD%AF%E8%80%83/">软考</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/2026/04/02/Nginx%E9%80%9F%E6%9F%A5%E7%AC%94%E8%AE%B0%EF%BC%9A%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E7%AD%94/"
+                                   title="Nginx速查笔记：常见问题与解答"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Nginx速查笔记：常见问题与解答</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;<span>2020</span>&nbsp;-&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/">一锅炖不下</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools right-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+
+    <!-- tablet toc -->
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/toggle-theme.js"></script>
+
+<script src="/js/code-block.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+</body>
+</html>
